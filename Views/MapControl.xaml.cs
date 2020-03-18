@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FlightSimulatorApp.controls
+namespace FlightSimulatorApp.Views
 {
     /// <summary>
     /// Interaction logic for MapControl.xaml
