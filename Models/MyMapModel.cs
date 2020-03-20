@@ -13,7 +13,13 @@ namespace FlightSimulatorApp.Models
         ITelnetClient tc;
         private string flightData;
         private string latitude;
-        private string longitude; 
+        private string longitude;
+
+        public MyMapModel(ITelnetClient tc)
+        {
+            this.tc = tc;
+        }
+
         public String FlightData
         {
             set
