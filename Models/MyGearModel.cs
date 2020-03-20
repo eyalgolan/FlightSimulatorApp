@@ -9,26 +9,43 @@ namespace FlightSimulatorApp.Models
 {
     class MyGearModel : IGearModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        public void setAlieron(double val)
+        ITelnetClient tc;
+        private string flightData;
+        public String FlightData
         {
-            throw new NotImplementedException();
+            set
+            {
+                flightData = value;
+                NotifyPropertyChanged("FlightData");
+            }
+            get { return FlightData; }
         }
 
+        public MyGearModel(ITelnetClient tc)
+        {
+            this.tc = tc;
+        }
+        public void connect(string ip, int port)
+        {
+            tc.connect(ip, port);
+        }
+        public void setAileron(double val)
+        {
+            tc.write("set controls[0]/flight[0]/aileron" + val);
+        }
         public void setElevator(double val)
         {
-            throw new NotImplementedException();
+            tc.write("set controls[0]/flight[0]/elevator" + val);
         }
-
         public void setRudder(double val)
         {
-            throw new NotImplementedException();
+            tc.write("set controls[0]/flight[0]/rudder" + val);
         }
-
+        public event PropertyChangedEventHandler PropertyChanged;
         public void setThrottle(double val)
         {
-            throw new NotImplementedException();
+            tc.write("set controls[0]/flight[0]/throttle" + val);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace FlightSimulatorApp.Models
     interface IGearModel : INotifyPropertyChanged
     {
         //commands
-        void setAlieron(double val);
+        void setAileron(double val);
         void setElevator(double val);
         void setRudder(double val);
         void setThrottle(double val);
