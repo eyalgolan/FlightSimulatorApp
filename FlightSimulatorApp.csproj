@@ -64,6 +64,8 @@
     <Compile Include="Models\MyGearModel.cs" />
     <Compile Include="Models\MyMapModel.cs" />
     <Compile Include="Models\MyTelnetClient.cs" />
+    <Compile Include="ViewModels\GearViewModel.cs" />
+    <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="Views\MapControl.xaml.cs">
       <DependentUpon>MapControl.xaml</DependentUpon>
     </Compile>
@@ -110,9 +112,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\plane_icon.png" />
   </ItemGroup>

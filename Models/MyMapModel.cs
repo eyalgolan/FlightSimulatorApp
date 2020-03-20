@@ -58,11 +58,14 @@ namespace FlightSimulatorApp.Models
                 return longitude;
             }
         }
-        public string getFlightData()
+        public string getFlightLongitude()
         {
-            return FlightData;
+            return longitude;
         }
-
+        public string getFlightLatitude()
+        {
+            return latitude;
+        }
         public void startReadingFlightData()
         {
             new Thread(delegate ()
