@@ -11,17 +11,53 @@ namespace FlightSimulatorApp.Models
     class MyMapModel : IMapModel
     {
         ITelnetClient tc;
-        private String flightData;
+        private string flightData;
+        private string latitude;
+        private string longitude; 
         public String FlightData
         {
             set
             {
-                flightData = value;
-                NotifyPropertyChanged("FlightData");
+                if(flightData != value)
+                {
+                    flightData = value;
+                    //need to parse flightData and send it to Latitude and Longitude
+                    NotifyPropertyChanged("FlightData");
+                }
             }
             get { return flightData; }
         }
 
+        public String Latitude
+        {
+            set
+            {
+                if(latitude != value)
+                {
+                    latitude = value;
+                    NotifyPropertyChanged("Latitude");
+                }
+            }
+            get
+            {
+                return latitude;
+            }
+        }
+        public String Longitude
+        {
+            set
+            {
+                if (longitude != value)
+                {
+                    longitude = value;
+                    NotifyPropertyChanged("Longitude");
+                }
+            }
+            get
+            {
+                return longitude;
+            }
+        }
         public string getFlightData()
         {
             return FlightData;
