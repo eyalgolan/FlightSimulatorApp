@@ -22,9 +22,6 @@ namespace FlightSimulatorApp.Models
             get { return flightData; }
         }
 
-        //INotifyPropertyChanged implementation
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public string getFlightData()
         {
             return FlightData;
@@ -40,6 +37,17 @@ namespace FlightSimulatorApp.Models
                     Thread.Sleep(250);
                 }
             }).Start();
+        }
+
+        //INotifyPropertyChanged implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(String propName)
+        {
+            if(this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
         }
     }
 }

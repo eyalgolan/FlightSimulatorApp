@@ -42,10 +42,21 @@ namespace FlightSimulatorApp.Models
         {
             tc.write("set controls[0]/flight[0]/rudder" + val);
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+        
         public void setThrottle(double val)
         {
             tc.write("set controls[0]/flight[0]/throttle" + val);
+        }
+
+        //INotifyPropertyChanged implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(String propName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
         }
     }
 }
