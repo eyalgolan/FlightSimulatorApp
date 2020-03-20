@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,24 +10,66 @@ namespace FlightSimulatorApp.Models
 {
     class MyTelnetClient : ITelnetClient
     {
+        TcpClient client;
+        IPEndPoint ep;
         public void connect(string ip, int port)
         {
-            throw new NotImplementedException();
+            ep = new IPEndPoint(IPAddress.Parse(ip), port);  
+            client = new TcpClient();
+            client.Connect(ep);
         }
 
         public void disconnect()
         {
-            throw new NotImplementedException();
+            client.Close();
         }
 
         public string read()
         {
-            throw new NotImplementedException();
+            NetworkStream myNetworkStream = client.GetStream();
+
+            if (myNetworkStream.CanRead)
+            {
+                byte[] myReadBuffer = new byte[1024];
+                StringBuilder myCompleteMessage = new StringBuilder();
+                int numberOfBytesRead = 0;
+                do
+                {
+                    numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
+
+                    myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
+                }
+                while (myNetworkStream.DataAvailable);
+
+                // Print out the received message to the console.
+                Console.WriteLine("You received the following message : " +
+                                             myCompleteMessage);
+                return myCompleteMessage.ToString;
+
+            }
+            else
+            {
+                Console.WriteLine("Sorry.  You cannot read from this NetworkStream.");
+                return null;
+
+            }
         }
+        
 
         public void write(string command)
         {
-            throw new NotImplementedException();
+            NetworkStream nwStream = client.GetStream();
+
+            if (nwStream.CanWrite)
+            {
+
+                byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
+                nwStream.Write(byteToSend, 0, byteToSend.Length);
+            }
+            else
+            {
+                Console.WriteLine(" You cannot write to this.");
+            }
         }
     }
 }
