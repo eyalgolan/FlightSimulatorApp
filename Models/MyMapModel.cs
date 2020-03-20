@@ -27,7 +27,7 @@ namespace FlightSimulatorApp.Models
 
         public string getFlightData()
         {
-            throw new NotImplementedException();
+            return FlightData;
         }
 
         public void startReadingFlightData()
