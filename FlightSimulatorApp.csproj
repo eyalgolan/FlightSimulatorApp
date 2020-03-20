@@ -58,8 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\IGearModel.cs" />
     <Compile Include="Models\IMapModel.cs" />
     <Compile Include="Models\ITelnetClient.cs" />
+    <Compile Include="Models\MyGearModel.cs" />
     <Compile Include="Models\MyMapModel.cs" />
     <Compile Include="Models\MyTelnetClient.cs" />
     <Compile Include="Views\MapControl.xaml.cs">

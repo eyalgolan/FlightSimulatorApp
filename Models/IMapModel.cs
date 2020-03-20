@@ -13,12 +13,8 @@ namespace FlightSimulatorApp.Models
         //simulator properties
         double latitude { set; get; }
         double longitude { set; get; }
+        double angle { set; get; }
 
-        //commands
-        void setAlieron(double val);
-        void setElevator(double val);
-        void setRudder(double val);
-        void setThrottle(double val);
         void startReadingFlightData();
         string getFlightData();
     }
