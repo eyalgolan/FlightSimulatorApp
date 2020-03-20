@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FlightSimulatorApp.Models
 {
     class MyMapModel : IMapModel
     {
-        public double latitude { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double longitude { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double angle { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        ITelnetClient tc;
+        private String flightData;
+        public String FlightData
+        {
+            set
+            {
+                flightData = value;
+                NotifyPropertyChanged("FlightData");
+            }
+            get { return flightData; }
+        }
 
         //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
@@ -23,7 +32,14 @@ namespace FlightSimulatorApp.Models
 
         public void startReadingFlightData()
         {
-            throw new NotImplementedException();
+            new Thread(delegate ()
+            {
+                while (true)
+                {
+                    FlightData = tc.read();
+                    Thread.Sleep(250);
+                }
+            }).Start();
         }
     }
 }
