@@ -44,7 +44,7 @@ namespace FlightSimulatorApp.Models
                 // Print out the received message to the console.
                 Console.WriteLine("You received the following message : " +
                                              myCompleteMessage);
-                return myCompleteMessage.ToString;
+                return myCompleteMessage.ToString();
 
             }
             else
