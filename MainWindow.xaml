@@ -9,8 +9,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="1000" ResizeMode="NoResize">
     <Grid>
-        <view:DashboardControl Margin="666,21,60,257" >Dashboard</view:DashboardControl>
-        <view:GearControl Margin="666,281,60,22">Gear</view:GearControl>
-        <view:MapControl Margin="41,80,413,80">Map</view:MapControl>
+        <ContentControl x:Name="dashboardControl" Margin="666,21,60,257" >Dashboard</ContentControl>
+        <ContentControl x:Name="gearControl" Margin="666,281,60,22">Gear</ContentControl>
+        <ContentControl x:Name="mapControl" Margin="41,80,413,80">Map</ContentControl>
     </Grid>
 </Window>

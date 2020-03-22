@@ -23,15 +23,12 @@ namespace FlightSimulatorApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        MapControl mc;
-        GearControl gc;
-        DashboardControl dc;
         public MainWindow()
         {
             InitializeComponent();
-            mc = new MapControl();
-            gc = new GearControl();
-            dc = new DashboardControl();
+            this.mapControl.Content = new MapControl();
+            this.gearControl = new GearControl();
+            this.dashboardControl = new DashboardControl();
         }
     }
 }
