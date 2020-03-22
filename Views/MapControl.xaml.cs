@@ -27,7 +27,7 @@ namespace FlightSimulatorApp.Views
         {
             InitializeComponent();
             vmMap = new MapViewModel(new MyMapModel(new MyTelnetClient()));
-            //DataContext = vmMap;
+            DataContext = vmMap;
         }
     }
 }
