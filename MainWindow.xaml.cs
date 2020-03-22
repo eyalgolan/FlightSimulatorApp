@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FlightSimulatorApp.ViewModels;
 using FlightSimulatorApp.Models;
+using FlightSimulatorApp.Views;
+
 
 namespace FlightSimulatorApp
 {
@@ -28,6 +30,21 @@ namespace FlightSimulatorApp
             InitializeComponent();
             vmMap = new MapViewModel(new MyMapModel(new MyTelnetClient()));
             DataContext = vmMap;
+        }
+
+        private void MapControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GearControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+          }
+
+        private void DashboardControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
