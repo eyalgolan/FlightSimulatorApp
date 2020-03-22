@@ -17,7 +17,7 @@
     </Window.Background>
     <Grid>
         <ContentControl x:Name="dashboardControl" Margin="666,21,60,257" >Dashboard</ContentControl>
-        <ContentControl x:Name="gearControl" Margin="666,281,60,22">Gear</ContentControl>
-        <ContentControl x:Name="mapControl" Margin="41,80,413,80">Map</ContentControl>
+        <ContentControl x:Name="gearControl" Margin="587,163,139.667,111">Gear</ContentControl>
+        <ContentControl x:Name="mapControl" Margin="27,80,412.667,80">Map</ContentControl>
     </Grid>
 </Window>
