@@ -27,8 +27,8 @@ namespace FlightSimulatorApp
         {
             InitializeComponent();
             this.mapControl.Content = new MapControl();
-            this.gearControl = new GearControl();
-            this.dashboardControl = new DashboardControl();
+            this.gearControl.Content = new GearControl();
+            this.dashboardControl.Content = new DashboardControl();
         }
     }
 }
