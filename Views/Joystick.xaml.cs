@@ -16,13 +16,15 @@ using System.Windows.Shapes;
 namespace FlightSimulatorApp.Views
 {
     /// <summary>
-    /// Interaction logic for GearControl.xaml
+    /// Interaction logic for Joistick.xaml
     /// </summary>
-    public partial class GearControl : UserControl
+    public partial class Joistick : UserControl
     {
-        public GearControl()
+        public Joistick()
         {
             InitializeComponent();
         }
+        private void centerKnob_Completed(object sender, EventArgs e) { }
+
     }
 }

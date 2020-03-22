@@ -72,8 +72,8 @@
     <Compile Include="Views\DashboardControl.xaml.cs">
       <DependentUpon>DashboardControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GearControl.xaml.cs">
-      <DependentUpon>GearControl.xaml</DependentUpon>
+    <Compile Include="Views\Joystick.xaml.cs">
+      <DependentUpon>Joystick.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MapControl.xaml.cs">
       <DependentUpon>MapControl.xaml</DependentUpon>
@@ -94,7 +94,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GearControl.xaml">
+    <Page Include="Views\Joystick.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
