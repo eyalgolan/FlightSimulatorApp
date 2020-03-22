@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FlightSimulatorApp.ViewModels;
+using FlightSimulatorApp.Models;
 
 namespace FlightSimulatorApp.Views
 {
@@ -20,9 +22,12 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     public partial class MapControl : UserControl
     {
+        MapViewModel vmMap;
         public MapControl()
         {
             InitializeComponent();
+            vmMap = new MapViewModel(new MyMapModel(new MyTelnetClient()));
+            //DataContext = vmMap;
         }
     }
 }
