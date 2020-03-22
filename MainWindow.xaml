@@ -8,9 +8,16 @@
         xmlns:view="clr-namespace:FlightSimulatorApp.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="1000" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="/Resources/background.jpg"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Window.Background>
     <Grid>
-        <view:DashboardControl Margin="666,21,60,257" Loaded="DashboardControl_Loaded" >Dashboard</view:DashboardControl>
-        <view:GearControl Margin="666,281,60,22" Loaded="GearControl_Loaded">Gear</view:GearControl>
-        <view:MapControl Margin="41,80,413,80" Loaded="MapControl_Loaded">Map</view:MapControl>
+        <ContentControl x:Name="dashboardControl" Margin="666,21,60,257" >Dashboard</ContentControl>
+        <ContentControl x:Name="gearControl" Margin="666,281,60,22">Gear</ContentControl>
+        <ContentControl x:Name="mapControl" Margin="41,80,413,80">Map</ContentControl>
     </Grid>
 </Window>
