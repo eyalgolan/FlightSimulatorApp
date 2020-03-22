@@ -37,8 +37,9 @@ namespace FlightSimulatorApp.Views
         private void Knob_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Console.WriteLine("Knob_MouseUp");
-              knobPosition.X = fpoint.X;
-             knobPosition.Y = fpoint.Y;
+              knobPosition.X = 0;
+             knobPosition.Y = 0;
+           
         }
 
         private void Knob_MouseMove(object sender, MouseEventArgs e)
@@ -49,11 +50,19 @@ namespace FlightSimulatorApp.Views
 
                 double x = e.GetPosition(this).X - fpoint.X;
                 double y = e.GetPosition(this).Y - fpoint.Y;
-                if (Math.Sqrt(x*x + y*y)< base.Width / 2)
+             
+                if (Math.Sqrt(x*x + y*y)< 186 / 2)
                 {
                     knobPosition.X = x;
                     knobPosition.Y = y;
+                } 
+                else
+                {
+                    knobPosition.X = 0;
+                    knobPosition.Y = 0;
                 }
+               
+                
             }
         }
     }
