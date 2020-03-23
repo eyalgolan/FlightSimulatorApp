@@ -20,6 +20,10 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     public partial class GearControl : UserControl
     {
+        double oldx = 0;
+        double oldy = 0;
+        double rudder = 0;
+        double elevator = 0;
         public GearControl()
         {
             InitializeComponent();
@@ -39,31 +43,63 @@ namespace FlightSimulatorApp.Views
             Console.WriteLine("Knob_MouseUp");
               knobPosition.X = 0;
              knobPosition.Y = 0;
-           
+            rudder = oldx / 60;
+            elevator = -oldy / 60;
+
         }
 
         private void Knob_MouseMove(object sender, MouseEventArgs e)
         {
-
+            Console.WriteLine("aaaaa");
+        
             if (e.LeftButton==MouseButtonState.Pressed)
             {
+                Console.WriteLine("bbbbbbb");
 
                 double x = e.GetPosition(this).X - fpoint.X;
                 double y = e.GetPosition(this).Y - fpoint.Y;
-             
-                if (Math.Sqrt(x*x + y*y)< 186 / 2)
+               
+
+
+                if (Math.Sqrt(x*x + y*y)< 120 / 2)
                 {
                     knobPosition.X = x;
                     knobPosition.Y = y;
-                } 
+                    oldx = knobPosition.X;
+                    oldy = knobPosition.Y;
+                    rudder = oldx / 59;
+                     elevator = -oldy/59;
+
+
+                }
                 else
                 {
-                    knobPosition.X = 0;
-                    knobPosition.Y = 0;
+
+                    Console.WriteLine(rudder);
+                    Console.WriteLine(elevator);
+
+                    knobPosition.X = oldx;
+                    knobPosition.Y = oldy;
+                    rudder = oldx / 59;
+                    elevator = oldy / 59;
                 }
+
                
                 
             }
+            else
+            {
+                Console.WriteLine("ddddddd");
+
+                knobPosition.X = 0;
+                knobPosition.Y = 0;
+                rudder = oldx / 59;
+                elevator = oldy / 59;
+            }
+
         }
+
+
     }
+
 }
