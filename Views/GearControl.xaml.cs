@@ -81,7 +81,7 @@ namespace FlightSimulatorApp.Views
                     knobPosition.X = oldx;
                     knobPosition.Y = oldy;
                     rudder = oldx / 59;
-                    elevator = oldy / 59;
+                    elevator = -oldy / 59;
                 }
 
                
@@ -94,12 +94,20 @@ namespace FlightSimulatorApp.Views
                 knobPosition.X = 0;
                 knobPosition.Y = 0;
                 rudder = oldx / 59;
-                elevator = oldy / 59;
+                elevator = -oldy / 59;
             }
 
         }
 
+        private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
 
+        }
+
+        private void Slider_ValueChanged_2(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 
 }
