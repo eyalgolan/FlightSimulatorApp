@@ -171,5 +171,7 @@
             </Viewbox.RenderTransform>
             <Slider Minimum="-1" Maximum="1" Value="0" Width="81" ValueChanged="Slider_ValueChanged_2"/>
         </Viewbox>
+        <TextBox Background="Blue" HorizontalAlignment="Left" Height="46" Margin="-99,288,0,0" TextWrapping="Wrap" Text="Throttle" VerticalAlignment="Top" Width="156" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black"/>
+        <TextBox Background="Blue" HorizontalAlignment="Left" Height="46" Margin="-125,-52,0,0" TextWrapping="Wrap" Text="Aileron" VerticalAlignment="Top" Width="156" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black"/>
     </Grid>
 </UserControl>
