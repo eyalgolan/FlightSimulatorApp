@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FlightSimulatorApp.ViewModels;
 using FlightSimulatorApp.Models;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace FlightSimulatorApp.Views
 {
@@ -24,12 +25,21 @@ namespace FlightSimulatorApp.Views
     {
         MapViewModel vmMap;
         ITelnetClient TCinstance;
+        double latitude;
+        double longitude;
         public MapControl(ITelnetClient tc)
         {
             InitializeComponent();
             this.TCinstance = tc;
             vmMap = new MapViewModel(new MyMapModel(TCinstance));
             DataContext = vmMap;
+            MapLayer mapLayer = new MapLayer();
+            Image myPushPin = new Image();
+            myPushPin.Source = new BitmapImage(new Uri("\\Resources\\plane_icon.png", UriKind.Relative));
+            myPushPin.Width = 25;
+            myPushPin.Height = 25;
+            mapLayer.AddChild(myPushPin, new Location(5,5), PositionOrigin.Center);
+            myMap.Children.Add(mapLayer);
         }
     }
 }
