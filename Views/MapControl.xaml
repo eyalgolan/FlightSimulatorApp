@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FlightSimulatorApp.Views"
+             xmlns:views="clr-namespace:FlightSimulatorApp.Views"
+             xmlns:viewModels="clr-namespace:FlightSimulatorApp.ViewModels"
              xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
              mc:Ignorable="d" 
              
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <m:Map x:Name="myMap" CredentialsProvider="wODYhlg5E4W43cGPzbz6~G9etnc0U37RPqBbKVH4EoQ~Am5_uZLrU4c5qVEjG2cjsoVUgLEhMobCmnTfag1Ggv87dOgF4W7O8TRBfYj6vUty" Mode="Aerial"/>
-
+        <m:Map x:Name="myMap" CredentialsProvider="wODYhlg5E4W43cGPzbz6~G9etnc0U37RPqBbKVH4EoQ~Am5_uZLrU4c5qVEjG2cjsoVUgLEhMobCmnTfag1Ggv87dOgF4W7O8TRBfYj6vUty" Mode="Aerial" Center="{Binding VM_Location}"/>
     </Grid>
 </UserControl>

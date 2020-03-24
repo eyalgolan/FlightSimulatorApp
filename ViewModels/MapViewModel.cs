@@ -38,5 +38,9 @@ namespace FlightSimulatorApp.ViewModels
         {
             get { return model.Longitude; }
         }
+        public String VM_Location
+        {
+            get { return VM_Latitude + "," + VM_Longitude; }
+        }
     }
 }

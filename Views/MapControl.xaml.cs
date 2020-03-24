@@ -38,7 +38,7 @@ namespace FlightSimulatorApp.Views
             myPushPin.Source = new BitmapImage(new Uri("\\Resources\\plane_icon.png", UriKind.Relative));
             myPushPin.Width = 25;
             myPushPin.Height = 25;
-            mapLayer.AddChild(myPushPin, new Location(5,5), PositionOrigin.Center);
+            mapLayer.AddChild(myPushPin, myMap.Center, PositionOrigin.Center);
             myMap.Children.Add(mapLayer);
         }
     }
