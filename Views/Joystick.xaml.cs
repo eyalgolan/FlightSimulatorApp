@@ -12,23 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using FlightSimulatorApp.ViewModels;
-using FlightSimulatorApp.Models;
-using FlightSimulatorApp.Views;
 
-namespace FlightSimulatorApp
+namespace FlightSimulatorApp.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Joistick.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Joistick : UserControl
     {
-        public MainWindow()
+        public Joistick()
         {
             InitializeComponent();
-            this.mapControl.Content = new MapControl();
-            this.gearControl.Content = new GearControl();
-            this.dashboardControl.Content = new DashboardControl();
         }
+        private void centerKnob_Completed(object sender, EventArgs e) { }
+       
     }
 }
