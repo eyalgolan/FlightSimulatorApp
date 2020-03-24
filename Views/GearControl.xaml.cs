@@ -55,6 +55,7 @@ namespace FlightSimulatorApp.Views
             knobPosition.Y = 0;
             rudder = oldx / 60;
             elevator = -oldy / 60;
+
         }
         private void Knob_MouseMove(object sender, MouseEventArgs e)
         {
