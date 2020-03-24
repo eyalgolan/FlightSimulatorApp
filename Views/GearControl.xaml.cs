@@ -47,7 +47,15 @@ namespace FlightSimulatorApp.Views
             elevator = -oldy / 60;
 
         }
+        private void Knob_Mouseleave(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("lllllll");
 
+            knobPosition.X = 0;
+            knobPosition.Y = 0;
+            rudder = oldx / 60;
+            elevator = -oldy / 60;
+        }
         private void Knob_MouseMove(object sender, MouseEventArgs e)
         {
             Console.WriteLine("aaaaa");
@@ -113,6 +121,8 @@ namespace FlightSimulatorApp.Views
         {
 
         }
+
+       
     }
 
 }
