@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlightSimulatorApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,8 @@ namespace FlightSimulatorApp.Views
         double oldy = 0;
         double rudder = 0;
         double elevator = 0;
-        public GearControl()
+        ITelnetClient TCinstance;
+        public GearControl(ITelnetClient tc)
         {
             InitializeComponent();
 

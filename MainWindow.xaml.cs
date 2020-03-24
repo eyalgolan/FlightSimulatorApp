@@ -26,9 +26,10 @@ namespace FlightSimulatorApp
         public MainWindow()
         {
             InitializeComponent();
-            this.mapControl.Content = new MapControl();
-            this.gearControl.Content = new GearControl();
-            this.dashboardControl.Content = new DashboardControl();
+            MyTelnetClient TCinstance = MyTelnetClient.Instance;
+            this.mapControl.Content = new MapControl(TCinstance);
+            this.gearControl.Content = new GearControl(TCinstance);
+            this.dashboardControl.Content = new DashboardControl(TCinstance);
         }
     }
 }
