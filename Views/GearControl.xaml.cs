@@ -88,7 +88,7 @@ namespace FlightSimulatorApp.Views
                 
             }
             else
-            {
+            { 
                 Console.WriteLine("ddddddd");
 
                 knobPosition.X = 0;
