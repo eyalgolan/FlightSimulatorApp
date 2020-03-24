@@ -30,5 +30,20 @@ namespace FlightSimulatorApp
             this.gearControl.Content = new GearControl();
             this.dashboardControl.Content = new DashboardControl();
         }
+
+        private void MapControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GearControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DashboardControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
