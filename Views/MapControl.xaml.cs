@@ -32,7 +32,7 @@ namespace FlightSimulatorApp.Views
             InitializeComponent();
             this.TCinstance = tc;
             vmMap = new MapViewModel(new MyMapModel(TCinstance));
-            DataContext = vmMap;
+            this.DataContext = vmMap;
             MapLayer mapLayer = new MapLayer();
             Image myPushPin = new Image();
             myPushPin.Source = new BitmapImage(new Uri("\\Resources\\plane_icon.png", UriKind.Relative));
