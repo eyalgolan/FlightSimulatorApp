@@ -98,7 +98,13 @@ namespace FlightSimulatorApp.Views
             }
 
         }
-
+        private void Knob_Mouseleave(object sender, MouseEventArgs e)
+        {
+            knobPosition.X = 0;
+            knobPosition.Y = 0;
+            rudder = oldx / 60;
+            elevator = -oldy / 60;
+        }
         private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
@@ -113,6 +119,8 @@ namespace FlightSimulatorApp.Views
         {
 
         }
+
+      
     }
 
 }
