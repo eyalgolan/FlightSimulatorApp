@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FlightSimulatorApp.Models;
+using FlightSimulatorApp.ViewModels;
 
 namespace FlightSimulatorApp.Views
 {
@@ -20,9 +22,14 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     public partial class DashboardControl : UserControl
     {
-        public DashboardControl()
+        DashboardViewModel vmDashboard;
+        ITelnetClient TCinstance;
+        public DashboardControl(ITelnetClient tc)
         {
             InitializeComponent();
+            this.TCinstance = tc;
+            vmDashboard = new DashboardViewModel(new MyDashboardModel(TCinstance));
+            DataContext = vmDashboard;
         }
     }
 }

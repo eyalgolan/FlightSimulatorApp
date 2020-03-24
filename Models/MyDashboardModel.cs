@@ -9,6 +9,12 @@ namespace FlightSimulatorApp.Models
 {
     class MyDashboardModel : IDashboardModel
     {
+        ITelnetClient tc;
+        public MyDashboardModel(ITelnetClient tc)
+        {
+            this.tc = tc;
+        }
+
         //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
 
