@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:FlightSimulatorApp"
         xmlns:view="clr-namespace:FlightSimulatorApp.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="1400" ResizeMode="NoResize">
+        Title="MainWindow" Height="550" Width="1000" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush>
             <ImageBrush.ImageSource>
@@ -16,8 +16,8 @@
         </ImageBrush>
     </Window.Background>
     <Grid>
-        <ContentControl x:Name="dashboardControl" Margin="878,21,60,440" >Dashboard</ContentControl>
-        <ContentControl x:Name="gearControl" Margin="829,281,60,22">Gear</ContentControl>
-        <ContentControl x:Name="mapControl" Margin="41,80,638,80">Map</ContentControl>
+        <ContentControl x:Name="dashboardControl" Margin="666,21,60,257" >Dashboard</ContentControl>
+        <ContentControl x:Name="gearControl" Margin="667,252,59.667,22">Gear</ContentControl>
+        <ContentControl x:Name="mapControl" Margin="27,80,412.667,80">Map</ContentControl>
     </Grid>
 </Window>
