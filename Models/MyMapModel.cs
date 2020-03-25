@@ -11,9 +11,8 @@ namespace FlightSimulatorApp.Models
     class MyMapModel : IMapModel
     {
         ITelnetClient tc;
-        private string flightData;
-        private string latitude;
-        private string longitude;
+        private string latitude = "0";
+        private string longitude = "0";
 
         public MyMapModel(ITelnetClient tc)
         {

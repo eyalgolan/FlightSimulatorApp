@@ -31,6 +31,7 @@ namespace FlightSimulatorApp.Views
             vmMap = new MapViewModel(new MyMapModel(TCinstance));
             DataContext = vmMap;
             tc.connect("127.0.0.1", 5402);
+            
         }
     }
 }

@@ -11,7 +11,6 @@ namespace FlightSimulatorApp.Models
     {
 
         //simulator properties
-        String FlightData { set; get; }
         String Latitude { set; get; }
         String Longitude { set; get; }
         void startReadingFlightData();
