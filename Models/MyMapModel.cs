@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace FlightSimulatorApp.Models
 {
@@ -13,7 +14,7 @@ namespace FlightSimulatorApp.Models
         ITelnetClient tc;
         private string latitude = "0";
         private string longitude = "0";
-
+        private Location planeLocation = new Location(0,0);
         public MyMapModel(ITelnetClient tc)
         {
             this.tc = tc;
@@ -32,6 +33,21 @@ namespace FlightSimulatorApp.Models
             get
             {
                 return latitude;
+            }
+        }
+        public Location FlightData
+        {
+            set
+            {
+                if (planeLocation != value)
+                {
+                    planeLocation = value;
+                    NotifyPropertyChanged("FlightData");
+                }
+            }
+            get
+            {
+                return planeLocation;
             }
         }
         public String Longitude
@@ -67,6 +83,7 @@ namespace FlightSimulatorApp.Models
                     Latitude = tc.read();
                     tc.write("get/position/longitude-deg\n");
                     Longitude = tc.read();
+                    FlightData = new Location(Convert.ToDouble(Latitude), Convert.ToDouble(Longitude));
                     Thread.Sleep(250);
                 }
             }).Start();

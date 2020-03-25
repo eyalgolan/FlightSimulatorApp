@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace FlightSimulatorApp.Models
 {
@@ -11,6 +12,7 @@ namespace FlightSimulatorApp.Models
     {
 
         //simulator properties
+        Location FlightData { set; get; }
         String Latitude { set; get; }
         String Longitude { set; get; }
         void startReadingFlightData();

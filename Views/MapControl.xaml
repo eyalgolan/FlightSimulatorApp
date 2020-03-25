@@ -21,7 +21,7 @@
     </UserControl.Resources>
     <Grid>
         <m:Map x:Name="myMap" CredentialsProvider="wODYhlg5E4W43cGPzbz6~G9etnc0U37RPqBbKVH4EoQ~Am5_uZLrU4c5qVEjG2cjsoVUgLEhMobCmnTfag1Ggv87dOgF4W7O8TRBfYj6vUty" Mode="Aerial" />
-        <m:Pushpin Template="{StaticResource PlaneTemplate}" Location="{Binding VM_Location}"/>
+        <m:Pushpin Template="{StaticResource PlaneTemplate}" Location="{Binding VM_FlightData}"/>
         <!--
         <m:Map x:Name="myMap" CredentialsProvider="wODYhlg5E4W43cGPzbz6~G9etnc0U37RPqBbKVH4EoQ~Am5_uZLrU4c5qVEjG2cjsoVUgLEhMobCmnTfag1Ggv87dOgF4W7O8TRBfYj6vUty" Mode="Aerial" Center="{Binding VM_Location}"/>
         -->
