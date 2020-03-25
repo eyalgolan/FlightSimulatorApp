@@ -66,7 +66,7 @@ namespace FlightSimulatorApp.Models
                     tc.write("get/position/latitude-deg\n");
                     Latitude = tc.read();
                     tc.write("get/position/longitude-deg\n");
-                    Latitude = tc.read();
+                    Longitude = tc.read();
                     Thread.Sleep(250);
                 }
             }).Start();

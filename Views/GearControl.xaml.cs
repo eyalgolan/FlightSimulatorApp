@@ -47,13 +47,11 @@ namespace FlightSimulatorApp.Views
         private void Knob_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
-            Console.WriteLine("Knob_MouseDown");
             if (e.ChangedButton == MouseButton.Left) { fpoint = e.GetPosition(this); }
         }
 
         private void Knob_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine("Knob_MouseUp");
               knobPosition.X = 0;
              knobPosition.Y = 0;
             rudder = oldx / 60;
@@ -65,7 +63,6 @@ namespace FlightSimulatorApp.Views
 
         private void Knob_MouseMove(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("aaaaa");
            
     
 
@@ -109,7 +106,6 @@ namespace FlightSimulatorApp.Views
             }
             else
             { 
-                Console.WriteLine("ddddddd");
 
                 knobPosition.X = 0;
                 knobPosition.Y = 0;

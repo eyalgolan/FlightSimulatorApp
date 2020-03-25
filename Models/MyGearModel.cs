@@ -40,9 +40,6 @@ namespace FlightSimulatorApp.Models
         }
         public void setRudder(double val)
         {
-            Console.WriteLine("after send");
-
-            Console.WriteLine(val);
             tc.write("set /controls/flight/rudder" + val + "\n");
         }
         
@@ -53,10 +50,11 @@ namespace FlightSimulatorApp.Models
         }
         public void sendGearData(double elevator, double rudder)
         {
-            Console.WriteLine("before send");
+            Console.WriteLine("11111111111111111111111111111111111111111111111");
 
             Console.WriteLine(rudder);
             Console.WriteLine(elevator);
+            Console.WriteLine("11111111111111111111111111111111111111111111111");
 
             setRudder(rudder);
             setElevator(elevator);
