@@ -25,21 +25,19 @@ namespace FlightSimulatorApp.Views
     {
         MapViewModel vmMap;
         ITelnetClient TCinstance;
-        double latitude;
-        double longitude;
         public MapControl(ITelnetClient tc)
         {
             InitializeComponent();
             this.TCinstance = tc;
-            vmMap = new MapViewModel(new MyMapModel(TCinstance));
-            this.DataContext = vmMap;
-            MapLayer mapLayer = new MapLayer();
-            Image myPushPin = new Image();
-            myPushPin.Source = new BitmapImage(new Uri("\\Resources\\plane_icon.png", UriKind.Relative));
-            myPushPin.Width = 25;
-            myPushPin.Height = 25;
-            mapLayer.AddChild(myPushPin, myMap.Center, PositionOrigin.Center);
-            myMap.Children.Add(mapLayer);
+            this.vmMap = new MapViewModel(new MyMapModel(TCinstance));
+            this.DataContext = this.vmMap;
+            //MapLayer mapLayer = new MapLayer();
+            //Image myPushPin = new Image();
+            //myPushPin.Source = new BitmapImage(new Uri("\\Resources\\plane_icon.png", UriKind.Relative));
+            //myPushPin.Width = 25;
+            //myPushPin.Height = 25;
+            //mapLayer.AddChild(myPushPin, myMap.Center, PositionOrigin.Center);
+            //myMap.Children.Add(mapLayer);
         }
     }
 }

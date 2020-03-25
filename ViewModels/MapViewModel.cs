@@ -40,10 +40,7 @@ namespace FlightSimulatorApp.ViewModels
         }
         public String VM_Location
         {
-            get {
-                Console.Write("!!!!!!!!!!!!!!!!!!in vm location!!!!!!!!!!!!!!!!!!!!!!!");
-                return "70,70"; }
-            //get { return VM_Latitude + "," + VM_Longitude; }
+            get { return VM_Latitude + "," + VM_Longitude; }
         }
     }
 }
