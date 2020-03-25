@@ -72,7 +72,6 @@ namespace FlightSimulatorApp.Views
 
             if (e.LeftButton==MouseButtonState.Pressed)
             {
-                Console.WriteLine("bbbbbbb");
 
                 double x = e.GetPosition(this).X - fpoint.X;
                 double y = e.GetPosition(this).Y - fpoint.Y;
