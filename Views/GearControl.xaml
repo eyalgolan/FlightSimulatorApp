@@ -57,7 +57,7 @@
                 </Path.RenderTransform>
             </Path>
 
-            <Canvas  x:Name="Knob" VerticalAlignment="Top" HorizontalAlignment="Left" Width="0" Height="0" RenderTransformOrigin="0.5,0.5" Canvas.Left="125" Canvas.Top="125" MouseDown="Knob_MouseDown" MouseUp="Knob_MouseUp" MouseMove="Knob_MouseMove" MouseLeave="Knob_Mouseleave">
+            <Canvas  x:Name="Knob"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="0" Height="0" RenderTransformOrigin="0.5,0.5" Canvas.Left="125" Canvas.Top="125" MouseDown="Knob_MouseDown" MouseUp="Knob_MouseUp" MouseMove="Knob_MouseMove" MouseLeave="Knob_Mouseleave">
                 <!--<Ellipse x:Name="Shadow" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="86" Fill="#52131212" Canvas.Left="22" Canvas.Top="18" />-->
                 <Ellipse x:Name="KnobBase" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.5,0.5" Canvas.Top="-10" Canvas.Left="-12">
                     <Ellipse.Fill>

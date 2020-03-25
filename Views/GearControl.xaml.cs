@@ -16,7 +16,8 @@ using System.Windows.Shapes;
 using SimpleTCP;
 using System.Net;
 using System.Net.Sockets;
-
+using FlightSimulatorApp.ViewModels;
+using FlightSimulatorApp.Models;
 
 namespace FlightSimulatorApp.Views
 {
@@ -30,15 +31,21 @@ namespace FlightSimulatorApp.Views
         double rudder = 0;
         double elevator = 0;
         ITelnetClient TCinstance;
+        GearViewModel vmGear;
         public GearControl(ITelnetClient tc)
         {
             InitializeComponent();
-           
+            this.TCinstance = tc;
+            vmGear = new GearViewModel(new MyGearModel(TCinstance));
+            DataContext = vmGear;
         }
+       
+        
         private void centerKnob_Completed(object sender, EventArgs e) { }
         private Point fpoint = new Point();
         private void Knob_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
             Console.WriteLine("Knob_MouseDown");
             TcpClient client;
             IPEndPoint ep;
@@ -130,7 +137,8 @@ namespace FlightSimulatorApp.Views
                     oldy = knobPosition.Y;
                     rudder = oldx / 59;
                      elevator = -oldy/59;
-
+                    Models.IGearModel gear;
+                    
 
                 }
                 else
