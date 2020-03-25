@@ -13,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SimpleTCP;
+using System.Net;
+using System.Net.Sockets;
+
 
 namespace FlightSimulatorApp.Views
 {
@@ -29,14 +33,66 @@ namespace FlightSimulatorApp.Views
         public GearControl(ITelnetClient tc)
         {
             InitializeComponent();
-
+           
         }
         private void centerKnob_Completed(object sender, EventArgs e) { }
         private Point fpoint = new Point();
         private void Knob_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Console.WriteLine("Knob_MouseDown");
+            TcpClient client;
+            IPEndPoint ep;
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5402);
+            client = new TcpClient();
+            client.Connect(ep);
+            NetworkStream nwStream = client.GetStream();
 
+            if (nwStream.CanWrite)
+            {
+
+                byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes("get /position/latitude-deg\n");
+                nwStream.Write(byteToSend, 0, byteToSend.Length);
+            }
+            else
+            {
+                Console.WriteLine(" You cannot write to this.");
+            }
+            Console.WriteLine("beforee");
+
+            NetworkStream myNetworkStream = client.GetStream();
+            Console.WriteLine("after");
+
+            if (myNetworkStream.CanRead)
+            {
+                Console.WriteLine("beforee22222");
+
+                byte[] myReadBuffer = new byte[1024];
+                StringBuilder myCompleteMessage = new StringBuilder();
+                int numberOfBytesRead = 0;
+                Console.WriteLine("after222222");
+
+                do
+                {
+                    Console.WriteLine("44444444");
+
+                    numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
+                                    Console.WriteLine("after33333333333");
+
+                    myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
+                }
+                while (myNetworkStream.DataAvailable);
+                Console.WriteLine("after33333333333");
+
+                // Print out the received message to the console.
+                Console.WriteLine("You received the following message : " +
+                                             myCompleteMessage);
+
+            }
+            else
+            {
+                Console.WriteLine("Sorry.  You cannot read from this NetworkStream.");
+
+            }
             if (e.ChangedButton == MouseButton.Left) { fpoint = e.GetPosition(this); }
         }
 
@@ -53,7 +109,10 @@ namespace FlightSimulatorApp.Views
         private void Knob_MouseMove(object sender, MouseEventArgs e)
         {
             Console.WriteLine("aaaaa");
-        
+           
+    
+
+
             if (e.LeftButton==MouseButtonState.Pressed)
             {
                 Console.WriteLine("bbbbbbb");
@@ -106,6 +165,7 @@ namespace FlightSimulatorApp.Views
             knobPosition.Y = 0;
             rudder = oldx / 60;
             elevator = -oldy / 60;
+
         }
         private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
