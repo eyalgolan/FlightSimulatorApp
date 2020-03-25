@@ -11,7 +11,7 @@ namespace FlightSimulatorApp.ViewModels
     class MapViewModel : INotifyPropertyChanged
     {
         IMapModel model;
-
+        private string location = VM_Latitude + "," + VM_Longitude;
         public MapViewModel(IMapModel model)
         {
             this.model = model;
@@ -40,7 +40,7 @@ namespace FlightSimulatorApp.ViewModels
         }
         public String VM_Location
         {
-            get {return VM_Latitude + "," + VM_Longitude; }
+            get { return location; }
         }
     }
 }
