@@ -20,6 +20,11 @@ namespace FlightSimulatorApp.ViewModels
                 NotifyPropertyChanged("VM_" + e.PropertyName);
             };
         }
+        public void moveGear (double elevator , double rudder)
+        {
+            model.sendGearData(elevator, rudder);
+            
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(String propName)
         {

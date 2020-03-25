@@ -32,20 +32,25 @@ namespace FlightSimulatorApp.Models
         }
         public void setAileron(double val)
         {
-            tc.write("set controls[0]/flight[0]/aileron" + val);
+            tc.write("set /controls/flight/aileron" + val+ "\n");
         }
         public void setElevator(double val)
         {
-            tc.write("set controls[0]/flight[0]/elevator" + val);
+            tc.write("set /controls/flight/elevator" + val + "\n");
         }
         public void setRudder(double val)
         {
-            tc.write("set controls[0]/flight[0]/rudder" + val);
+            tc.write("set /controls/flight/rudder" + val + "\n");
         }
         
         public void setThrottle(double val)
         {
-            tc.write("set controls[0]/flight[0]/throttle" + val);
+            tc.write("set/controls/engines/current-engine/throttle" + val+"\n");
+        }
+        public void sendGearData(double elevator, double rudder)
+        {
+            setRudder(rudder);
+            setElevator(elevator);
         }
 
         //INotifyPropertyChanged implementation

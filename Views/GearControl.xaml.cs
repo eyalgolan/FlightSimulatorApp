@@ -32,6 +32,8 @@ namespace FlightSimulatorApp.Views
         private double elevator = 0;
         ITelnetClient TCinstance;
         GearViewModel vmGear;
+
+        
         public GearControl(ITelnetClient tc)
         {
             InitializeComponent();
@@ -109,6 +111,8 @@ namespace FlightSimulatorApp.Views
              knobPosition.Y = 0;
             rudder = oldx / 60;
             elevator = -oldy / 60;
+            vmGear.moveGear(elevator, rudder);
+
 
         }
 
@@ -136,8 +140,8 @@ namespace FlightSimulatorApp.Views
                     oldy = knobPosition.Y;
                     rudder = oldx / 59;
                      elevator = -oldy/59;
-                    Models.IGearModel gear;
-                    
+                    vmGear.moveGear(elevator, rudder);
+
 
                 }
                 else
@@ -150,10 +154,12 @@ namespace FlightSimulatorApp.Views
                     knobPosition.Y = oldy;
                     rudder = oldx / 59;
                     elevator = -oldy / 59;
+                    vmGear.moveGear(elevator, rudder);
+
                 }
 
-               
-                
+
+
             }
             else
             { 
@@ -163,6 +169,8 @@ namespace FlightSimulatorApp.Views
                 knobPosition.Y = 0;
                 rudder = oldx / 59;
                 elevator = -oldy / 59;
+                vmGear.moveGear(elevator, rudder);
+
             }
 
         }
@@ -172,6 +180,8 @@ namespace FlightSimulatorApp.Views
             knobPosition.Y = 0;
             rudder = oldx / 60;
             elevator = -oldy / 60;
+            vmGear.moveGear(elevator, rudder);
+
 
         }
         private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
