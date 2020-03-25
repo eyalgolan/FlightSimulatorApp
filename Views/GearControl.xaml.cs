@@ -26,10 +26,10 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     public partial class GearControl : UserControl
     {
-        double oldx = 0;
-        double oldy = 0;
-        double rudder = 0;
-        double elevator = 0;
+        private double oldx = 0;
+        private double oldy = 0;
+        private double rudder = 0;
+        private double elevator = 0;
         ITelnetClient TCinstance;
         GearViewModel vmGear;
         public GearControl(ITelnetClient tc)
@@ -39,8 +39,7 @@ namespace FlightSimulatorApp.Views
             vmGear = new GearViewModel(new MyGearModel(TCinstance));
             DataContext = vmGear;
         }
-       
-        
+
         private void centerKnob_Completed(object sender, EventArgs e) { }
         private Point fpoint = new Point();
         private void Knob_MouseDown(object sender, MouseButtonEventArgs e)
