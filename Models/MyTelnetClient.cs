@@ -12,6 +12,23 @@ namespace FlightSimulatorApp.Models
     {
         TcpClient client;
         IPEndPoint ep;
+        //Private Constructor.  
+        private MyTelnetClient()
+        {
+
+        }
+        private static MyTelnetClient instance = null;
+        public static MyTelnetClient Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new MyTelnetClient();
+                }
+                return instance;
+            }
+        }
         public void connect(string ip, int port)
         {
             ep = new IPEndPoint(IPAddress.Parse(ip), port);  
