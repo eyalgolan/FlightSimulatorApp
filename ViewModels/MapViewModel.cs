@@ -40,7 +40,7 @@ namespace FlightSimulatorApp.ViewModels
         }
         public String VM_Location
         {
-            get { return VM_Latitude + "," + VM_Longitude; }
+            get {return VM_Latitude + "," + VM_Longitude; }
         }
     }
 }
