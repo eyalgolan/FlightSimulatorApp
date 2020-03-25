@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using FlightSimulatorApp.Models;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace FlightSimulatorApp.ViewModels
 {
     class MapViewModel : INotifyPropertyChanged
     {
         IMapModel model;
-
+        private Location planeLocation = new Location(0,0);
         public MapViewModel(IMapModel model)
         {
             this.model = model;
@@ -38,9 +39,14 @@ namespace FlightSimulatorApp.ViewModels
         {
             get { return model.Longitude; }
         }
-        public String VM_Location
+        public Location VM_Location
         {
-            get {return VM_Latitude + "," + VM_Longitude; }
+            get {
+                Console.WriteLine("VM_Latitude is " + VM_Latitude);
+                Console.WriteLine("VM_Longitude is " + VM_Longitude);
+                planeLocation.Latitude = Convert.ToDouble(VM_Latitude);
+                planeLocation.Longitude = Convert.ToDouble(VM_Longitude);
+                return planeLocation; }
         }
     }
 }

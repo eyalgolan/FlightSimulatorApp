@@ -31,12 +31,7 @@ namespace FlightSimulatorApp.Views
             vmMap = new MapViewModel(new MyMapModel(TCinstance));
             DataContext = vmMap;
             tc.connect("127.0.0.1", 5402);
-            Console.WriteLine("map testtt333333333333");
-            Console.WriteLine(vmMap.VM_Latitude);
-            Console.WriteLine(vmMap.VM_Longitude);
-            Console.WriteLine(vmMap.VM_Location);
-
-
+            
         }
     }
 }
