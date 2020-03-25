@@ -20,20 +20,6 @@ namespace FlightSimulatorApp.Models
             this.tc = tc;
         }
 
-        public String FlightData
-        {
-            set
-            {
-                if(flightData != value)
-                {
-                    flightData = value;
-                    //need to parse flightData and send it to Latitude and Longitude
-                    NotifyPropertyChanged("FlightData");
-                }
-            }
-            get { return flightData; }
-        }
-
         public String Latitude
         {
             set
