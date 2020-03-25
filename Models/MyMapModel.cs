@@ -78,6 +78,7 @@ namespace FlightSimulatorApp.Models
             {
                 while (true)
                 {
+                    
                     FlightData = tc.read();
                     Thread.Sleep(250);
                 }
