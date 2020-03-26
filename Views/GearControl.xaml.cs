@@ -52,8 +52,8 @@ namespace FlightSimulatorApp.Views
 
         private void Knob_MouseUp(object sender, MouseButtonEventArgs e)
         {
-              knobPosition.X = 0;
-             knobPosition.Y = 0;
+            knobPosition.X = 0;
+            knobPosition.Y = 0;
             rudder = oldx / 60;
             elevator = -oldy / 60;
             vmGear.moveGear(elevator, rudder);

@@ -12,14 +12,20 @@ namespace FlightSimulatorApp.Models
     class MyMapModel : IMapModel
     {
         ITelnetClient tc;
-        private string latitude = "0";
-        private string longitude = "0";
-        private Location planeLocation = new Location(0,0);
+        private string latitude;
+        private string longitude;
+        private Location planeLocation;
+        private bool connect;
+
         public MyMapModel(ITelnetClient tc)
         {
             this.tc = tc;
+            this.latitude = "0";
+            this.longitude = "0";
+            planeLocation = new Location(0, 0);
+            this.connect = true;
+            startReadingFlightData();
         }
-
         public String Latitude
         {
             set
@@ -77,7 +83,7 @@ namespace FlightSimulatorApp.Models
         {
             new Thread(delegate ()
             {
-                while (true)
+                while (connect)
                 {
                     tc.write("get/position/latitude-deg\n");
                     Latitude = tc.read();
