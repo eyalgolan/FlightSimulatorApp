@@ -85,9 +85,9 @@ namespace FlightSimulatorApp.Models
             {
                 while (connect)
                 {
-                    tc.write("get/position/latitude-deg\n");
+                    tc.write("get /position/latitude-deg \n");
                     Latitude = tc.read();
-                    tc.write("get/position/longitude-deg\n");
+                    tc.write("get /position/longitude-deg \n");
                     Longitude = tc.read();
                     FlightData = new Location(Convert.ToDouble(Latitude), Convert.ToDouble(Longitude));
                     Thread.Sleep(250);
