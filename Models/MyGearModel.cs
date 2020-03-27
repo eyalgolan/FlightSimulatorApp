@@ -36,17 +36,24 @@ namespace FlightSimulatorApp.Models
         }
         public void setElevator(double val)
         {
-            tc.write("set /controls/flight/elevator" + val + "\n");
+            tc.write("set /controls/flight/elevator" + " " + val + "\n");
+            tc.write("get /controls/flight/elevator\n");
+            string test2 = tc.read();
         }
         public void setRudder(double val)
         {
-            tc.write("set /controls/flight/rudder" + val + "\n");
+
+            tc.write("set /controls/flight/rudder" + " " + val + "\n");
+            tc.write("get /controls/flight/rudder\n");
+            string test1 = tc.read();
+
+
         }
-        
+
         public void setThrottle(double val)
         {
 
-            tc.write("set/controls/engines/current-engine/throttle" + val+"\n");
+            tc.write("set/controls/engines/current-engine/throttle"+" " + val+"\n");
         }
         public void sendGearData(double elevator, double rudder)
         {
