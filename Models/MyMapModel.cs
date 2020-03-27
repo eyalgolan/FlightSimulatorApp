@@ -44,7 +44,7 @@ namespace FlightSimulatorApp.Models
         public Location FlightData
         {
             set
-            {
+            {  
                 if (planeLocation != value)
                 {
                     planeLocation = value;
