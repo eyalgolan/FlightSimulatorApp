@@ -39,6 +39,11 @@ namespace FlightSimulatorApp.Models
             tc.write("set /controls/flight/elevator" + " " + val + "\n");
             tc.write("get /controls/flight/elevator\n");
             string test2 = tc.read();
+            Console.WriteLine("1111111111111111111111111111111111111111111111111111111111");
+            Console.WriteLine(test2);
+           
+
+
         }
         public void setRudder(double val)
         {
@@ -46,6 +51,10 @@ namespace FlightSimulatorApp.Models
             tc.write("set /controls/flight/rudder" + " " + val + "\n");
             tc.write("get /controls/flight/rudder\n");
             string test1 = tc.read();
+            Console.WriteLine("1111111111111111111111111111111111111111111111111111111111");
+            Console.WriteLine(test1);
+
+
 
 
         }
