@@ -85,9 +85,6 @@ namespace FlightSimulatorApp.Models
             {
                 while (connect)
                 {
-                    
-                  
-
                     tc.write("get /position/latitude-deg \n");
                     Latitude = tc.read();
                     tc.write("get /position/longitude-deg \n");
