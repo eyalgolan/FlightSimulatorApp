@@ -90,7 +90,7 @@ namespace FlightSimulatorApp.Models
 
                     tc.write("get /position/latitude-deg \n");
                     Latitude = tc.read();
-                    tc.write("get /position/longitude-deg\n");
+                    tc.write("get /position/longitude-deg \n");
                     Longitude = tc.read();
                     FlightData.Longitude = Convert.ToDouble(Longitude);
                     FlightData.Latitude = Convert.ToDouble(Latitude);

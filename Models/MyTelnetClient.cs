@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FlightSimulatorApp.Models
@@ -12,6 +13,7 @@ namespace FlightSimulatorApp.Models
     {
         TcpClient client;
         IPEndPoint ep;
+        private static Mutex mutex = new Mutex();
         //Private Constructor.  
         private MyTelnetClient()
         {
@@ -43,13 +45,15 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
+            mutex.WaitOne();
             NetworkStream myNetworkStream = client.GetStream();
-
+            mutex.ReleaseMutex();
             if (myNetworkStream.CanRead)
             {
                 byte[] myReadBuffer = new byte[1024];
                 StringBuilder myCompleteMessage = new StringBuilder();
                 int numberOfBytesRead = 0;
+                mutex.WaitOne();
                 do
                 {
                     numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
@@ -57,7 +61,7 @@ namespace FlightSimulatorApp.Models
                     myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
                 }
                 while (myNetworkStream.DataAvailable);
-
+                mutex.ReleaseMutex();
                 // Print out the received message to the console.
                 Console.WriteLine("You received the following message : " +
                                              myCompleteMessage);
@@ -75,13 +79,16 @@ namespace FlightSimulatorApp.Models
 
         public void write(string command)
         {
+            mutex.WaitOne();
             NetworkStream nwStream = client.GetStream();
+            mutex.ReleaseMutex();
 
             if (nwStream.CanWrite)
             {
-
                 byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
+                mutex.WaitOne();
                 nwStream.Write(byteToSend, 0, byteToSend.Length);
+                mutex.ReleaseMutex();
             }
             else
             {
