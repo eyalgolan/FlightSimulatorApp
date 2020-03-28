@@ -13,15 +13,10 @@ namespace FlightSimulatorApp.Models
     {
         TcpClient client;
         IPEndPoint ep;
-        private bool isBusy;
 
-        public bool IsBusy
-        {
-            get
-            {
-                return this.isBusy;
-            }
-        }
+        private static object readLocker = new object();
+        private static object writeLocker = new object();
+
         private static MyTelnetClient instance = null;
         public static MyTelnetClient Instance
         {
@@ -39,7 +34,6 @@ namespace FlightSimulatorApp.Models
             ep = new IPEndPoint(IPAddress.Parse(ip), port);  
             client = new TcpClient();
             client.Connect(ep);
-            isBusy = false;
         }
 
         public void disconnect()
@@ -49,9 +43,8 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
-            while(!isBusy)
+            lock (writeLocker) 
             {
-                this.isBusy = true;
                 NetworkStream myNetworkStream = client.GetStream();
                 if (myNetworkStream.CanRead)
                 {
@@ -68,39 +61,35 @@ namespace FlightSimulatorApp.Models
                     // Print out the received message to the console.
                     Console.WriteLine("You received the following message : " +
                                                  myCompleteMessage);
-                    this.isBusy = false;
                     return myCompleteMessage.ToString();
 
                 }
                 else
                 {
                     Console.WriteLine("Sorry.  You cannot read from this NetworkStream.");
-                    this.isBusy = false;
                     return null;
 
                 }
             }
-            return null;
         }
 
 
         public void write(string command)
         {
-            while (!isBusy)
+            lock(readLocker)
             {
-                this.isBusy = true;
                 NetworkStream nwStream = client.GetStream();
 
                 if (nwStream.CanWrite)
                 {
                     byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
                     nwStream.Write(byteToSend, 0, byteToSend.Length);
+                    nwStream.Flush();
                 }
                 else
                 {
                     Console.WriteLine(" You cannot write to this.");
                 }
-                this.isBusy = false;
             }
         }
     }
