@@ -6,5 +6,14 @@
              xmlns:local="clr-namespace:FlightSimulatorApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid/>
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="-24,27,0,0" TextWrapping="Wrap" Text="VERTICAL_SPEED" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="174,27,0,0" TextWrapping="Wrap" Text="PITCH" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-24,61,0,0" TextWrapping="Wrap" Text="GROUND_SPEED" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="0.159,0.472"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-24,85,0,0" TextWrapping="Wrap" Text="HEADING" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-24,114,0,0" TextWrapping="Wrap" Text="ALTIMETER" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="174,58,0,0" TextWrapping="Wrap" Text="ROLL" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="174,89,0,0" TextWrapping="Wrap" Text="ALTITUDE" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="174,118,0,0" TextWrapping="Wrap" Text="AIR_SPEED" VerticalAlignment="Top" FontSize="18"/>
+    </Grid>
 </UserControl>
