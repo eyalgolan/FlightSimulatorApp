@@ -24,44 +24,17 @@ namespace FlightSimulatorApp.Views
     {
         ConnectionViewModel vmConnect;
         ITelnetClient TCinstance;
-        private string ip;
-        private int port;
         public ConnectionControl(ITelnetClient tc)
         {
             InitializeComponent();
             this.TCinstance = tc;
             vmConnect = new ConnectionViewModel(new MyTelnetClient());
-        }
-
-        public String IP
-        {
-            get
-            {
-                return this.ip;
-            }
-            set
-            {
-                this.ip = value;
-            }
-        }
-
-        public int Port
-        {
-            get
-            {
-                return this.port;
-            }
-            set
-            {
-                this.port = value;
-            }
+            this.DataContext = this.vmConnect;
         }
         // the connect button
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(IP);
-            Console.WriteLine(Port);
-            vmConnect.connectToSimulator(IP, Port);
+            vmConnect.connectToSimulator();
         }
         private void btnDisconnect_Click(object sender, RoutedEventArgs e)
         {

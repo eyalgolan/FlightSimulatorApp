@@ -28,9 +28,16 @@ namespace FlightSimulatorApp.Models
         }
         public void connect(string ip, int port)
         {
-            ep = new IPEndPoint(IPAddress.Parse(ip), port);  
-            client = new TcpClient();
-            client.Connect(ep);
+            try
+            {
+                ep = new IPEndPoint(IPAddress.Parse(ip), port);
+                client = new TcpClient();
+                client.Connect(ep);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         public void disconnect()

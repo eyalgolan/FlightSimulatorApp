@@ -11,22 +11,43 @@ namespace FlightSimulatorApp.ViewModels
     class ConnectionViewModel
     {
         ITelnetClient model;
+        private string ip;
+        private int port;
 
         public ConnectionViewModel(ITelnetClient model)
         {
             this.model = model;
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(String propName)
+
+        public String IP
         {
-            if (this.PropertyChanged != null)
+            get
             {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+                return this.ip;
+            }
+            set
+            {
+                this.ip = value;
             }
         }
-        public void connectToSimulator (string ip, int port)
+
+        public int Port
         {
-            model.connect(ip, port);
+            get
+            {
+                return this.port;
+            }
+            set
+            {
+                this.port = value;
+            }
+        }
+        public void connectToSimulator ()
+        {
+            Console.WriteLine(IP);
+            Console.WriteLine(Port);
+            model.connect(IP, Port);
+  
         }
         public void disconnectSimulator()
         {
