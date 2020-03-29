@@ -32,7 +32,9 @@ namespace FlightSimulatorApp.Models
         }
         public void setAileron(double val)
         {
-            tc.write("set /controls/flight/aileron" + val+ "\n");
+            tc.write("set /controls/flight/aileron"+" " + val+ "\n");
+            string test0 = tc.read();
+
         }
         public void setElevator(double val)
         {
@@ -58,7 +60,9 @@ namespace FlightSimulatorApp.Models
         public void setThrottle(double val)
         {
 
-            tc.write("set/controls/engines/current-engine/throttle"+" " + val+"\n");
+            tc.write("set /controls/engines/current-engine/throttle"+" " + val+"\n");
+            string test3 = tc.read();
+
         }
         public void sendGearData(double elevator, double rudder)
         {
@@ -76,6 +80,16 @@ namespace FlightSimulatorApp.Models
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
+        }
+
+        public void aircjange(double newValue)
+        {
+            setAileron(newValue);
+        }
+
+        public void troutlechange(double newValue)
+        {
+            setThrottle(newValue);
         }
     }
 }

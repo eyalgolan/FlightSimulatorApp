@@ -15,5 +15,7 @@ namespace FlightSimulatorApp.Models
         void setRudder(double val);
         void setThrottle(double val);
         void sendGearData(double elevator, double rudder);
+        void aircjange(double newValue);
+        void troutlechange(double newValue);
     }
 }

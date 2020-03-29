@@ -30,6 +30,7 @@ namespace FlightSimulatorApp.Models
         {
             ep = new IPEndPoint(IPAddress.Parse(ip), port);  
             client = new TcpClient();
+            
             client.Connect(ep);
         }
 
