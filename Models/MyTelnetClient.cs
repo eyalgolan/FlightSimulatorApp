@@ -14,9 +14,6 @@ namespace FlightSimulatorApp.Models
         TcpClient client;
         IPEndPoint ep;
 
-        private static object readLocker = new object();
-        private static object writeLocker = new object();
-
         private static MyTelnetClient instance = null;
         public static MyTelnetClient Instance
         {
@@ -43,8 +40,6 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
-            //lock (writeLocker) 
-            //{
                 NetworkStream myNetworkStream = client.GetStream();
                 if (myNetworkStream.CanRead)
                 {
@@ -70,14 +65,11 @@ namespace FlightSimulatorApp.Models
                     return null;
 
                 }
-            //}
         }
 
 
         public void write(string command)
         {
-            //lock(readLocker)
-            //{
                 NetworkStream nwStream = client.GetStream();
 
                 if (nwStream.CanWrite)
@@ -90,7 +82,6 @@ namespace FlightSimulatorApp.Models
                 {
                     Console.WriteLine(" You cannot write to this.");
                 }
-           // }
         }
     }
 }

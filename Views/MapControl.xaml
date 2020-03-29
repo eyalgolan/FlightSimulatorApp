@@ -34,7 +34,7 @@
                     </Setter>
                 </Style>
             </m:Map.Resources>
-            <m:Pushpin Style="{StaticResource PlaneStyle}" m:MapLayer.Position="{Binding VM_FlightData}"/>
+            <m:Pushpin Name="Plane" Style="{StaticResource PlaneStyle}" Location="{Binding VM_FlightData}"/>
         </m:Map>
     </Grid>
 </UserControl>

@@ -22,7 +22,7 @@ namespace FlightSimulatorApp.Models
             this.tc = tc;
             this.latitude = "0";
             this.longitude = "0";
-            planeLocation = "0,0";
+            //planeLocation = "0,0";
             this.connect = true;
             startReadingFlightData();
         }
