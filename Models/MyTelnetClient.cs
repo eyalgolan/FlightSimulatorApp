@@ -63,7 +63,6 @@ namespace FlightSimulatorApp.Models
                 {
                     Console.WriteLine("Sorry.  You cannot read from this NetworkStream.");
                     return null;
-
                 }
         }
 

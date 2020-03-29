@@ -61,12 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\IConnectionModel.cs" />
     <Compile Include="Models\IDashboardModel.cs" />
     <Compile Include="Models\IGearModel.cs" />
     <Compile Include="Models\IMapModel.cs" />
     <Compile Include="Models\ITelnetClient.cs" />
-    <Compile Include="Models\MyConnectionModel.cs" />
     <Compile Include="Models\MyDashboardModel.cs" />
     <Compile Include="Models\MyGearModel.cs" />
     <Compile Include="Models\MyMapModel.cs" />

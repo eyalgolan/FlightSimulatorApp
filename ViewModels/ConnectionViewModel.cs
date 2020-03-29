@@ -10,15 +10,11 @@ namespace FlightSimulatorApp.ViewModels
 {
     class ConnectionViewModel
     {
-        IConnectionModel model;
+        ITelnetClient model;
 
-        public ConnectionViewModel(IConnectionModel model)
+        public ConnectionViewModel(ITelnetClient model)
         {
             this.model = model;
-            model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
-            {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
-            };
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(String propName)
@@ -27,6 +23,14 @@ namespace FlightSimulatorApp.ViewModels
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
+        }
+        public void connectToSimulator (string ip, int port)
+        {
+            model.connect(ip, port);
+        }
+        public void disconnectSimulator()
+        {
+            model.disconnect();
         }
     }
 }

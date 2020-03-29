@@ -6,18 +6,23 @@
              xmlns:local="clr-namespace:FlightSimulatorApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid TextBlock.FontSize="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="67*"/>
-            <RowDefinition Height="83*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Margin="-10,10,568,131">IP:</Label>
-        <TextBox Margin="232,24,340,131">
-            <TextBox.Text>
-                <Binding Source="{StaticResource myDataSource}" Path="Name"
-                   UpdateSourceTrigger="PropertyChanged"/>
-            </TextBox.Text>
-        </TextBox>
-        <Button x:Name="Connect" Content="Connect" Margin="487,28,46,95.316"  ></Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Padding="3" Margin="3">IP:</TextBlock>
+        <TextBox x:Name="txtIP" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=IP}"> </TextBox>
+        <TextBlock Grid.Row="1" Padding="3" Margin="3">Port:</TextBlock>
+        <TextBox x:Name="txtPort" Grid.Row="1" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=PORT}"></TextBox>
+        <Button x:Name="btnConnect" Grid.Row="2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnConnect_Click" Margin="5" Padding="5">Connect</Button>
+        <Button x:Name="btnDisconnect" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnDisconnect_Click" Margin="5" Padding="5">Disconnect</Button>
     </Grid>
 </UserControl>
