@@ -27,6 +27,7 @@ namespace FlightSimulatorApp
         {
             InitializeComponent();
             MyTelnetClient TCinstance = MyTelnetClient.Instance;
+            this.connectionControl.Content = new ConnectionControl(TCinstance);
             this.mapControl.Content = new MapControl(TCinstance);
             this.gearControl.Content = new GearControl(TCinstance);
             this.dashboardControl.Content = new DashboardControl(TCinstance);
