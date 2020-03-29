@@ -25,6 +25,15 @@ namespace FlightSimulatorApp.Models
         ITelnetClient tc;
         private bool connect;
 
+        string IDashboardModel.verticalspeed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string IDashboardModel.GROUND_SPEED { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string IDashboardModel.HEADING { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string IDashboardModel.ALTIMETER { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string IDashboardModel.PITCH { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string IDashboardModel.ROLL { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string IDashboardModel.ALTITUDE { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string IDashboardModel.AIR_SPEED { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public MyDashboardModel(ITelnetClient tc)
         {
             this.tc = tc;
