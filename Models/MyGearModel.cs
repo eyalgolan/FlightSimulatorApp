@@ -39,8 +39,6 @@ namespace FlightSimulatorApp.Models
             tc.write("set /controls/flight/elevator" + " " + val + "\n");
         //    tc.write("get /controls/flight/elevator\n");
             string test2 = tc.read();
-            Console.WriteLine("1111111111111111111111111111111111111111111111111111111111");
-            Console.WriteLine(test2);
            
 
 
@@ -51,8 +49,6 @@ namespace FlightSimulatorApp.Models
             tc.write("set /controls/flight/rudder" + " " + val + "\n");
       //      tc.write("get /controls/flight/rudder\n");
             string test1 = tc.read();
-            Console.WriteLine("1111111111111111111111111111111111111111111111111111111111");
-            Console.WriteLine(test1);
 
 
 
@@ -66,11 +62,6 @@ namespace FlightSimulatorApp.Models
         }
         public void sendGearData(double elevator, double rudder)
         {
-            Console.WriteLine("11111111111111111111111111111111111111111111111");
-
-            Console.WriteLine(rudder);
-            Console.WriteLine(elevator);
-            Console.WriteLine("11111111111111111111111111111111111111111111111");
 
             setRudder(rudder);
             setElevator(elevator);

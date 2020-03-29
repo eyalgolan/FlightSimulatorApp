@@ -43,8 +43,8 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
-            lock (writeLocker) 
-            {
+            //lock (writeLocker) 
+            //{
                 NetworkStream myNetworkStream = client.GetStream();
                 if (myNetworkStream.CanRead)
                 {
@@ -70,14 +70,14 @@ namespace FlightSimulatorApp.Models
                     return null;
 
                 }
-            }
+            //}
         }
 
 
         public void write(string command)
         {
-            lock(readLocker)
-            {
+            //lock(readLocker)
+            //{
                 NetworkStream nwStream = client.GetStream();
 
                 if (nwStream.CanWrite)
@@ -90,7 +90,7 @@ namespace FlightSimulatorApp.Models
                 {
                     Console.WriteLine(" You cannot write to this.");
                 }
-            }
+           // }
         }
     }
 }

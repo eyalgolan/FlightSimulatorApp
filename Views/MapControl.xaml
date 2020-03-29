@@ -8,22 +8,33 @@
              xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <ControlTemplate x:Key="PlaneTemplate" TargetType="m:Pushpin">
-            <Grid>
-                <Rectangle Width="20" Height="20">
-                    <Rectangle.Fill>
-                        <ImageBrush ImageSource= "/Resources/plane_icon.png"/>
-                    </Rectangle.Fill>
-                </Rectangle>
-            </Grid>
-        </ControlTemplate>
-    </UserControl.Resources>
+
+    
     <Grid>
-        <m:Map x:Name="myMap" CredentialsProvider="wODYhlg5E4W43cGPzbz6~G9etnc0U37RPqBbKVH4EoQ~Am5_uZLrU4c5qVEjG2cjsoVUgLEhMobCmnTfag1Ggv87dOgF4W7O8TRBfYj6vUty" Mode="Aerial" />
-        <m:Pushpin Template="{StaticResource PlaneTemplate}" m:MapLayer.Position="{Binding VM_FlightData}"/>
-        <!--
-        <m:Map x:Name="myMap" CredentialsProvider="wODYhlg5E4W43cGPzbz6~G9etnc0U37RPqBbKVH4EoQ~Am5_uZLrU4c5qVEjG2cjsoVUgLEhMobCmnTfag1Ggv87dOgF4W7O8TRBfYj6vUty" Mode="Aerial" Center="{Binding VM_Location}"/>
-        -->
+        <m:Map x:Name="myMap" CredentialsProvider="wODYhlg5E4W43cGPzbz6~G9etnc0U37RPqBbKVH4EoQ~Am5_uZLrU4c5qVEjG2cjsoVUgLEhMobCmnTfag1Ggv87dOgF4W7O8TRBfYj6vUty" Mode="Aerial" Center="32.006833306, 34.885329792"  ZoomLevel="8">
+            <m:Map.Resources>
+                <Style TargetType="m:Pushpin" x:Key="PlaneStyle">
+                    <Setter Property="OverridesDefaultStyle" Value="True" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+
+                            <ControlTemplate TargetType="m:Pushpin">
+                                <Grid>
+                                    <Rectangle Width="20" Height="20">
+                                        <Rectangle.Fill>
+                                            <ImageBrush ImageSource= "/Resources/plane_icon.png"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </m:Map.Resources>
+            <m:Pushpin Style="{StaticResource PlaneStyle}" m:MapLayer.Position="{Binding VM_FlightData}"/>
+        </m:Map>
     </Grid>
 </UserControl>

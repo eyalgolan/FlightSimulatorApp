@@ -38,7 +38,7 @@ namespace FlightSimulatorApp.ViewModels
         {
             get { return model.Longitude; }
         }
-        public Location VM_FlightData
+        public String VM_FlightData
         {
             get {
                 Console.WriteLine("VM_Latitude is " + VM_Latitude);

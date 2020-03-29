@@ -14,7 +14,7 @@ namespace FlightSimulatorApp.Models
         ITelnetClient tc;
         private string latitude;
         private string longitude;
-        private Location planeLocation;
+        private string planeLocation;
         private bool connect;
 
         public MyMapModel(ITelnetClient tc)
@@ -22,7 +22,7 @@ namespace FlightSimulatorApp.Models
             this.tc = tc;
             this.latitude = "0";
             this.longitude = "0";
-            planeLocation = new Location(0, 0);
+            planeLocation = "0,0";
             this.connect = true;
             startReadingFlightData();
         }
@@ -41,7 +41,7 @@ namespace FlightSimulatorApp.Models
                 return latitude;
             }
         }
-        public Location FlightData
+        public String FlightData
         {
             set
             {  
@@ -89,8 +89,7 @@ namespace FlightSimulatorApp.Models
                     Latitude = tc.read();
                     tc.write("get /position/longitude-deg \n");
                     Longitude = tc.read();
-                    FlightData.Longitude = Convert.ToDouble(Longitude);
-                    FlightData.Latitude = Convert.ToDouble(Latitude);
+                    FlightData = Latitude + "," + Longitude;
                     Thread.Sleep(250);
                 }
             }).Start();
