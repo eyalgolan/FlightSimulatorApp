@@ -35,6 +35,7 @@
                 </Style>
             </m:Map.Resources>
             <m:Pushpin Name="Plane" Style="{StaticResource PlaneStyle}" Location="{Binding VM_FlightData}"/>
+            <m:MapPolyline Name="planePath" Locations="{Binding VM_PlanePath}" Stroke="Blue" StrokeThickness="5" Opacity="0.7"></m:MapPolyline>
         </m:Map>
     </Grid>
 </UserControl>

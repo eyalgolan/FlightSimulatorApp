@@ -12,6 +12,8 @@ namespace FlightSimulatorApp.ViewModels
     class MapViewModel : INotifyPropertyChanged
     {
         IMapModel model;
+        private LocationCollection planePath;
+        private Location newPath;
         public MapViewModel(IMapModel model)
         {
             this.model = model;
@@ -19,6 +21,7 @@ namespace FlightSimulatorApp.ViewModels
               {
                   NotifyPropertyChanged("VM_" + e.PropertyName);
               };
+            planePath = new LocationCollection();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -27,6 +30,26 @@ namespace FlightSimulatorApp.ViewModels
             if (this.PropertyChanged != null)
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
+        }
+
+        public Location VM_NewPath
+        {
+            get
+            {
+                return this.newPath;
+            }
+            set
+            {
+                this.newPath = value;
+                VM_PlanePath.Add(this.newPath);
+            }
+        }
+        public LocationCollection VM_PlanePath
+        {
+            get
+            {
+                return this.planePath;
             }
         }
         //Properties
@@ -40,10 +63,13 @@ namespace FlightSimulatorApp.ViewModels
         }
         public String VM_FlightData
         {
-            get {
+            get 
+            {
                 Console.WriteLine("VM_Latitude is " + VM_Latitude);
                 Console.WriteLine("VM_Longitude is " + VM_Longitude);
-                return model.FlightData; }
+                VM_NewPath = new Location(Convert.ToDouble(VM_Latitude),Convert.ToDouble(VM_Longitude));
+                return model.FlightData; 
+            }
         }
     }
 }
