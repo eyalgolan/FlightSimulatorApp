@@ -37,12 +37,13 @@ namespace FlightSimulatorApp.ViewModels
         {
             get
             {
+                Console.WriteLine(this.newPath.ToString());
                 return this.newPath;
             }
             set
             {
                 this.newPath = value;
-                VM_PlanePath.Add(this.newPath);
+                VM_PlanePath.Add(VM_NewPath);
             }
         }
         public LocationCollection VM_PlanePath

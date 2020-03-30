@@ -33,5 +33,15 @@ namespace FlightSimulatorApp.ViewModels
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
+
+        internal void airlonchange(double newValue)
+        {
+            model.aircjange(newValue);
+        }
+
+        internal void thurtelchange(double newValue)
+        {
+            model.troutlechange(newValue);
+        }
     }
 }

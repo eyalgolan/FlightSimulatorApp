@@ -6,5 +6,42 @@
              xmlns:local="clr-namespace:FlightSimulatorApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid/>
+    <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="4" Margin="10">
+        <Grid TextBlock.FontSize="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VERTICAL_SPEED" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="PITCH" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="GROUND_SPEED" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="HEADING" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ALTIMETER" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ROLL" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ALTITUDE" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="AIR_SPEED" VerticalAlignment="Top"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_VERTICAL_SPEED}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_VERTICAL_SPEED}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_GROUND_SPEED}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_HEADING}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="0" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_ALTIMETER}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_ROLL}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="2" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_ALTITUDE}" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="3" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_AIR_SPEED}" VerticalAlignment="Top"/>
+    </Grid>
+    </Border>
 </UserControl>
