@@ -17,8 +17,8 @@
     </Window.Background>
     <Grid>
         <ContentControl x:Name="connectionControl" Margin="0,0,464,372">Connection</ContentControl>
-        <ContentControl x:Name="dashboardControl" Margin="666,10,60,268" >Dashboard</ContentControl>
-        <ContentControl x:Name="gearControl" Margin="667,252,59.667,22">Gear</ContentControl>
+        <ContentControl x:Name="dashboardControl" Margin="667,10,59,268" >Dashboard</ContentControl>
+        <ContentControl x:Name="gearControl" Margin="667,264,60,10">Gear</ContentControl>
         <ContentControl x:Name="mapControl" Margin="27,154,413,80">Map</ContentControl>
     </Grid>
 </Window>
