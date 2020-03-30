@@ -92,7 +92,7 @@ namespace FlightSimulatorApp.Models
                 }
                 else
                 {
-                    Console.WriteLine(" You cannot write to this.");
+                    Console.WriteLine("Sorry.  You cannot write to this NetworkStream.");
                 }
             }
         }

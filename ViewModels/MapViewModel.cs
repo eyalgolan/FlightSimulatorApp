@@ -37,9 +37,7 @@ namespace FlightSimulatorApp.ViewModels
         {
             get
             {
-                Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!!!!!!!!!!!!!");
                 Console.WriteLine(this.newPath.ToString());
-                Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 return this.newPath;
             }
             set

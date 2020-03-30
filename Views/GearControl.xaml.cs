@@ -91,9 +91,6 @@ namespace FlightSimulatorApp.Views
                 else
                 {
 
-                    Console.WriteLine(rudder);
-                    Console.WriteLine(elevator);
-
                     knobPosition.X = oldx;
                     knobPosition.Y = oldy;
                     rudder = oldx / 59;
