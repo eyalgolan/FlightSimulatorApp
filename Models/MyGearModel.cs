@@ -36,6 +36,10 @@ namespace FlightSimulatorApp.Models
         }
         public void setElevator(double val)
         {
+            Console.WriteLine("what are we sond value of the joystic ");
+            Console.WriteLine(val);
+
+
             tc.write("set /controls/flight/elevator" + " " + val + "\n");
         //    tc.write("get /controls/flight/elevator\n");
             string test2 = tc.read();
@@ -45,6 +49,8 @@ namespace FlightSimulatorApp.Models
         }
         public void setRudder(double val)
         {
+            Console.WriteLine("what are we sond value of the joystic ");
+            Console.WriteLine(val);
 
             tc.write("set /controls/flight/rudder" + " " + val + "\n");
       //      tc.write("get /controls/flight/rudder\n");
