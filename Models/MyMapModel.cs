@@ -85,9 +85,29 @@ namespace FlightSimulatorApp.Models
                 while (connect)
                 {
                     tc.write("get /position/latitude-deg \n");
-                    Latitude = tc.read();
+                    double i;
+                    string testt = tc.read();
+                    bool result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        latitude = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
                     tc.write("get /position/longitude-deg \n");
-                    Longitude = tc.read();
+                    
+                     testt = tc.read();
+                     result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        Longitude = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
                     FlightData = Latitude + "," + Longitude;
                     Thread.Sleep(250);
                 }

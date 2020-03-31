@@ -137,21 +137,94 @@ namespace FlightSimulatorApp.Models
                 while (connect)
                 {
                     tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
-                    VERTICAL_SPEED = tc.read();
+                    double i;
+                    string testt = tc.read();
+                    bool result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        VERTICAL_SPEED = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
                     tc.write("get /instrumentation/gps/indicated-ground-speed-kt \n");
-                    GROUND_SPEED = tc.read();
+                     testt = tc.read();
+                     result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        GROUND_SPEED = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
                     tc.write("get /instrumentation/heading-indicator/indicated-heading-deg \n");
-                    HEADING = tc.read();
+                    testt = tc.read();
+                    result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        HEADING = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
                     tc.write("get /instrumentation/altimeter/indicated-altitude-ft \n");
-                    ALTIMETER = tc.read();
+                    testt = tc.read();
+                    result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        ALTIMETER = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
                     tc.write("get /instrumentation/attitude-indicator/internal-pitch-deg \n");
-                    PITCH = tc.read();
+                    testt = tc.read();
+                    result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        PITCH = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
                     tc.write("get /instrumentation/attitude-indicator/internal-roll-deg \n");
-                    ROLL = tc.read();
+                    testt = tc.read();
+                    result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        ROLL = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
                     tc.write("get /instrumentation/gps/indicated-altitude-ft \n");
-                    ALTITUDE = tc.read();
+                    testt = tc.read();
+                    result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        ALTITUDE = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
                     tc.write("get /instrumentation/airspeed-indicator/indicated-speed-kt \n");
-                    AIR_SPEED = tc.read();
+                    testt = tc.read();
+                    result = double.TryParse(testt, out i);
+                    if (result)
+                    {
+                        AIR_SPEED = testt;
+                    }
+                    else
+                    {
+                        // eror
+                    }
 
                     Thread.Sleep(250);
                 }
