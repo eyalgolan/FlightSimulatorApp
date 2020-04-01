@@ -14,6 +14,9 @@ namespace FlightSimulatorApp.Models
         ITelnetClient tc;
         private string latitude;
         private string longitude;
+        private String oldlat;
+        private String oldlong;
+
         private string planeLocation;
         private bool connect;
 
@@ -22,6 +25,8 @@ namespace FlightSimulatorApp.Models
             this.tc = tc;
             this.latitude = "0";
             this.longitude = "0";
+            this.oldlat = "0";
+            this.oldlong = "0";
             this.connect = true;
             startReadingFlightData();
         }
@@ -90,7 +95,15 @@ namespace FlightSimulatorApp.Models
                     bool result = double.TryParse(testt, out i);
                     if (result)
                     {
-                        latitude = testt;
+                        if ((i < 91) && (i > -91))
+                        {
+                            latitude = testt;
+                            oldlat = latitude;
+                        }
+                        else
+                        {
+                            latitude = oldlat;
+                        }
                     }
                     else
                     {
@@ -102,7 +115,12 @@ namespace FlightSimulatorApp.Models
                      result = double.TryParse(testt, out i);
                     if (result)
                     {
-                        Longitude = testt;
+                        if ((i < 181) && (i > -181))
+                        {
+                            Longitude = testt;
+                            oldlong = Longitude;
+                        }
+                        Longitude = oldlong;
                     }
                     else
                     {
