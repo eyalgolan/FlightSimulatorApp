@@ -48,31 +48,50 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
+
             lock (lockReadWrite)
             {
-                NetworkStream myNetworkStream = client.GetStream();
-                if (myNetworkStream.CanRead)
+                try
                 {
-                    byte[] myReadBuffer = new byte[1024];
-                    StringBuilder myCompleteMessage = new StringBuilder();
-                    int numberOfBytesRead = 0;
-                    do
+                    NetworkStream myNetworkStream = client.GetStream();
+                    if (myNetworkStream.CanRead)
                     {
-                        numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
 
-                        myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
+                        byte[] myReadBuffer = new byte[1024];
+                        StringBuilder myCompleteMessage = new StringBuilder();
+                        int numberOfBytesRead = 0;
+                        do
+                        {
+                            try
+                            {
+                                numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
+                            }
+                            catch (Exception ex)
+                            {
+                                // eror 
+                                Console.WriteLine(ex);
+                            }
+
+                            myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
+                        }
+                        while (myNetworkStream.DataAvailable);
+                        // Print out the received message to the console.
+                        Console.WriteLine("You received the following message : " +
+                                                     myCompleteMessage);
+                        return myCompleteMessage.ToString();
+
                     }
-                    while (myNetworkStream.DataAvailable);
-                    // Print out the received message to the console.
-                    Console.WriteLine("You received the following message : " +
-                                                 myCompleteMessage);
-                    return myCompleteMessage.ToString();
-
+                    else
+                    {
+                        Console.WriteLine("Sorry.  You cannot read from this NetworkStream.");
+                        return null;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Sorry.  You cannot read from this NetworkStream.");
+                    Console.WriteLine(ex);
                     return null;
+
                 }
             }
         }
@@ -82,18 +101,35 @@ namespace FlightSimulatorApp.Models
         {
             lock (lockReadWrite)
             {
-                NetworkStream nwStream = client.GetStream();
+                try
+                {
+                    NetworkStream nwStream = client.GetStream();
 
-                if (nwStream.CanWrite)
-                {
-                    byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
-                    nwStream.Write(byteToSend, 0, byteToSend.Length);
-                    nwStream.Flush();
+                    if (nwStream.CanWrite)
+                    {
+                        try
+                        {
+                            byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
+                            nwStream.Write(byteToSend, 0, byteToSend.Length);
+                            nwStream.Flush();
+                        }
+                        catch (Exception ex)
+                        {
+                            // erorr
+                            Console.WriteLine(ex);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sorry.  You cannot write to this NetworkStream.");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Sorry.  You cannot write to this NetworkStream.");
+                    Console.WriteLine(ex);
+
                 }
+
             }
         }
     }
