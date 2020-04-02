@@ -92,5 +92,69 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.AIR_SPEED;
             }
         }
+
+        public String VM_VERTICAL_SPEED_COLOR
+        {
+            get
+            {
+                return this.model.VERTICAL_SPEED_COLOR;
+            }
+        }
+
+        public String VM_GROUND_SPEED_COLOR
+        {
+            get
+            {
+                return this.model.GROUND_SPEED_COLOR;
+            }
+        }
+
+        public String VM_HEADING_COLOR
+        {
+            get
+            {
+                return this.model.HEADING_COLOR;
+            }
+        }
+
+        public String VM_ALTIMETER_COLOR
+        {
+            get
+            {
+                return this.model.ALTIMETER_COLOR;
+            }
+        }
+
+        public String VM_PITCH_COLOR
+        {
+            get
+            {
+                return this.model.PITCH_COLOR;
+            }
+        }
+
+        public String VM_ROLL_COLOR
+        {
+            get
+            {
+                return this.model.ROLL_COLOR;
+            }
+        }
+
+        public String VM_ALTITUDE_COLOR
+        {
+            get
+            {
+                return this.model.ALTITUDE_COLOR;
+            }
+        }
+
+        public String VM_AIR_SPEED_COLOR
+        {
+            get
+            {
+                return this.model.AIR_SPEED_COLOR;
+            }
+        }
     }
 }

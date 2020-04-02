@@ -5,9 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="White" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="4" Margin="10" Height="175" VerticalAlignment="Top">
-        <Grid TextBlock.FontSize="12" >
+
+    <Border Background="White" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="4" Margin="10" VerticalAlignment="Top">
+        <Grid TextBlock.FontSize="10" >
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -19,25 +21,44 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Margin="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="FLIGHT DATA"></TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VERTICAL_SPEED" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="PITCH" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="3" Grid.Column="0" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="GROUND_SPEED" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="4" Grid.Column="0" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="HEADING" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="1" Grid.Column="2" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ALTIMETER" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="2" Grid.Column="2" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ROLL" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="3" Grid.Column="2" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ALTITUDE" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="4" Grid.Column="2" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="AIR_SPEED" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Margin="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="FLIGHT DATA" FontWeight="Bold"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Property" FontWeight="Bold"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" Margin="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Data" FontWeight="Bold"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="2" Margin="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Status" FontWeight="Bold"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="3" Margin="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Property" FontWeight="Bold"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="4" Margin="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Data" FontWeight="Bold"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="5" Margin="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Status" FontWeight="Bold"></TextBlock>
+            
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VERTICAL_SPEED" TextDecorations="underline" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="PITCH" TextDecorations="underline" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="GROUND_SPEED" TextDecorations="underline" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="5" Grid.Column="0" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="HEADING" TextDecorations="underline" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="2" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ALTIMETER" TextDecorations="underline" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="3" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ROLL" TextDecorations="underline" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="4" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="ALTITUDE" TextDecorations="underline" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="5" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="AIR_SPEED" TextDecorations="underline" VerticalAlignment="Top"/>
+           
+            
+            <TextBlock Grid.Row="2" Grid.Column="1" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_VERTICAL_SPEED}" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_PITCH}" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="4" Grid.Column="1" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_GROUND_SPEED}" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_HEADING}" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="2" Grid.Column="4" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_ALTIMETER}" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="3" Grid.Column="4" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_ROLL}" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="4" Grid.Column="4" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_ALTITUDE}" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="5" Grid.Column="4" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_AIR_SPEED}" VerticalAlignment="Top"/>
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_VERTICAL_SPEED}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="2" Grid.Column="1" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_VERTICAL_SPEED}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="3" Grid.Column="1" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_GROUND_SPEED}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="4" Grid.Column="1" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_HEADING}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="1" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_ALTIMETER}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="2" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_ROLL}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="3" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_ALTITUDE}" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="4" Grid.Column="3" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VM_AIR_SPEED}" VerticalAlignment="Top"/>
-    </Grid>
+            <Button Grid.Row="2" Grid.Column="2" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VM_VERTICAL_SPEED_COLOR}" VerticalAlignment="Top"/>
+            <Button Grid.Row="3" Grid.Column="2" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VM_PITCH_COLOR}" VerticalAlignment="Top"/>
+            <Button Grid.Row="4" Grid.Column="2" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VM_GROUND_SPEED_COLOR}" VerticalAlignment="Top"/>
+            <Button Grid.Row="5" Grid.Column="2" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VM_HEADING_COLOR}" VerticalAlignment="Top"/>
+            <Button Grid.Row="2" Grid.Column="5" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VM_ALTIMETER_COLOR}" VerticalAlignment="Top"/>
+            <Button Grid.Row="3" Grid.Column="5" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VM_ROLL_COLOR}" VerticalAlignment="Top"/>
+            <Button Grid.Row="4" Grid.Column="5" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VM_ALTITUDE_COLOR}" VerticalAlignment="Top"/>
+            <Button Grid.Row="5" Grid.Column="5" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VM_AIR_SPEED_COLOR}" VerticalAlignment="Top"/>
+        </Grid>
     </Border>
 </UserControl>
