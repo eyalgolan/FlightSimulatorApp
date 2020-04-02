@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:FlightSimulatorApp"
         xmlns:view="clr-namespace:FlightSimulatorApp.Views"
         mc:Ignorable="d"
-        Title="Flight Simulator App" Height="550" Width="1000" ResizeMode="NoResize">
+        Title="Flight Simulator App" Height="720" Width="1280" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush>
             <ImageBrush.ImageSource>
@@ -16,9 +16,23 @@
         </ImageBrush>
     </Window.Background>
     <Grid>
-        <ContentControl x:Name="connectionControl" Margin="27,19,494,353">Connection</ContentControl>
-        <ContentControl x:Name="dashboardControl" Margin="525,0,0,322" >Dashboard</ContentControl>
-        <ContentControl x:Name="gearControl" Margin="696,239,31,35">Gear</ContentControl>
-        <ContentControl x:Name="mapControl" Margin="27,199,445,35">Map</ContentControl>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ContentControl x:Name="connectionControl" Grid.Column="1" Grid.Row="1">Connection</ContentControl>
+        <ContentControl x:Name="dashboardControl" Grid.Column="3" Grid.Row="1" >Dashboard</ContentControl>
+        <ContentControl x:Name="gearControl" Grid.Column="3" Grid.Row="3">Gear</ContentControl>
+        <ContentControl x:Name="mapControl" Grid.Column="1" Grid.Row="3">Map</ContentControl>
     </Grid>
 </Window>

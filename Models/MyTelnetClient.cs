@@ -37,7 +37,7 @@ namespace FlightSimulatorApp.Models
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                //Console.WriteLine(ex);
             }
         }
 
@@ -69,7 +69,7 @@ namespace FlightSimulatorApp.Models
                             catch (Exception ex)
                             {
                                 // eror 
-                                Console.WriteLine(ex);
+                                //Console.WriteLine(ex);
                             }
 
                             myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
@@ -89,7 +89,7 @@ namespace FlightSimulatorApp.Models
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    //Console.WriteLine(ex);
                     return null;
 
                 }
@@ -116,7 +116,7 @@ namespace FlightSimulatorApp.Models
                         catch (Exception ex)
                         {
                             // erorr
-                            Console.WriteLine(ex);
+                            //Console.WriteLine(ex);
                         }
                     }
                     else
@@ -126,7 +126,7 @@ namespace FlightSimulatorApp.Models
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
+                   //Console.WriteLine(ex);
 
                 }
 

@@ -157,10 +157,10 @@
                 </Canvas.LayoutTransform>
             </Canvas>
         </Canvas>
-        <Viewbox HorizontalAlignment="Left" Height="66" Margin="31,-58,0,0" VerticalAlignment="Top" Width="405">
+        <Viewbox HorizontalAlignment="Left" Height="66" Margin="274,-33,0,0" VerticalAlignment="Top" Width="405">
             <Slider Minimum="-1" Maximum="1" Value="0" Width="81" ValueChanged="Slider_ValueChanged_1"/>
         </Viewbox>
-        <Viewbox HorizontalAlignment="Left" Height="66" Margin="-165,120,0,0" VerticalAlignment="Top" Width="405" RenderTransformOrigin="0.5,0.5">
+        <Viewbox HorizontalAlignment="Left" Height="66" Margin="42,187,0,0" VerticalAlignment="Top" Width="405" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -171,7 +171,7 @@
             </Viewbox.RenderTransform>
             <Slider Minimum="-1" Maximum="1" Value="0" Width="81" ValueChanged="Slider_ValueChanged_2"/>
         </Viewbox>
-        <TextBox Background="Blue" HorizontalAlignment="Left" Height="46" Margin="-99,288,0,0" TextWrapping="Wrap" Text="Throttle" VerticalAlignment="Top" Width="156" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black"/>
-        <TextBox Background="Blue" HorizontalAlignment="Left" Height="46" Margin="-125,-52,0,0" TextWrapping="Wrap" Text="Aileron" VerticalAlignment="Top" Width="156" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black"/>
+        <TextBox Background="Blue" HorizontalAlignment="Left" Height="46" Margin="108,355,0,0" TextWrapping="Wrap" Text="Throttle" VerticalAlignment="Top" Width="156" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black"/>
+        <TextBox Background="Blue" HorizontalAlignment="Left" Height="46" Margin="129,-23,0,0" TextWrapping="Wrap" Text="Aileron" VerticalAlignment="Top" Width="156" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black"/>
     </Grid>
 </UserControl>

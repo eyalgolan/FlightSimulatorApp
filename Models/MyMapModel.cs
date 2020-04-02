@@ -95,7 +95,7 @@ namespace FlightSimulatorApp.Models
                     bool result = double.TryParse(testt, out i);
                     if (result)
                     {
-                        if ((i < 91) && (i > -91))
+                        if ((i <= 90) && (i >= -90))
                         {
                             latitude = testt;
                             oldlat = latitude;
@@ -115,7 +115,7 @@ namespace FlightSimulatorApp.Models
                      result = double.TryParse(testt, out i);
                     if (result)
                     {
-                        if ((i < 181) && (i > -181))
+                        if ((i <= 180) && (i >= -180))
                         {
                             Longitude = testt;
                             oldlong = Longitude;
