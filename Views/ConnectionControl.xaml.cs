@@ -28,7 +28,10 @@ namespace FlightSimulatorApp.Views
         {
             InitializeComponent();
             this.TCinstance = tc;
-            vmConnect = new ConnectionViewModel(new MyTelnetClient());
+            string ip = System.Configuration.ConfigurationManager.AppSettings["ip"];
+            int port = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port"]);
+            tc.connect(ip, port);
+            vmConnect = new ConnectionViewModel(this.TCinstance);
             this.DataContext = this.vmConnect;
         }
         // the connect button

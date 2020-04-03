@@ -110,7 +110,6 @@ namespace FlightSimulatorApp.Models
                         // eror
                     }
                     tc.write("get /position/longitude-deg \n");
-                    
                      testt = tc.read();
                      result = double.TryParse(testt, out i);
                     if (result)
