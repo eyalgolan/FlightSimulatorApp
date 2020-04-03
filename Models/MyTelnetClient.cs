@@ -6,16 +6,19 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace FlightSimulatorApp.Models
 {
     class MyTelnetClient : ITelnetClient
     {
-        TcpClient client;
-        IPEndPoint ep;
+        private TcpClient client;
+        private IPEndPoint ep;
         private static object lockReadWrite = new object();
-
+        private string isConnected;
+        private string connectionColor;
         private static MyTelnetClient instance = null;
+
         public static MyTelnetClient Instance
         {
             get
@@ -27,6 +30,17 @@ namespace FlightSimulatorApp.Models
                 return instance;
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(String propName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
+        }
+
         public void connect(string ip, int port)
         {
             try
@@ -34,16 +48,21 @@ namespace FlightSimulatorApp.Models
                 ep = new IPEndPoint(IPAddress.Parse(ip), port);
                 client = new TcpClient();
                 client.Connect(ep);
+                IsConnected = "Connected";
+                ConnectionColor = "Green";
             }
             catch (Exception ex)
             {
-                //Console.WriteLine(ex);
+                IsConnected = "Disconnected";
+                ConnectionColor = "Red";
             }
         }
 
         public void disconnect()
         {
             client.Close();
+            IsConnected = "Disconnected";
+            ConnectionColor = "Red";
         }
 
         public string read()
@@ -68,8 +87,8 @@ namespace FlightSimulatorApp.Models
                             }
                             catch (Exception ex)
                             {
-                                // eror 
-                                //Console.WriteLine(ex);
+                                IsConnected = "Disconnected";
+                                ConnectionColor = "Red";
                             }
 
                             myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
@@ -78,20 +97,23 @@ namespace FlightSimulatorApp.Models
                         // Print out the received message to the console.
                         Console.WriteLine("You received the following message : " +
                                                      myCompleteMessage);
+                        IsConnected = "Connected";
+                        ConnectionColor = "Green";
                         return myCompleteMessage.ToString();
 
                     }
                     else
                     {
-                        Console.WriteLine("Sorry.  You cannot read from this NetworkStream.");
+                        IsConnected = "Disconnected";
+                        ConnectionColor = "Red";
                         return null;
                     }
                 }
                 catch (Exception ex)
                 {
-                    //Console.WriteLine(ex);
+                    IsConnected = "Disconnected";
+                    ConnectionColor = "Red";
                     return null;
-
                 }
             }
         }
@@ -111,25 +133,55 @@ namespace FlightSimulatorApp.Models
                         {
                             byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
                             nwStream.Write(byteToSend, 0, byteToSend.Length);
+                            IsConnected = "Connected";
+                            ConnectionColor = "Green";
                             nwStream.Flush();
                         }
                         catch (Exception ex)
                         {
-                            // erorr
-                            //Console.WriteLine(ex);
+                            IsConnected = "Disconnected";
+                            ConnectionColor = "Red";
                         }
                     }
                     else
                     {
                         Console.WriteLine("Sorry.  You cannot write to this NetworkStream.");
+                        IsConnected = "Disconnected";
+                        ConnectionColor = "Red";
                     }
                 }
                 catch (Exception ex)
                 {
-                   //Console.WriteLine(ex);
+                    IsConnected = "Disconnected";
+                    ConnectionColor = "Red";
 
                 }
 
+            }
+        }
+
+        public String IsConnected
+        {
+            get
+            {
+                return this.isConnected;
+            }
+            set
+            {
+                this.isConnected = value;
+                NotifyPropertyChanged("IsConnected");
+            }
+        }
+        public String ConnectionColor
+        {
+            get
+            {
+                return this.connectionColor;
+            }
+            set
+            {
+                this.connectionColor = value;
+                NotifyPropertyChanged("ConnectionColor");
             }
         }
     }
