@@ -15,6 +15,7 @@ namespace FlightSimulatorApp.Models
         TcpClient client;
         IPEndPoint ep;
         private static object lockReadWrite = new object();
+        private bool connected;
         private string isConnected;
         private string connectionColor;
 
@@ -37,21 +38,19 @@ namespace FlightSimulatorApp.Models
                 ep = new IPEndPoint(IPAddress.Parse(ip), port);
                 client = new TcpClient();
                 client.Connect(ep);
-                IsConnected = "Connected";
-                ConnectionColor = "Green";
+                this.connected = true;
+                //updateConnectionStatus();
             }
             catch (Exception ex)
             {
-                IsConnected = "Disconnected";
-                ConnectionColor = "Red";
+                this.connected = false;
             }
         }
 
         public void disconnect()
         {
             client.Close();
-            IsConnected = "Disconnected";
-            ConnectionColor = "Red";
+            this.connected = false;
         }
 
         public string read()
@@ -174,6 +173,27 @@ namespace FlightSimulatorApp.Models
             {
                 this.connectionColor = value;
             }
+        }
+
+        public void updateConnectionStatus()
+        {
+            new Thread(delegate ()
+            {
+                while (true)
+                {
+                    if(this.connected)
+                    {
+                        IsConnected = "Connected";
+                        ConnectionColor = "Green";
+                    }
+                    else
+                    {
+                        IsConnected = "Disconnected";
+                        ConnectionColor = "Red";
+                    }
+                    Thread.Sleep(250);
+                }
+            }).Start();
         }
     }
 }
