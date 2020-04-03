@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:FlightSimulatorApp"
         xmlns:view="clr-namespace:FlightSimulatorApp.Views"
         mc:Ignorable="d"
-        Title="Flight Simulator App" Height="720" Width="1280" ResizeMode="NoResize">
+        Title="Flight Simulator App" Height="600" Width="1100" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush>
             <ImageBrush.ImageSource>
