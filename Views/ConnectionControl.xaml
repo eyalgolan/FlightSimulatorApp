@@ -11,6 +11,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -18,11 +19,13 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Padding="3" Margin="3">IP:</TextBlock>
-        <TextBox x:Name="txtIP" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=IP}"> </TextBox>
-        <TextBlock Grid.Row="1" Padding="3" Margin="3">Port:</TextBlock>
-        <TextBox x:Name="txtPort" Grid.Row="1" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=Port}"></TextBox>
-        <Button x:Name="btnConnect" Grid.Row="2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnConnect_Click" Margin="5" Padding="5">Connect</Button>
-        <Button x:Name="btnDisconnect" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnDisconnect_Click" Margin="5" Padding="5">Disconnect</Button>
+        <TextBlock Grid.Row="0" Padding="3" Margin="3">Status:</TextBlock>
+        <TextBlock x:Name="connectionStatus" Grid.Row="0" Grid.Column="2" Padding="3" Margin="3" Text="Connected" Foreground="Green"></TextBlock>
+        <TextBlock Grid.Row="1" Padding="3" Margin="3">IP:</TextBlock>
+        <TextBox x:Name="txtIP" Grid.Row="1" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=IP}"> </TextBox>
+        <TextBlock Grid.Row="2" Padding="3" Margin="3">Port:</TextBlock>
+        <TextBox x:Name="txtPort" Grid.Row="2" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=Port}"></TextBox>
+        <Button x:Name="btnConnect" Grid.Row="3" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnConnect_Click" Margin="5" Padding="5">Connect</Button>
+        <Button x:Name="btnDisconnect" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnDisconnect_Click" Margin="5" Padding="5">Disconnect</Button>
     </Grid>
 </UserControl>
