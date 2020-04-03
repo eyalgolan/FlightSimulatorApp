@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Padding="3" Margin="3">Status:</TextBlock>
-        <TextBlock x:Name="connectionStatus" Grid.Row="0" Grid.Column="2" Padding="3" Margin="3" Text="Connected" Foreground="Green"></TextBlock>
+        <TextBlock x:Name="connectionStatus" Grid.Row="0" Grid.Column="2" Padding="3" Margin="3" Text="{Binding VM_IsConnected}" Foreground="{Binding VM_ConnectionColor}"></TextBlock>
         <TextBlock Grid.Row="1" Padding="3" Margin="3">IP:</TextBlock>
         <TextBox x:Name="txtIP" Grid.Row="1" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=IP}"> </TextBox>
         <TextBlock Grid.Row="2" Padding="3" Margin="3">Port:</TextBlock>

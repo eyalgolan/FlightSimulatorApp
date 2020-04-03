@@ -6,14 +6,17 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace FlightSimulatorApp.Models
 {
-    class MyTelnetClient : ITelnetClient
+    class MyTelnetClient : ITelnetClient, ITelnetStatus
     {
         TcpClient client;
         IPEndPoint ep;
         private static object lockReadWrite = new object();
+        private string isConnected;
+        private string connectionColor;
 
         private static MyTelnetClient instance = null;
         public static MyTelnetClient Instance
@@ -34,16 +37,21 @@ namespace FlightSimulatorApp.Models
                 ep = new IPEndPoint(IPAddress.Parse(ip), port);
                 client = new TcpClient();
                 client.Connect(ep);
+                IsConnected = "Connected";
+                ConnectionColor = "Green";
             }
             catch (Exception ex)
             {
-                //Console.WriteLine(ex);
+                IsConnected = "Disconnected";
+                ConnectionColor = "Red";
             }
         }
 
         public void disconnect()
         {
             client.Close();
+            IsConnected = "Disconnected";
+            ConnectionColor = "Red";
         }
 
         public string read()
@@ -130,6 +138,41 @@ namespace FlightSimulatorApp.Models
 
                 }
 
+            }
+        }
+
+        //INotifyPropertyChanged implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(String propName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
+        }
+
+        public String IsConnected
+        {
+            get
+            {
+                return this.isConnected;
+            }
+            set
+            {
+                this.isConnected = value;
+            }
+        }
+
+        public String ConnectionColor
+        {
+            get
+            {
+                return this.connectionColor;
+            }
+            set
+            {
+                this.connectionColor = value;
             }
         }
     }

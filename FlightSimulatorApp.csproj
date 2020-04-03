@@ -65,6 +65,7 @@
     <Compile Include="Models\IGearModel.cs" />
     <Compile Include="Models\IMapModel.cs" />
     <Compile Include="Models\ITelnetClient.cs" />
+    <Compile Include="Models\ITelnetStatus.cs" />
     <Compile Include="Models\MyDashboardModel.cs" />
     <Compile Include="Models\MyGearModel.cs" />
     <Compile Include="Models\MyMapModel.cs" />

@@ -8,15 +8,21 @@ using FlightSimulatorApp.Models;
 
 namespace FlightSimulatorApp.ViewModels
 {
-    class ConnectionViewModel
+    class ConnectionViewModel : INotifyPropertyChanged
     {
         ITelnetClient model;
+        ITelnetStatus statusModel;
         private string ip;
         private int port;
 
-        public ConnectionViewModel(ITelnetClient model)
+        public ConnectionViewModel(ITelnetClient model, ITelnetStatus statusModel)
         {
             this.model = model;
+            this.statusModel = statusModel;
+            this.statusModel.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
+            {
+                NotifyPropertyChanged("VM_" + e.PropertyName);
+            };
         }
 
         public String IP
@@ -42,6 +48,24 @@ namespace FlightSimulatorApp.ViewModels
                 this.port = value;
             }
         }
+
+        public String VM_IsConnected
+        {
+            get
+            {
+                return this.statusModel.IsConnected;
+            }
+        }
+
+        public String VM_ConnectionColor
+        {
+            get
+            {
+                Console.WriteLine(this.statusModel.ConnectionColor);
+                return this.statusModel.ConnectionColor;
+            }
+        }
+
         public void connectToSimulator ()
         {
             Console.WriteLine(IP);
@@ -52,6 +76,15 @@ namespace FlightSimulatorApp.ViewModels
         public void disconnectSimulator()
         {
             model.disconnect();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void NotifyPropertyChanged(String propName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
         }
     }
 }

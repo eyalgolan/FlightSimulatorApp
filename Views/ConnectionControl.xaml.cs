@@ -24,11 +24,14 @@ namespace FlightSimulatorApp.Views
     {
         ConnectionViewModel vmConnect;
         ITelnetClient TCinstance;
+        ITelnetStatus TCstatus;
         public ConnectionControl(ITelnetClient tc)
         {
             InitializeComponent();
             this.TCinstance = tc;
-            vmConnect = new ConnectionViewModel(new MyTelnetClient());
+            this.TCstatus = (ITelnetStatus)tc;
+            tc.connect("127.0.0.1", 5402);
+            vmConnect = new ConnectionViewModel(this.TCinstance, this.TCstatus);
             this.DataContext = this.vmConnect;
         }
         // the connect button
