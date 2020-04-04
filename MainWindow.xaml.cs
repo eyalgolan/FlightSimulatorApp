@@ -1,19 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using FlightSimulatorApp.ViewModels;
-using FlightSimulatorApp.Models;
+﻿using System.Windows;
 using FlightSimulatorApp.Views;
 
 namespace FlightSimulatorApp
@@ -26,11 +11,16 @@ namespace FlightSimulatorApp
         public MainWindow()
         {
             InitializeComponent();
-            MyTelnetClient TCinstance = MyTelnetClient.Instance;
-            this.connectionControl.Content = new ConnectionControl(TCinstance);
-            this.mapControl.Content = new MapControl(TCinstance);
-            this.gearControl.Content = new GearControl(TCinstance);
-            this.dashboardControl.Content = new DashboardControl(TCinstance);
+
+            // Binding the views to their suitable view model.
+            this.connectionControl.DataContext = (Application.Current as App).connectVM;
+            this.connectionControl.setVM((Application.Current as App).connectVM);
+            this.gearControl.DataContext = (Application.Current as App).gearVM;
+            this.gearControl.setVM((Application.Current as App).gearVM);
+            this.dashboardControl.DataContext = (Application.Current as App).dashboardVM;
+            this.dashboardControl.setVM((Application.Current as App).dashboardVM);
+            this.mapControl.DataContext = (Application.Current as App).mapVM;
+            this.mapControl.setVM((Application.Current as App).mapVM);
         }
     }
 }

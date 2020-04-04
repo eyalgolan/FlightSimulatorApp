@@ -8,7 +8,7 @@ using Microsoft.Maps.MapControl.WPF;
 
 namespace FlightSimulatorApp.Models
 {
-    interface IMapModel : INotifyPropertyChanged
+    public interface IMapModel : INotifyPropertyChanged
     {
 
         //simulator properties

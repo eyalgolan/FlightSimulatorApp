@@ -8,7 +8,7 @@ using FlightSimulatorApp.Models;
 
 namespace FlightSimulatorApp.ViewModels
 {
-    class GearViewModel : INotifyPropertyChanged
+    public class GearViewModel : INotifyPropertyChanged
     {
         IGearModel model;
 

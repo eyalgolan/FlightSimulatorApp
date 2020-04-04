@@ -22,14 +22,15 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     public partial class MapControl : UserControl
     {
-        MapViewModel vmMap;
-        ITelnetClient TCinstance;
-        public MapControl(ITelnetClient tc)
+        private MapViewModel vmMap;
+        public MapControl()
         {
             InitializeComponent();
-            this.TCinstance = tc;
-            vmMap = new MapViewModel(new MyMapModel(TCinstance));
-            DataContext = vmMap;
+        }
+
+        public void setVM(MapViewModel map_VM)
+        {
+            this.vmMap = map_VM;
         }
     }
 }

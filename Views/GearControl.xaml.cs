@@ -1,24 +1,9 @@
 ﻿using FlightSimulatorApp.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using SimpleTCP;
-
-using System.Net;
-using System.Net.Sockets;
 using FlightSimulatorApp.ViewModels;
-using FlightSimulatorApp.Models;
 
 namespace FlightSimulatorApp.Views
 {
@@ -31,16 +16,17 @@ namespace FlightSimulatorApp.Views
         private double oldy = 0;
         private double rudder = 0;
         private double elevator = 0;
-        ITelnetClient TCinstance;
         GearViewModel vmGear;
 
         
-        public GearControl(ITelnetClient tc)
+        public GearControl()
         {
             InitializeComponent();
-            this.TCinstance = tc;
-            vmGear = new GearViewModel(new MyGearModel(TCinstance));
-            DataContext = vmGear;
+        }
+
+        public void setVM(GearViewModel gear_VM)
+        {
+            this.vmGear = gear_VM;
         }
 
         private void centerKnob_Completed(object sender, EventArgs e) { }

@@ -8,7 +8,7 @@ using FlightSimulatorApp.Models;
 
 namespace FlightSimulatorApp.ViewModels
 {
-    class ConnectionViewModel : INotifyPropertyChanged
+    public class ConnectionViewModel : INotifyPropertyChanged
     {
         ITelnetClient model;
         private string ip;
@@ -17,7 +17,11 @@ namespace FlightSimulatorApp.ViewModels
 
         public ConnectionViewModel(ITelnetClient model)
         {
+            string ip = System.Configuration.ConfigurationManager.AppSettings["ip"];
+            int port = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port"]);
+
             this.model = model;
+            this.model.connect(ip, port);
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
                 NotifyPropertyChanged("VM_" + e.PropertyName);

@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace FlightSimulatorApp.Models
 {
-    interface IDashboardModel : INotifyPropertyChanged
+    public interface IDashboardModel : INotifyPropertyChanged
     {
         string VERTICAL_SPEED { set; get; }
         string GROUND_SPEED { set; get; }

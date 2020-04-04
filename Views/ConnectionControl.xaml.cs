@@ -22,17 +22,18 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     public partial class ConnectionControl : UserControl
     {
-        ConnectionViewModel vmConnect;
-        ITelnetClient TCinstance;
-        public ConnectionControl(ITelnetClient tc)
+        private ConnectionViewModel vmConnect;
+        public ConnectionControl()
         {
             InitializeComponent();
-            this.TCinstance = tc;
-            string ip = System.Configuration.ConfigurationManager.AppSettings["ip"];
-            int port = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port"]);
-            tc.connect(ip, port);
-            vmConnect = new ConnectionViewModel(this.TCinstance);
-            this.DataContext = this.vmConnect;
+            //vmConnect = new ConnectionViewModel(this.TCinstance);
+            //this.DataContext = this.vmConnect;
+        }
+
+        // Setting the control board view model.
+        public void setVM(ConnectionViewModel connect_VM)
+        {
+            this.vmConnect = connect_VM;
         }
         // the connect button
         private void btnConnect_Click(object sender, RoutedEventArgs e)

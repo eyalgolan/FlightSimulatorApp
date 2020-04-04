@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace FlightSimulatorApp.Models
 {
-    interface IGearModel : INotifyPropertyChanged
+    public interface IGearModel : INotifyPropertyChanged
     {
         //commands
         void setAileron(double val);
