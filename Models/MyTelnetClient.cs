@@ -18,7 +18,6 @@ namespace FlightSimulatorApp.Models
         private string isConnected;
         private string connectionColor;
         private static MyTelnetClient instance = null;
-        private bool connectionStatus;
         public static MyTelnetClient Instance
         {
             get
@@ -50,13 +49,11 @@ namespace FlightSimulatorApp.Models
                 client.Connect(ep);
                 IsConnected = "Connected";
                 ConnectionColor = "Green";
-                connectionStatus = true;
             }
             catch (Exception ex)
             {
                 IsConnected = "Disconnected";
                 ConnectionColor = "Red";
-                connectionStatus = false;
             }
         }
 
@@ -65,7 +62,6 @@ namespace FlightSimulatorApp.Models
             client.Close();
             IsConnected = "Disconnected";
             ConnectionColor = "Red";
-            connectionStatus = false;
         }
 
         public string read()
@@ -92,7 +88,6 @@ namespace FlightSimulatorApp.Models
                             {
                                 IsConnected = "Disconnected";
                                 ConnectionColor = "Red";
-                                connectionStatus = false;
                             }
 
                             myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
@@ -103,7 +98,6 @@ namespace FlightSimulatorApp.Models
                                                      myCompleteMessage);
                         IsConnected = "Connected";
                         ConnectionColor = "Green";
-                        connectionStatus = true;
                         return myCompleteMessage.ToString();
 
                     }
@@ -111,7 +105,6 @@ namespace FlightSimulatorApp.Models
                     {
                         IsConnected = "Disconnected";
                         ConnectionColor = "Red";
-                        connectionStatus = false;
                         return null;
                     }
                 }
@@ -119,7 +112,6 @@ namespace FlightSimulatorApp.Models
                 {
                     IsConnected = "Disconnected";
                     ConnectionColor = "Red";
-                    connectionStatus = false;
                     return null;
                 }
             }
@@ -142,14 +134,12 @@ namespace FlightSimulatorApp.Models
                             nwStream.Write(byteToSend, 0, byteToSend.Length);
                             IsConnected = "Connected";
                             ConnectionColor = "Green";
-                            connectionStatus = true;
                             nwStream.Flush();
                         }
                         catch (Exception ex)
                         {
                             IsConnected = "Disconnected";
                             ConnectionColor = "Red";
-                            connectionStatus = false;
                         }
                     }
                     else
@@ -157,23 +147,16 @@ namespace FlightSimulatorApp.Models
                         Console.WriteLine("Sorry.  You cannot write to this NetworkStream.");
                         IsConnected = "Disconnected";
                         ConnectionColor = "Red";
-                        connectionStatus = false;
                     }
                 }
                 catch (Exception ex)
                 {
                     IsConnected = "Disconnected";
                     ConnectionColor = "Red";
-                    connectionStatus = false;
 
                 }
 
             }
-        }
-
-        public bool getConnectionStatus()
-        {
-            return this.connectionStatus;
         }
         public String IsConnected
         {
