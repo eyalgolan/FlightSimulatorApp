@@ -132,7 +132,7 @@ namespace FlightSimulatorApp.Models
                         else
                         {
                             latitude = oldlat;
-                            LatitudeError = "Bad atitude recieved, showing last correct atitude";
+                            LatitudeError = "Bad latitude recieved, showing last correct atitude";
                         }
                     }
                     else
