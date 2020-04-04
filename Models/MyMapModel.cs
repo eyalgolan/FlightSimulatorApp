@@ -90,14 +90,14 @@ namespace FlightSimulatorApp.Models
                 while (connect)
                 {
                     tc.write("get /position/latitude-deg \n");
-                    double i;
-                    string testt = tc.read();
-                    bool result = double.TryParse(testt, out i);
+                    double recivedLatitude;
+                    string serverInput = tc.read();
+                    bool result = double.TryParse(serverInput, out recivedLatitude);
                     if (result)
                     {
-                        if ((i <= 90) && (i >= -90))
+                        if ((recivedLatitude <= 90) && (recivedLatitude >= -90))
                         {
-                            latitude = testt;
+                            latitude = serverInput;
                             oldlat = latitude;
                         }
                         else
@@ -109,14 +109,15 @@ namespace FlightSimulatorApp.Models
                     {
                         // eror
                     }
+                    double recievedLongitude;
                     tc.write("get /position/longitude-deg \n");
-                     testt = tc.read();
-                     result = double.TryParse(testt, out i);
+                     serverInput = tc.read();
+                     result = double.TryParse(serverInput, out recievedLongitude);
                     if (result)
                     {
-                        if ((i <= 180) && (i >= -180))
+                        if ((recievedLongitude <= 180) && (recievedLongitude >= -180))
                         {
-                            Longitude = testt;
+                            Longitude = serverInput;
                             oldlong = Longitude;
                         }
                         Longitude = oldlong;
