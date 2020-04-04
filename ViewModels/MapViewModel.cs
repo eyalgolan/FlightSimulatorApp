@@ -37,7 +37,6 @@ namespace FlightSimulatorApp.ViewModels
         {
             get
             {
-                Console.WriteLine(this.newPath.ToString());
                 return this.newPath;
             }
             set
@@ -61,6 +60,20 @@ namespace FlightSimulatorApp.ViewModels
         public String VM_Longitude
         {
             get { return model.Longitude; }
+        }
+        public String VM_LatitudeError
+        {
+            get
+            {
+                return this.model.LatitudeError;
+            }
+        }
+        public String VM_LongitudeError
+        {
+            get
+            {
+                return this.model.LongitudeError;
+            }
         }
         public String VM_FlightData
         {

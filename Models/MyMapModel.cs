@@ -16,17 +16,20 @@ namespace FlightSimulatorApp.Models
         private string longitude;
         private String oldlat;
         private String oldlong;
-
+        private string latitudeError;
+        private string longitudeError;
         private string planeLocation;
         private bool connect;
 
         public MyMapModel(ITelnetClient tc)
         {
             this.tc = tc;
-            this.latitude = "0";
-            this.longitude = "0";
-            this.oldlat = "0";
-            this.oldlong = "0";
+            Latitude = "32.006833306";
+            Longitude = "34.885329792";
+            LatitudeError = "";
+            LongitudeError = "";
+            this.oldlat = Latitude;
+            this.oldlong = Longitude;
             this.connect = true;
             startReadingFlightData();
         }
@@ -45,6 +48,21 @@ namespace FlightSimulatorApp.Models
                 return latitude;
             }
         }
+        public String Longitude
+        {
+            set
+            {
+                if (longitude != value)
+                {
+                    longitude = value;
+                    NotifyPropertyChanged("Longitude");
+                }
+            }
+            get
+            {
+                return longitude;
+            }
+        }
         public String FlightData
         {
             set
@@ -60,19 +78,29 @@ namespace FlightSimulatorApp.Models
                 return planeLocation;
             }
         }
-        public String Longitude
+
+        public String LatitudeError
         {
-            set
-            {
-                if (longitude != value)
-                {
-                    longitude = value;
-                    NotifyPropertyChanged("Longitude");
-                }
-            }
             get
             {
-                return longitude;
+                return this.latitudeError;
+            }
+            set
+            {
+                this.latitudeError = value;
+                NotifyPropertyChanged("LatitudeError");
+            }
+        }
+        public String LongitudeError
+        {
+            get
+            {
+                return this.longitudeError;
+            }
+            set
+            {
+                this.longitudeError = value;
+                NotifyPropertyChanged("LongitudeError");
             }
         }
         public string getFlightLongitude()
@@ -99,10 +127,12 @@ namespace FlightSimulatorApp.Models
                         {
                             latitude = serverInput;
                             oldlat = latitude;
+                            LatitudeError = "";
                         }
                         else
                         {
                             latitude = oldlat;
+                            LatitudeError = "Bad atitude recieved, showing last correct atitude";
                         }
                     }
                     else
@@ -119,8 +149,13 @@ namespace FlightSimulatorApp.Models
                         {
                             Longitude = serverInput;
                             oldlong = Longitude;
+                            LongitudeError = "";
                         }
-                        Longitude = oldlong;
+                        else
+                        {
+                            Longitude = oldlong;
+                            LongitudeError = "Bad longitude recieved, showing last correct longitude";
+                        }
                     }
                     else
                     {

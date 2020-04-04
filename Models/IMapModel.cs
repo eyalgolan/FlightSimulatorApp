@@ -10,11 +10,12 @@ namespace FlightSimulatorApp.Models
 {
     public interface IMapModel : INotifyPropertyChanged
     {
-
         //simulator properties
         String FlightData { set; get; }
         String Latitude { set; get; }
         String Longitude { set; get; }
+        String LatitudeError { set; get; }
+        String LongitudeError { set; get; }
         void startReadingFlightData();
         string getFlightLongitude();
         string getFlightLatitude();

@@ -10,7 +10,15 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
-        <m:Map x:Name="myMap" CredentialsProvider="wODYhlg5E4W43cGPzbz6~G9etnc0U37RPqBbKVH4EoQ~Am5_uZLrU4c5qVEjG2cjsoVUgLEhMobCmnTfag1Ggv87dOgF4W7O8TRBfYj6vUty" Mode="Aerial" Center="32.006833306, 34.885329792"  ZoomLevel="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <m:Map x:Name="myMap" Grid.Row="0" Grid.ColumnSpan="2" CredentialsProvider="wODYhlg5E4W43cGPzbz6~G9etnc0U37RPqBbKVH4EoQ~Am5_uZLrU4c5qVEjG2cjsoVUgLEhMobCmnTfag1Ggv87dOgF4W7O8TRBfYj6vUty" Mode="Aerial" Center="32.006833306, 34.885329792"  ZoomLevel="8">
             <m:Map.Resources>
                 <Style TargetType="m:Pushpin" x:Key="PlaneStyle">
                     <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -36,5 +44,7 @@
             <m:Pushpin Name="Plane" Style="{StaticResource PlaneStyle}" Location="{Binding VM_FlightData}"/>
             <m:MapPolyline Name="planePath" Locations="{Binding VM_PlanePath}" Stroke="Blue" StrokeThickness="5" Opacity="0.7"></m:MapPolyline>
         </m:Map>
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding VM_LatitudeError}" Foreground="Red" FontSize="11"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding VM_LongitudeError}" Foreground="Red" FontSize="11"></TextBlock>
     </Grid>
 </UserControl>

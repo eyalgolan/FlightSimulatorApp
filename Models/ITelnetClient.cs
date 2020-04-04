@@ -14,6 +14,7 @@ namespace FlightSimulatorApp.Models
         string read(); // blocking call
         void disconnect();
 
+        bool getConnectionStatus();
         String IsConnected { get; set; }
         String ConnectionColor { get; set; }
     }
