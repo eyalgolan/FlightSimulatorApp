@@ -48,7 +48,7 @@ namespace FlightSimulatorApp.Models
                 client = new TcpClient();
                 client.Connect(ep);
                 IsConnected = "Connected";
-                ConnectionColor = "Blue";
+                ConnectionColor = "Green";
             }
             catch (Exception ex)
             {
@@ -87,7 +87,7 @@ namespace FlightSimulatorApp.Models
                             }
                             catch (Exception ex)
                             {
-                                IsConnected = "Disconnected";
+                                IsConnected = "problem to read slow server";
                                 ConnectionColor = "Red";
                             }
 
@@ -98,7 +98,7 @@ namespace FlightSimulatorApp.Models
                         Console.WriteLine("You received the following message : " +
                                                      myCompleteMessage);
                         IsConnected = "Connected";
-                        ConnectionColor = "Blue";
+                        ConnectionColor = "Green";
                         return myCompleteMessage.ToString();
 
                     }
@@ -134,7 +134,7 @@ namespace FlightSimulatorApp.Models
                             byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
                             nwStream.Write(byteToSend, 0, byteToSend.Length);
                             IsConnected = "Connected";
-                            ConnectionColor = "Blue";
+                            ConnectionColor = "Green";
                             nwStream.Flush();
                         }
                         catch (Exception ex)
