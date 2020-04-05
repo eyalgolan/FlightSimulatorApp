@@ -8,8 +8,11 @@ using FlightSimulatorApp.Models;
 
 namespace FlightSimulatorApp.ViewModels
 {
+    
     public class GearViewModel : INotifyPropertyChanged
     {
+        private double mvrudder;
+        private double mvelvetor;
         IGearModel model;
 
         public GearViewModel(IGearModel model)
@@ -24,6 +27,30 @@ namespace FlightSimulatorApp.ViewModels
         {
             model.sendGearData(elevator, rudder);
             
+        }
+        public double vm_rudder
+        {
+            get
+            {
+                return mvrudder;
+            }
+            set
+            {
+                mvrudder = value;
+                model.Rudder = value;
+            }
+        }
+        public double vm_elevator
+        {
+            get
+            {
+                return mvelvetor;
+            }
+            set
+            {
+                mvelvetor = value;
+                model.Elevator = value;
+            }
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(String propName)
@@ -43,5 +70,6 @@ namespace FlightSimulatorApp.ViewModels
         {
             model.troutlechange(newValue);
         }
+
     }
 }

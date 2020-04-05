@@ -7,7 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <local:Joysticksmall x:Name="gearControl" Grid.Column="3" Grid.Row="3"></local:Joysticksmall>
+        <local:Joysticksmall x:Name="gearControl" Grid.Column="3" Grid.Row="3" 
+                             xpoint="{Binding vm_rudder,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
+                             ypoint="{Binding vm_elevator,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
+
+                             ></local:Joysticksmall>
         <local:sliders x:Name="sliders" Grid.Column="3" Grid.Row="3"></local:sliders>
 
     </Grid>

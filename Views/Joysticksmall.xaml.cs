@@ -40,7 +40,7 @@ namespace FlightSimulatorApp.Views
 
         // Using a DependencyProperty as the backing store for ypoint.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ypointProperty =
-            DependencyProperty.Register("ypoint", typeof(double), typeof(Joysticksmall), new PropertyMetadata(0));
+            DependencyProperty.Register("ypoint", typeof(double), typeof(Joysticksmall));
 
 
 
@@ -52,7 +52,7 @@ namespace FlightSimulatorApp.Views
 
         // Using a DependencyProperty as the backing store for xpoint.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty xpointProperty =
-            DependencyProperty.Register("xpoint", typeof(double), typeof(Joysticksmall), new PropertyMetadata(0));
+            DependencyProperty.Register("xpoint", typeof(double), typeof(Joysticksmall));
 
 
 

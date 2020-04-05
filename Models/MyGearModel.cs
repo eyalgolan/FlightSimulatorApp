@@ -12,6 +12,10 @@ namespace FlightSimulatorApp.Models
 
         ITelnetClient tc;
         private string flightData;
+        private double throttle;
+        private double rudder;
+        private double elevator;
+        private double aileron;
         public String FlightData
         {
             set
@@ -20,6 +24,56 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("FlightData");
             }
             get { return FlightData; }
+        }
+
+        public double Throttle
+        {
+            get { return throttle; }
+            set
+            {
+                setThrottle(value);
+                this.throttle = value;
+                NotifyPropertyChanged("throttle");
+            }
+        }
+        public double Rudder
+        {
+            get { return rudder; }
+            set
+            {
+                setRudder(value);
+                this.rudder = value;
+                NotifyPropertyChanged("rudder");
+
+            }
+        }
+        public double Elevator
+        {
+            get
+            {
+                return elevator;
+            }
+            set
+            {
+                setElevator(value);
+                this.elevator = value;
+                NotifyPropertyChanged("elevator");
+
+            }
+        }
+        public double Aileron
+        {
+            get
+            {
+                return aileron;
+            }
+            set
+            {
+                setAileron(value);
+                this.aileron = value;
+                NotifyPropertyChanged("aileron");
+
+            }
         }
 
         public MyGearModel(ITelnetClient tc)

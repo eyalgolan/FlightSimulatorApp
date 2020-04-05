@@ -33,29 +33,11 @@ namespace FlightSimulatorApp.Views
         private Point fpoint = new Point();
 
 
-        public void  movecomand( )
-        {
-            
-           
-            vmGear.moveGear(elevator, rudder);
-        }
+      
 
-        private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            vmGear.airlonchange(e.NewValue);
-        }
+   
+        
 
-        private void Slider_ValueChanged_2(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            vmGear.thurtelchange(e.NewValue);
-
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
       
     }

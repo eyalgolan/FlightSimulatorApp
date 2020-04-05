@@ -17,5 +17,9 @@ namespace FlightSimulatorApp.Models
         void sendGearData(double elevator, double rudder);
         void aircjange(double newValue);
         void troutlechange(double newValue);
+        double Throttle { set; get; }
+        double Rudder { set; get; }
+        double Aileron { set; get; }
+        double Elevator { set; get; }
     }
 }
