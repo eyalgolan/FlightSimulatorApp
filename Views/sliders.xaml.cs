@@ -23,7 +23,6 @@ namespace FlightSimulatorApp.Views
     public partial class sliders : UserControl
     {
         GearViewModel vmGear;
-
         public sliders()
         {
             InitializeComponent();
@@ -31,19 +30,47 @@ namespace FlightSimulatorApp.Views
 
         private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            vmGear.airlonchange(e.NewValue);
+            sliderone = e.NewValue;
+          //  vmGear.airlonchange(e.NewValue);
 
         }
 
         private void Slider_ValueChanged_2(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            vmGear.thurtelchange(e.NewValue);
+            slidertwo = e.NewValue;
+            // vmGear.thurtelchange(e.NewValue);
 
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+
+
+        public double sliderone
+        {
+            get { return (double)GetValue(slideroneProperty); }
+            set { SetValue(slideroneProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for sliderone.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty slideroneProperty =
+            DependencyProperty.Register("sliderone", typeof(double), typeof(sliders));
+
+
+        public double slidertwo
+        {
+            get { return (double)GetValue(slidertwoProperty); }
+            set { SetValue(slidertwoProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for slidertwo.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty slidertwoProperty =
+            DependencyProperty.Register("slidertwo", typeof(double), typeof(sliders));
+
+
+
     }
+    
 
 }

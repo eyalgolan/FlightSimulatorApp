@@ -10,9 +10,13 @@
         <local:Joysticksmall x:Name="gearControl" Grid.Column="3" Grid.Row="3" 
                              xpoint="{Binding vm_rudder,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
                              ypoint="{Binding vm_elevator,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
-
+                             
                              ></local:Joysticksmall>
-        <local:sliders x:Name="sliders" Grid.Column="3" Grid.Row="3"></local:sliders>
+        
+        <local:sliders x:Name="sliders" Grid.Column="3" Grid.Row="3"
+                                               sliderone="{Binding vm_aileron,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
+                       slidertwo="{Binding vm_throttle,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
+                       ></local:sliders>
 
     </Grid>
 </UserControl>

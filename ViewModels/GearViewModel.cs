@@ -13,6 +13,9 @@ namespace FlightSimulatorApp.ViewModels
     {
         private double mvrudder;
         private double mvelvetor;
+        private double mvaileron;
+        private double mvthrottle;
+
         IGearModel model;
 
         public GearViewModel(IGearModel model)
@@ -50,6 +53,30 @@ namespace FlightSimulatorApp.ViewModels
             {
                 mvelvetor = value;
                 model.Elevator = value;
+            }
+        }
+        public double vm_throttle
+        {
+            get
+            {
+                return mvthrottle;
+            }
+            set
+            {
+                mvthrottle = value;
+                model.Throttle = value;
+            }
+        }
+        public double vm_aileron
+        {
+            get
+            {
+                return mvaileron;
+            }
+            set
+            {
+                mvaileron = value;
+                model.Aileron = value;
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

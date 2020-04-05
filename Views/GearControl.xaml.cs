@@ -13,8 +13,7 @@ namespace FlightSimulatorApp.Views
     public partial class GearControl : UserControl
     {
         
-        private double rudder = 0;
-        private double elevator = 0;
+        
         GearViewModel vmGear;
 
         
