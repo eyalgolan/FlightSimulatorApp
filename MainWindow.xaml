@@ -32,7 +32,7 @@
 
         <Views:ConnectionControl x:Name="connectionControl" Grid.Column="1" Grid.Row="1"></Views:ConnectionControl>
         <Views:DashboardControl x:Name="dashboardControl" Grid.Column="3" Grid.Row="1" ></Views:DashboardControl>
-        <Views:GearControl x:Name="gearControl" Grid.Column="3" Grid.Row="3"></Views:GearControl>
+        <Views:Joysticksmall x:Name="gearControl" Grid.Column="3" Grid.Row="3"></Views:Joysticksmall>
         <Views:MapControl x:Name="mapControl" Grid.Column="1" Grid.Row="3"></Views:MapControl>
         
     </Grid>

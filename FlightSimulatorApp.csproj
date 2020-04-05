@@ -83,8 +83,15 @@
     <Compile Include="Views\GearControl.xaml.cs">
       <DependentUpon>GearControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Joysticksmall.xaml.cs">
+      <DependentUpon>Joysticksmall.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MapControl.xaml.cs">
       <DependentUpon>MapControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\propdp.cs" />
+    <Compile Include="Views\sliders.xaml.cs">
+      <DependentUpon>sliders.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -110,7 +117,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Joysticksmall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MapControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\sliders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
