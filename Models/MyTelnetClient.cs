@@ -48,7 +48,7 @@ namespace FlightSimulatorApp.Models
                 client = new TcpClient();
                 client.Connect(ep);
                 IsConnected = "Connected";
-                ConnectionColor = "Green";
+                ConnectionColor = "Blue";
             }
             catch (Exception ex)
             {
@@ -74,7 +74,6 @@ namespace FlightSimulatorApp.Models
                     NetworkStream myNetworkStream = client.GetStream();
                     if (myNetworkStream.CanRead)
                     {
-
                         byte[] myReadBuffer = new byte[1024];
                         StringBuilder myCompleteMessage = new StringBuilder();
                         int numberOfBytesRead = 0;
@@ -82,6 +81,8 @@ namespace FlightSimulatorApp.Models
                         {
                             try
                             {
+                                client.ReceiveTimeout = 10000;
+
                                 numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
                             }
                             catch (Exception ex)
@@ -97,7 +98,7 @@ namespace FlightSimulatorApp.Models
                         Console.WriteLine("You received the following message : " +
                                                      myCompleteMessage);
                         IsConnected = "Connected";
-                        ConnectionColor = "Green";
+                        ConnectionColor = "Blue";
                         return myCompleteMessage.ToString();
 
                     }
@@ -133,7 +134,7 @@ namespace FlightSimulatorApp.Models
                             byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
                             nwStream.Write(byteToSend, 0, byteToSend.Length);
                             IsConnected = "Connected";
-                            ConnectionColor = "Green";
+                            ConnectionColor = "Blue";
                             nwStream.Flush();
                         }
                         catch (Exception ex)
