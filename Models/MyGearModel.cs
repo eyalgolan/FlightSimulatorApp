@@ -41,6 +41,9 @@ namespace FlightSimulatorApp.Models
             get { return rudder; }
             set
             {
+                Console.WriteLine("dddddddddddddddddddddddddddddddddd");
+                Console.WriteLine(value);
+
                 setRudder(value);
                 this.rudder = value;
                 NotifyPropertyChanged("rudder");

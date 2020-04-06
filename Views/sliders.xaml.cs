@@ -27,17 +27,36 @@ namespace FlightSimulatorApp.Views
         {
             InitializeComponent();
         }
+        public double firstslider
+        {
+            get { return (double)GetValue(firstsliderProperty); }
+            set { SetValue(firstsliderProperty, value); }
+        }
 
+        // Using a DependencyProperty as the backing store for sliderone.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty firstsliderProperty =
+            DependencyProperty.Register("firstslider", typeof(double), typeof(sliders));
+
+
+        public double secondslider
+        {
+            get { return (double)GetValue(secondsliderProperty); }
+            set { SetValue(secondsliderProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for slidertwo.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty secondsliderProperty =
+            DependencyProperty.Register("secondslider", typeof(double), typeof(sliders));
         private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            sliderone = e.NewValue;
+            firstslider = e.NewValue;
           //  vmGear.airlonchange(e.NewValue);
 
         }
 
         private void Slider_ValueChanged_2(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            slidertwo = e.NewValue;
+            secondslider = e.NewValue;
             // vmGear.thurtelchange(e.NewValue);
 
         }
@@ -47,26 +66,7 @@ namespace FlightSimulatorApp.Views
         }
 
 
-        public double sliderone
-        {
-            get { return (double)GetValue(slideroneProperty); }
-            set { SetValue(slideroneProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for sliderone.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty slideroneProperty =
-            DependencyProperty.Register("sliderone", typeof(double), typeof(sliders));
-
-
-        public double slidertwo
-        {
-            get { return (double)GetValue(slidertwoProperty); }
-            set { SetValue(slidertwoProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for slidertwo.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty slidertwoProperty =
-            DependencyProperty.Register("slidertwo", typeof(double), typeof(sliders));
+       
 
 
 

@@ -39,6 +39,7 @@ namespace FlightSimulatorApp.ViewModels
             }
             set
             {
+                
                 mvrudder = value;
                 model.Rudder = value;
             }
@@ -51,6 +52,7 @@ namespace FlightSimulatorApp.ViewModels
             }
             set
             {
+                
                 mvelvetor = value;
                 model.Elevator = value;
             }
@@ -63,6 +65,8 @@ namespace FlightSimulatorApp.ViewModels
             }
             set
             {
+              
+
                 mvthrottle = value;
                 model.Throttle = value;
             }

@@ -130,6 +130,7 @@ namespace FlightSimulatorApp.Models
                     {
                         try
                         {
+                            Console.WriteLine(command);
                             byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
                             nwStream.Write(byteToSend, 0, byteToSend.Length);
                             IsConnected = "Connected";

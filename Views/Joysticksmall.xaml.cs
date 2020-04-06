@@ -53,7 +53,7 @@ namespace FlightSimulatorApp.Views
         // Using a DependencyProperty as the backing store for xpoint.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty xpointProperty =
             DependencyProperty.Register("xpoint", typeof(double), typeof(Joysticksmall));
-
+        
 
 
         public Joysticksmall()
@@ -94,10 +94,10 @@ namespace FlightSimulatorApp.Views
                     knobPosition.Y = y;
                     oldx = knobPosition.X;
                     oldy = knobPosition.Y;
-                    rudder = oldx / 59;
-                    elevator = -oldy / 59;
-                    xpoint = oldx;
-                    ypoint = oldy;
+                    rudder = oldx / 60;
+                    elevator = -oldy / 60;
+                    xpoint = rudder;
+                    ypoint = elevator;
 
 
                 }
@@ -106,10 +106,10 @@ namespace FlightSimulatorApp.Views
 
                     knobPosition.X = oldx;
                     knobPosition.Y = oldy;
-                    rudder = oldx / 59;
-                    elevator = -oldy / 59;
-                    xpoint = oldx;
-                    ypoint = oldy;
+                    rudder = oldx / 60;
+                    elevator = -oldy / 60;
+                    xpoint = rudder;
+                    ypoint = elevator;
 
                 }
 
@@ -121,10 +121,10 @@ namespace FlightSimulatorApp.Views
 
                 knobPosition.X = 0;
                 knobPosition.Y = 0;
-                rudder = oldx / 59;
-                elevator = -oldy / 59;
-                xpoint = oldx;
-                ypoint = oldy;
+                rudder = oldx / 60;
+                elevator = -oldy / 60;
+                xpoint = rudder;
+                ypoint = elevator;
 
             }
 
@@ -135,8 +135,8 @@ namespace FlightSimulatorApp.Views
             knobPosition.Y = 0;
             rudder = oldx / 60;
             elevator = -oldy / 60;
-            xpoint = oldx;
-            ypoint = oldy;
+            xpoint = rudder;
+            ypoint = elevator;
 
         }
         public Point getposition()
