@@ -1,5 +1,4 @@
-﻿using FlightSimulatorApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,28 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace FlightSimulatorApp.Views
 {
     /// <summary>
-    /// Interaction logic for sliders.xaml
+    /// Interaction logic for ThrottleSlider.xaml
     /// </summary>
-    public partial class sliders : UserControl
+    public partial class ThrottleSlider : UserControl
     {
-        public sliders()
+        public ThrottleSlider()
         {
             InitializeComponent();
         }
-        public double firstslider
-        {
-            get { return (double)GetValue(firstsliderProperty); }
-            set { SetValue(firstsliderProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for sliderone.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty firstsliderProperty =
-            DependencyProperty.Register("firstslider", typeof(double), typeof(sliders));
-
 
         public double secondslider
         {
@@ -45,13 +33,7 @@ namespace FlightSimulatorApp.Views
 
         // Using a DependencyProperty as the backing store for slidertwo.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty secondsliderProperty =
-            DependencyProperty.Register("secondslider", typeof(double), typeof(sliders));
-        private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            firstslider = e.NewValue;
-          //  vmGear.airlonchange(e.NewValue);
-
-        }
+            DependencyProperty.Register("secondslider", typeof(double), typeof(ThrottleSlider));
 
         private void Slider_ValueChanged_2(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -63,13 +45,5 @@ namespace FlightSimulatorApp.Views
         {
 
         }
-
-
-       
-
-
-
     }
-    
-
 }

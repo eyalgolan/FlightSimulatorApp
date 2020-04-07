@@ -5,18 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulatorApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="370" d:DesignWidth="600">
     <Grid>
-        <local:Joysticksmall x:Name="gearControl" Grid.Column="3" Grid.Row="3" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="760"/>
+        </Grid.ColumnDefinitions>
+        <local:Joysticksmall x:Name="gearControl"
                              xpoint="{Binding Rudder,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
-                             ypoint="{Binding Elevator,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
-                             
-                             ></local:Joysticksmall>
-        
-        <local:sliders x:Name="sliders" Grid.Column="3" Grid.Row="3"
-                                               firstslider ="{Binding Aileron,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
-                       secondslider="{Binding Throttle,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}"
-                       ></local:sliders>
+                             ypoint="{Binding Elevator,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}" Margin="140,1,280,83" Grid.Row="2"/>
+
+        <local:AileronSlider x:Name="AileronSlider" Grid.Row="0"
+                       firstslider ="{Binding Aileron,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}">
+        </local:AileronSlider>
+        <local:ThrottleSlider x:Name="ThrottleSlider"
+                       secondslider="{Binding Throttle,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},UpdateSourceTrigger=Propertychanged,Mode=TwoWay}" Margin="0,48,160,0" Grid.RowSpan="3"/>
 
     </Grid>
 </UserControl>

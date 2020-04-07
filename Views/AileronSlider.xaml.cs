@@ -1,5 +1,4 @@
-﻿using FlightSimulatorApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,15 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace FlightSimulatorApp.Views
 {
     /// <summary>
-    /// Interaction logic for sliders.xaml
+    /// Interaction logic for AileronSlider.xaml
     /// </summary>
-    public partial class sliders : UserControl
+    public partial class AileronSlider : UserControl
     {
-        public sliders()
+        public AileronSlider()
         {
             InitializeComponent();
         }
@@ -34,42 +32,18 @@ namespace FlightSimulatorApp.Views
 
         // Using a DependencyProperty as the backing store for sliderone.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty firstsliderProperty =
-            DependencyProperty.Register("firstslider", typeof(double), typeof(sliders));
+            DependencyProperty.Register("firstslider", typeof(double), typeof(AileronSlider));
 
-
-        public double secondslider
-        {
-            get { return (double)GetValue(secondsliderProperty); }
-            set { SetValue(secondsliderProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for slidertwo.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty secondsliderProperty =
-            DependencyProperty.Register("secondslider", typeof(double), typeof(sliders));
         private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             firstslider = e.NewValue;
-          //  vmGear.airlonchange(e.NewValue);
+            //  vmGear.airlonchange(e.NewValue);
 
         }
 
-        private void Slider_ValueChanged_2(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            secondslider = e.NewValue;
-            // vmGear.thurtelchange(e.NewValue);
-
-        }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-
-
-       
-
-
-
     }
-    
-
 }
