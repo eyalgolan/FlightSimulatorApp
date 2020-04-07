@@ -12,10 +12,18 @@
                     <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
                     <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform/>
+                    <TranslateTransform X="25" Y="-20"/>
                 </TransformGroup>
             </Canvas.RenderTransform>
-            <Ellipse HorizontalAlignment="Left" Height="340" VerticalAlignment="Top" Width="340">
+            <Ellipse HorizontalAlignment="Left" Height="340" VerticalAlignment="Top" Width="340" RenderTransformOrigin="1,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="25" Y="-20"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
                 <Ellipse.Fill>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF2C2A2A" Offset="1" />
@@ -23,7 +31,15 @@
                     </RadialGradientBrush>
                 </Ellipse.Fill>
             </Ellipse>
-            <Ellipse HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="170" Canvas.Left="84" Canvas.Top="84">
+            <Ellipse HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="170" Canvas.Left="84" Canvas.Top="84" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="25" Y="-20"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
                 <Ellipse.Fill>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF0E0E0E" Offset="1" />
@@ -32,25 +48,43 @@
                     </RadialGradientBrush>
                 </Ellipse.Fill>
             </Ellipse>
-            <Path Data="M205.75,65.625 L226.875,47.25 L248.5,65.625 z" Fill="#FF575757" HorizontalAlignment="Left" Height="18.375" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="42.75" Canvas.Left="147.875" Canvas.Top="37.625" />
+            <Path Data="M205.75,65.625 L226.875,47.25 L248.5,65.625 z" Fill="#FF575757" HorizontalAlignment="Left" Height="18.375" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="42.75" Canvas.Left="147.875" Canvas.Top="37.625" RenderTransformOrigin="0.5,0.5" >
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="25" Y="-20"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
             <Path Data="M205.75,65.625 L226.875,47.25 L248.5,65.625 z" Fill="#FF575757" HorizontalAlignment="Left" Height="18.375" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="42.75" RenderTransformOrigin="0.5,0.5" Canvas.Left="147.875" Canvas.Top="284.125">
                 <Path.RenderTransform>
-                    <ScaleTransform ScaleY="-1" />
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="25" Y="-20"/>
+                    </TransformGroup>
                 </Path.RenderTransform>
             </Path>
             <Path Data="M205.75,65.625 L226.875,47.25 L248.5,65.625 z" Fill="#FF575757" HorizontalAlignment="Left" Height="18.375" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="42.75" RenderTransformOrigin="0.5,0.5" Canvas.Left="270.875" Canvas.Top="162.125">
                 <Path.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform ScaleY="-1" ScaleX="-1" />
-                        <RotateTransform Angle="-90" />
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform X="25" Y="-20"/>
                     </TransformGroup>
                 </Path.RenderTransform>
             </Path>
             <Path Data="M205.75,65.625 L226.875,47.25 L248.5,65.625 z"  Fill="#FF575757" HorizontalAlignment="Left" Height="18.375" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="42.75" RenderTransformOrigin="0.5,0.5" Canvas.Left="24.375" Canvas.Top="163.625">
                 <Path.RenderTransform>
                     <TransformGroup>
-                        <RotateTransform Angle="90" />
-                        <ScaleTransform ScaleX="-1" />
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform X="25" Y="-20"/>
                     </TransformGroup>
                 </Path.RenderTransform>
             </Path>
@@ -58,6 +92,14 @@
             <Canvas  x:Name="Knob" VerticalAlignment="Top" HorizontalAlignment="Left" Width="0" Height="0" RenderTransformOrigin="0.5,0.5" Canvas.Left="125" Canvas.Top="125" MouseDown="Knob_MouseDown" MouseUp="Knob_MouseUp" MouseMove="Knob_MouseMove" MouseLeave="Knob_Mouseleave">
                 <!--<Ellipse x:Name="Shadow" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="86" Fill="#52131212" Canvas.Left="22" Canvas.Top="18" />-->
                 <Ellipse x:Name="KnobBase" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.5,0.5" Canvas.Top="1">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="25" Y="-20"/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
                     <Ellipse.Fill>
                         <RadialGradientBrush>
                             <GradientStop Color="#FF8A8A8A" />
@@ -74,9 +116,10 @@
                     </Ellipse.Fill>
                     <Ellipse.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="-28.434" />
-                            <SkewTransform AngleX="-2.144" />
-                            <TranslateTransform X="-1.199" Y="0.649" />
+                            <ScaleTransform ScaleY="0.9847503581747642" ScaleX="1.0154857946469815"/>
+                            <SkewTransform AngleY="-1.2058382012238411"/>
+                            <RotateTransform Angle="-26.749374009356966"/>
+                            <TranslateTransform X="25" Y="-20"/>
                         </TransformGroup>
                     </Ellipse.RenderTransform>
                 </Ellipse>
@@ -90,8 +133,10 @@
                     </Ellipse.Fill>
                     <Ellipse.RenderTransform>
                         <TransformGroup>
-                            <SkewTransform CenterX="3" CenterY="-4" />
-                            <RotateTransform Angle="-.7628" />
+                            <ScaleTransform ScaleY="0.99999999999999989" ScaleX="0.99999999999999989"/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.7628"/>
+                            <TranslateTransform X="25" Y="-20"/>
                         </TransformGroup>
                     </Ellipse.RenderTransform>
                 </Ellipse>
@@ -103,12 +148,22 @@
                         </RadialGradientBrush>
                     </Ellipse.Fill>
                     <Ellipse.RenderTransform>
-                        <RotateTransform Angle="-31.733"></RotateTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-31.733000000000004"/>
+                            <TranslateTransform X="25" Y="-20"/>
+                        </TransformGroup>
                     </Ellipse.RenderTransform>
                 </Ellipse>
                 <Ellipse HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="39" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Canvas.Left="14.001" Canvas.Top="11.001">
                     <Ellipse.RenderTransform>
-                        <SkewTransform CenterX="-8"></SkewTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="25" Y="-20"/>
+                        </TransformGroup>
                     </Ellipse.RenderTransform>
                     <Ellipse.Fill>
                         <RadialGradientBrush>
@@ -118,7 +173,16 @@
                         </RadialGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Path Data="M9.74935,11.916 L13.084,15.166 L12.1668,16.833 L11.3333,18.583 L10.4999,20.416 L9.24961,20.833 L6.99967,20.583 L6.75,18.333 L7.66697,15.333 L8.75037,12.916 z M3.6672,9.74999 L7.084,10.083 L5.75037,12.25 L4.66704,14 L4.33365,16.583 L4.25036,18.75 L4.41695,20.5 L0,20.166 L0.16699,16.916 L1.16693,13.833 L2.50016,11.583 z M18.1671,6.33301 L21.167,6.33301 L21.667,8.5 L20.75,9.75 L18.5841,10.833 L15.8337,13 L12.584,8.83301 L15.2502,7 z M20.917,0 L20.917,3.16601 L18.1674,2.99999 L15.8337,3.583 L13.5837,4.833 L11.3337,5.99999 L10.5003,6.416 L8.584,3.833 L11.0842,2.41601 L13.3341,0.833006 L16.417,0.166016 z" Fill="#99EEEEEE" HorizontalAlignment="Left" Height="20.833" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="21.667" Canvas.Left="18.166" Canvas.Top="15.917" />
+                <Path Data="M9.74935,11.916 L13.084,15.166 L12.1668,16.833 L11.3333,18.583 L10.4999,20.416 L9.24961,20.833 L6.99967,20.583 L6.75,18.333 L7.66697,15.333 L8.75037,12.916 z M3.6672,9.74999 L7.084,10.083 L5.75037,12.25 L4.66704,14 L4.33365,16.583 L4.25036,18.75 L4.41695,20.5 L0,20.166 L0.16699,16.916 L1.16693,13.833 L2.50016,11.583 z M18.1671,6.33301 L21.167,6.33301 L21.667,8.5 L20.75,9.75 L18.5841,10.833 L15.8337,13 L12.584,8.83301 L15.2502,7 z M20.917,0 L20.917,3.16601 L18.1674,2.99999 L15.8337,3.583 L13.5837,4.833 L11.3337,5.99999 L10.5003,6.416 L8.584,3.833 L11.0842,2.41601 L13.3341,0.833006 L16.417,0.166016 z" Fill="#99EEEEEE" HorizontalAlignment="Left" Height="20.833" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="21.667" Canvas.Left="18.166" Canvas.Top="15.917" RenderTransformOrigin="0.5,0.5" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="25" Y="-20"/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
 
                 <Canvas.RenderTransform>
                     <TranslateTransform x:Name="knobPosition" />

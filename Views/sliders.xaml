@@ -13,13 +13,21 @@
             <ColumnDefinition Width="46*"/>
             <ColumnDefinition Width="306*"/>
         </Grid.ColumnDefinitions>
-        <Viewbox HorizontalAlignment="Left" Height="66" Margin="124.333,-95,0,0" VerticalAlignment="Top" Width="405" Grid.ColumnSpan="3" Grid.Column="1">
-            <Slider Minimum="-1" Maximum="1" Value="0" Width="81" ValueChanged="Slider_ValueChanged_1" RenderTransformOrigin="1.833,1.833"/>
-        </Viewbox>
-        <Viewbox HorizontalAlignment="Left" Height="66" Margin="-54,46,0,0" VerticalAlignment="Top" Width="405" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+        <Viewbox HorizontalAlignment="Left" Height="66" Margin="76.333,-66,0,0" VerticalAlignment="Top" Width="405" Grid.ColumnSpan="3" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Viewbox.RenderTransform>
+            <Slider Minimum="-1" Maximum="1" Value="0" Width="81" ValueChanged="Slider_ValueChanged_1" RenderTransformOrigin="1.833,1.833"/>
+        </Viewbox>
+        <Viewbox HorizontalAlignment="Left" Height="66" Margin="-46,85,0,0" VerticalAlignment="Top" Width="405" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Viewbox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
                     <SkewTransform/>
                     <RotateTransform Angle="-90.559"/>
                     <TranslateTransform/>
@@ -36,7 +44,25 @@
                 </Slider.RenderTransform>
             </Slider>
         </Viewbox>
-        <TextBox Background="Blue" HorizontalAlignment="Left" Height="46" Margin="24,184,0,0" TextWrapping="Wrap" Text="Throttle" VerticalAlignment="Top" Width="156" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black" Grid.ColumnSpan="2"/>
-        <TextBox Background="Blue" HorizontalAlignment="Left" Height="46" Margin="31,-89,0,0" TextWrapping="Wrap" Text="Aileron" VerticalAlignment="Top" Width="156" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black" Grid.ColumnSpan="2"/>
+        <TextBox Background="Blue" HorizontalAlignment="Left" Height="48" Margin="31,195,0,0" TextWrapping="Wrap" Text="Throttle" VerticalAlignment="Top" Width="160" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox Background="Blue" HorizontalAlignment="Left" Height="46" Margin="33,-59,0,0" TextWrapping="Wrap" Text="Aileron" VerticalAlignment="Top" Width="156" TextChanged="TextBox_TextChanged" FontSize="36" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.6" ScaleY="0.6"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
     </Grid>
 </UserControl>
