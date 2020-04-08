@@ -78,16 +78,19 @@ namespace FlightSimulatorApp.Models
                         byte[] myReadBuffer = new byte[1024];
                         StringBuilder myCompleteMessage = new StringBuilder();
                         int numberOfBytesRead = 0;
+
                         do
                         {
                             try
                             {
+                                client.ReceiveTimeout = 10000;
+
                                 numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
                             }
                             catch (Exception ex)
                             {
-                                IsConnected = "Disconnected";
-                                ConnectionColor = "Red";
+                                IsConnected = "Server timeout";
+                                ConnectionColor = "Yellow";
                             }
 
                             myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
