@@ -17,11 +17,11 @@ namespace FlightSimulatorApp.ViewModels
 
         public ConnectionViewModel(ITelnetClient model)
         {
-            string ip = System.Configuration.ConfigurationManager.AppSettings["ip"];
-            int port = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port"]);
+            IP = System.Configuration.ConfigurationManager.AppSettings["ip"];
+            Port = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port"]);
 
             this.model = model;
-            this.model.connect(ip, port);
+            //this.model.connect(this.ip, this.port);
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
                 NotifyPropertyChanged("VM_" + e.PropertyName);
