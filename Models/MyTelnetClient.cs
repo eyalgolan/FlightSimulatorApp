@@ -93,9 +93,6 @@ namespace FlightSimulatorApp.Models
                             myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
                         }
                         while (myNetworkStream.DataAvailable);
-                        // Print out the received message to the console.
-                        Console.WriteLine("You received the following message : " +
-                                                     myCompleteMessage);
                         IsConnected = "Connected";
                         ConnectionColor = "Green";
                         return myCompleteMessage.ToString();
@@ -110,6 +107,7 @@ namespace FlightSimulatorApp.Models
                 }
                 catch (Exception ex)
                 {
+                    
                     IsConnected = "Disconnected";
                     ConnectionColor = "Red";
                     return null;
@@ -130,7 +128,6 @@ namespace FlightSimulatorApp.Models
                     {
                         try
                         {
-                            Console.WriteLine(command);
                             byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
                             nwStream.Write(byteToSend, 0, byteToSend.Length);
                             IsConnected = "Connected";
@@ -145,7 +142,6 @@ namespace FlightSimulatorApp.Models
                     }
                     else
                     {
-                        Console.WriteLine("Sorry.  You cannot write to this NetworkStream.");
                         IsConnected = "Disconnected";
                         ConnectionColor = "Red";
                     }

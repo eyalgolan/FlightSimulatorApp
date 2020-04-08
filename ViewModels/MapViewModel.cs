@@ -79,8 +79,6 @@ namespace FlightSimulatorApp.ViewModels
         {
             get 
             {
-                Console.WriteLine("VM_Latitude is " + VM_Latitude);
-                Console.WriteLine("VM_Longitude is " + VM_Longitude);
                 VM_NewPath = new Location(Convert.ToDouble(VM_Latitude),Convert.ToDouble(VM_Longitude));
                 return model.FlightData; 
             }

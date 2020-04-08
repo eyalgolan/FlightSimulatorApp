@@ -78,8 +78,6 @@ namespace FlightSimulatorApp.ViewModels
         }
         public void connectToSimulator ()
         {
-            Console.WriteLine(IP);
-            Console.WriteLine(Port);
             model.connect(IP, Port);
   
         }

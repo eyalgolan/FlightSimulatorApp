@@ -41,9 +41,6 @@ namespace FlightSimulatorApp.Models
             get { return rudder; }
             set
             {
-                Console.WriteLine("dddddddddddddddddddddddddddddddddd");
-                Console.WriteLine(value);
-
                 setRudder(value);
                 this.rudder = value;
                 NotifyPropertyChanged("rudder");
@@ -95,27 +92,13 @@ namespace FlightSimulatorApp.Models
         }
         public void setElevator(double val)
         {
-            Console.WriteLine("what are we sond value of the joystic ");
-            Console.WriteLine(val);
-
-
             tc.write("set /controls/flight/elevator" + " " + val + "\n");
             string test2 = tc.read();
-           
-
-
         }
         public void setRudder(double val)
         {
-            Console.WriteLine("what are we sond value of the joystic ");
-            Console.WriteLine(val);
-
             tc.write("set /controls/flight/rudder" + " " + val + "\n");
             string test1 = tc.read();
-
-
-
-
         }
 
         public void setThrottle(double val)
@@ -127,7 +110,6 @@ namespace FlightSimulatorApp.Models
         }
         public void sendGearData(double elevator, double rudder)
         {
-
             setRudder(rudder);
             setElevator(elevator);
         }
