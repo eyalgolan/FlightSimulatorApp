@@ -39,10 +39,20 @@ namespace FlightSimulatorApp.Views
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
             vmConnect.connectToSimulator();
+            if(String.Equals(vmConnect.VM_IsConnected, "Connected"))
+            {
+                btnConnect.IsEnabled = false;
+                btnDisconnect.IsEnabled = true;
+            }
         }
         private void btnDisconnect_Click(object sender, RoutedEventArgs e)
         {
             vmConnect.disconnectSimulator();
+            if (String.Equals(vmConnect.VM_IsConnected, "Disconnected"))
+            {
+                btnConnect.IsEnabled = true;
+                btnDisconnect.IsEnabled = false;
+            }
         }
     }
 }
