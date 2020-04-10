@@ -31,9 +31,13 @@ namespace FlightSimulatorApp.Models
             get { return throttle; }
             set
             {
-                setThrottle(value);
-                this.throttle = value;
-                NotifyPropertyChanged("throttle");
+                if (tc.areconected())
+                {
+
+                    setThrottle(value);
+                    this.throttle = value;
+                    NotifyPropertyChanged("throttle");
+                }
             }
         }
         public double Rudder
@@ -41,9 +45,13 @@ namespace FlightSimulatorApp.Models
             get { return rudder; }
             set
             {
-                setRudder(value);
-                this.rudder = value;
-                NotifyPropertyChanged("rudder");
+                if (tc.areconected())
+                {
+
+                    setRudder(value);
+                    this.rudder = value;
+                    NotifyPropertyChanged("rudder");
+                }
 
             }
         }
@@ -55,9 +63,13 @@ namespace FlightSimulatorApp.Models
             }
             set
             {
-                setElevator(value);
-                this.elevator = value;
-                NotifyPropertyChanged("elevator");
+                if (tc.areconected())
+                {
+
+                    setElevator(value);
+                    this.elevator = value;
+                    NotifyPropertyChanged("elevator");
+                }
 
             }
         }
@@ -69,10 +81,13 @@ namespace FlightSimulatorApp.Models
             }
             set
             {
-                setAileron(value);
-                this.aileron = value;
-                NotifyPropertyChanged("aileron");
+                if (tc.areconected())
+                {
 
+                    setAileron(value);
+                    this.aileron = value;
+                    NotifyPropertyChanged("aileron");
+                }
             }
         }
 
@@ -86,32 +101,49 @@ namespace FlightSimulatorApp.Models
         }
         public void setAileron(double val)
         {
-            tc.write("set /controls/flight/aileron"+" " + val+ "\n");
-            string test0 = tc.read();
+            if (tc.areconected())
+            {
+
+                tc.write("set /controls/flight/aileron" + " " + val + "\n");
+                string test0 = tc.read();
+            }
 
         }
         public void setElevator(double val)
         {
-            tc.write("set /controls/flight/elevator" + " " + val + "\n");
-            string test2 = tc.read();
+            if (tc.areconected())
+            {
+
+                tc.write("set /controls/flight/elevator" + " " + val + "\n");
+                string test2 = tc.read();
+            }
         }
         public void setRudder(double val)
         {
-            tc.write("set /controls/flight/rudder" + " " + val + "\n");
-            string test1 = tc.read();
+            if (tc.areconected())
+            {
+
+                tc.write("set /controls/flight/rudder" + " " + val + "\n");
+                string test1 = tc.read();
+            }
         }
 
         public void setThrottle(double val)
         {
+            if (tc.areconected())
+            {
 
-            tc.write("set /controls/engines/current-engine/throttle"+" " + val+"\n");
-            string test3 = tc.read();
-
+                tc.write("set /controls/engines/current-engine/throttle" + " " + val + "\n");
+                string test3 = tc.read();
+            }
         }
         public void sendGearData(double elevator, double rudder)
         {
-            setRudder(rudder);
-            setElevator(elevator);
+            if (tc.areconected())
+            {
+                setRudder(rudder);
+                setElevator(elevator);
+            }
         }
 
         //INotifyPropertyChanged implementation
@@ -127,12 +159,18 @@ namespace FlightSimulatorApp.Models
 
         public void aircjange(double newValue)
         {
-            setAileron(newValue);
+            if (tc.areconected())
+            {
+                setAileron(newValue);
+            }
         }
 
         public void troutlechange(double newValue)
         {
-            setThrottle(newValue);
+            if (tc.areconected())
+            {
+                setThrottle(newValue);
+            }
         }
     }
 }

@@ -66,11 +66,15 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
-
+            Console.WriteLine("try read bedore lock ");
             lock (lockReadWrite)
             {
+                Console.WriteLine("try after bedore lock ");
+
                 try
                 {
+                    client.ReceiveTimeout = 10000;
+
                     NetworkStream myNetworkStream = client.GetStream();
                     if (myNetworkStream.CanRead)
                     {
@@ -111,8 +115,8 @@ namespace FlightSimulatorApp.Models
                 catch (Exception ex)
                 {
                     
-                    IsConnected = "Disconnected";
-                    ConnectionColor = "Red";
+                    IsConnected = "no/slow connaction";
+                    ConnectionColor = "Yellow";
                     return null;
                 }
             }
@@ -121,8 +125,12 @@ namespace FlightSimulatorApp.Models
 
         public void write(string command)
         {
+            Console.WriteLine("try write bedore lock ");
+
             lock (lockReadWrite)
             {
+                Console.WriteLine("try write after lock ");
+
                 try
                 {
                     NetworkStream nwStream = client.GetStream();
@@ -158,6 +166,16 @@ namespace FlightSimulatorApp.Models
 
             }
         }
+
+        public bool areconected()
+        {
+            if (this.IsConnected == "Connected")
+            {
+                return true;
+            }
+            else return false;
+        }
+
         public String IsConnected
         {
             get
