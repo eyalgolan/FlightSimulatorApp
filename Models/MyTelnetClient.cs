@@ -66,6 +66,7 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
+
             Console.WriteLine("try read bedore lock ");
             lock (lockReadWrite)
             {
