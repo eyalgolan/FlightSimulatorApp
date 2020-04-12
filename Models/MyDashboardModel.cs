@@ -250,17 +250,18 @@ namespace FlightSimulatorApp.Models
 
         public void startReadingFlightData()
         {
-            new Thread(delegate ()
+            new Thread(async delegate ()
             {
                 while (true)
                 {
                     tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
                     double i;
-                    string serverInput = tc.read().Result;
-                    bool result = double.TryParse(serverInput, out i);
+                    Task<string> get_vertical_sync = tc.read();
+                    string vertical_speed = await get_vertical_sync;
+                    bool result = double.TryParse(vertical_speed, out i);
                     if (result)
                     {
-                        VERTICAL_SPEED = serverInput;
+                        VERTICAL_SPEED = vertical_speed;
                         VERTICAL_SPEED_COLOR = "Green";
                     }
                     else
@@ -268,11 +269,12 @@ namespace FlightSimulatorApp.Models
                         VERTICAL_SPEED_COLOR = "Red";
                     }
                     tc.write("get /instrumentation/gps/indicated-ground-speed-kt \n");
-                    serverInput = tc.read().Result;
-                    result = double.TryParse(serverInput, out i);
+                    Task<string> get_ground_speed = tc.read();
+                    string ground_speed = await get_ground_speed;
+                    result = double.TryParse(ground_speed, out i);
                     if (result)
                     {
-                        GROUND_SPEED = serverInput;
+                        GROUND_SPEED = ground_speed;
                         GROUND_SPEED_COLOR = "Green";
                     }
                     else
@@ -280,11 +282,12 @@ namespace FlightSimulatorApp.Models
                         GROUND_SPEED_COLOR = "Red";
                     }
                     tc.write("get /instrumentation/heading-indicator/indicated-heading-deg \n");
-                    serverInput = tc.read().Result;
-                    result = double.TryParse(serverInput, out i);
+                    Task<string> get_heading = tc.read();
+                    string heading = await get_heading;
+                    result = double.TryParse(heading, out i);
                     if (result)
                     {
-                        HEADING = serverInput;
+                        HEADING = heading;
                         HEADING_COLOR = "Green";
                     }
                     else
@@ -292,11 +295,12 @@ namespace FlightSimulatorApp.Models
                         HEADING_COLOR = "Red";
                     }
                     tc.write("get /instrumentation/altimeter/indicated-altitude-ft \n");
-                    serverInput = tc.read().Result;
-                    result = double.TryParse(serverInput, out i);
+                    Task<string> get_altimeter = tc.read();
+                    string altimeter = await get_altimeter;
+                    result = double.TryParse(altimeter, out i);
                     if (result)
                     {
-                        ALTIMETER = serverInput;
+                        ALTIMETER = altimeter;
                         ALTIMETER_COLOR = "Green";
                     }
                     else
@@ -304,11 +308,12 @@ namespace FlightSimulatorApp.Models
                         ALTIMETER_COLOR = "Red";
                     }
                     tc.write("get /instrumentation/attitude-indicator/internal-pitch-deg \n");
-                    serverInput = tc.read().Result;
-                    result = double.TryParse(serverInput, out i);
+                    Task<string> get_pitch = tc.read();
+                    string pitch = await get_pitch;
+                    result = double.TryParse(pitch, out i);
                     if (result)
                     {
-                        PITCH = serverInput;
+                        PITCH = pitch;
                         PITCH_COLOR = "Green";
                     }
                     else
@@ -316,11 +321,12 @@ namespace FlightSimulatorApp.Models
                         PITCH_COLOR = "Red";
                     }
                     tc.write("get /instrumentation/attitude-indicator/internal-roll-deg \n");
-                    serverInput = tc.read().Result;
-                    result = double.TryParse(serverInput, out i);
+                    Task<string> get_roll = tc.read();
+                    string roll = await get_roll;
+                    result = double.TryParse(roll, out i);
                     if (result)
                     {
-                        ROLL = serverInput;
+                        ROLL = roll;
                         ROLL_COLOR = "Green";
                     }
                     else
@@ -328,11 +334,12 @@ namespace FlightSimulatorApp.Models
                         ROLL_COLOR = "Red";
                     }
                     tc.write("get /instrumentation/gps/indicated-altitude-ft \n");
-                    serverInput = tc.read().Result;
-                    result = double.TryParse(serverInput, out i);
+                    Task<string> get_altitude = tc.read();
+                    string altitude = await get_altitude;
+                    result = double.TryParse(altitude, out i);
                     if (result)
                     {
-                        ALTITUDE = serverInput;
+                        ALTITUDE = altitude;
                         ALTITUDE_COLOR = "Green";
                     }
                     else
@@ -340,11 +347,12 @@ namespace FlightSimulatorApp.Models
                         ALTITUDE_COLOR = "Red";
                     }
                     tc.write("get /instrumentation/airspeed-indicator/indicated-speed-kt \n");
-                    serverInput = tc.read().Result;
-                    result = double.TryParse(serverInput, out i);
+                    Task<string> get_air_speed = tc.read();
+                    string air_speed = await get_air_speed;
+                    result = double.TryParse(air_speed, out i);
                     if (result)
                     {
-                        AIR_SPEED = serverInput;
+                        AIR_SPEED = air_speed;
                         AIR_SPEED_COLOR = "Green";
                     }
                     else

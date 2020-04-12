@@ -115,21 +115,20 @@ namespace FlightSimulatorApp.Models
         }
         public void startReadingFlightData()
         {
-            new Thread(delegate ()
+            new Thread(async delegate ()
             {
                     while (true)
                     {
-                    this.isRecievingData = true;
                     tc.write("get /position/latitude-deg \n");
                     double recivedLatitude;
-                    string serverInput = tc.read().Result;
-                    this.isRecievingData = true;
-                    bool result = double.TryParse(serverInput, out recivedLatitude);
+                    Task<string> get_latitude = tc.read();
+                    string input_latitude = await get_latitude;
+                    bool result = double.TryParse(input_latitude, out recivedLatitude);
                     if (result)
                     {
                         if ((recivedLatitude <= 90) && (recivedLatitude >= -90))
                         {
-                            latitude = serverInput;
+                            latitude = input_latitude;
                             oldlat = latitude;
                             LatitudeError = "";
                         }
@@ -147,13 +146,14 @@ namespace FlightSimulatorApp.Models
                     }
                     double recievedLongitude;
                     tc.write("get /position/longitude-deg \n");
-                    serverInput = tc.read().Result;
-                    result = double.TryParse(serverInput, out recievedLongitude);
+                    Task<string> get_longtitude = tc.read();
+                    string input_longtitude = await get_longtitude;
+                    result = double.TryParse(input_longtitude, out recievedLongitude);
                     if (result)
                     {
                         if ((recievedLongitude <= 180) && (recievedLongitude >= -180))
                         {
-                            Longitude = serverInput;
+                            Longitude = input_longtitude;
                             oldlong = Longitude;
                             LongitudeError = "";
                         }

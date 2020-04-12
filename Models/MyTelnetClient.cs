@@ -72,51 +72,53 @@ namespace FlightSimulatorApp.Models
             //{
                 //Console.WriteLine("try after bedore lock ");
 
-                try
-                {
-               // client.ReceiveTimeout = 10000;
+            try
+            {
+            // client.ReceiveTimeout = 10000;
                 NetworkStream myNetworkStream = client.GetStream();
-                    if (myNetworkStream.CanRead)
-                    {
-
-                        byte[] myReadBuffer = new byte[1024];
-                        StringBuilder myCompleteMessage = new StringBuilder();
-                        int numberOfBytesRead = 0;
-                        do
-                        {
-                            try
-                            {
-                                client.ReceiveTimeout = 10000;
-                                numberOfBytesRead = await myNetworkStream.ReadAsync(myReadBuffer, 0, myReadBuffer.Length);
-                            }
-                            catch (Exception ex)
-                            {
-                                IsConnected = "Server timeout";
-                                ConnectionColor = "Yellow";
-                            }
-
-                            myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
-                        }
-                        while (myNetworkStream.DataAvailable);
-                        IsConnected = "Connected";
-                        ConnectionColor = "Green";
-                        return myCompleteMessage.ToString();
-
-                    }
-                    else
-                    {
-                        IsConnected = "Disconnected";
-                        ConnectionColor = "Red";
-                        return null;
-                    }
-                }
-                catch (Exception ex)
+                if (myNetworkStream.CanRead)
                 {
-                    
+
+                    byte[] myReadBuffer = new byte[1024];
+                    StringBuilder myCompleteMessage = new StringBuilder();
+                    int numberOfBytesRead = 0;
+                    do
+                    {
+                        try
+                        {
+                            client.ReceiveTimeout = 10000;
+                            // TODO: change to async
+                             numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
+                        }
+                        catch (Exception ex)
+                        {
+                            IsConnected = "Server timeout";
+                            ConnectionColor = "Yellow";
+                            break;
+                        }
+
+                        myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
+                    }
+                    while (myNetworkStream.DataAvailable);
+                    IsConnected = "Connected";
+                    ConnectionColor = "Green";
+                    return myCompleteMessage.ToString();
+
+                }
+                else
+                {
                     IsConnected = "Disconnected";
                     ConnectionColor = "Red";
                     return null;
                 }
+            }
+            catch (Exception ex)
+            {
+                    
+                IsConnected = "Disconnected";
+                ConnectionColor = "Red";
+                return null;
+            }
             //}
         }
 
