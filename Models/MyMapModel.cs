@@ -138,7 +138,9 @@ namespace FlightSimulatorApp.Models
                             }
                         }
                         else
+
                         {
+
                             // eror
                         }
                         double recievedLongitude;
