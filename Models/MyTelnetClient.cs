@@ -107,16 +107,15 @@ namespace FlightSimulatorApp.Models
                 }
                 else
                 {
-                    IsConnected = "Disconnected";
-                    ConnectionColor = "Red";
+                   
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                    
-                IsConnected = "Disconnected";
-                ConnectionColor = "Red";
+
+                IsConnected = "server readinig data problem";
+                ConnectionColor = "Yellow";
                 return null;
             }
             //}
