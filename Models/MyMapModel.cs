@@ -119,7 +119,7 @@ namespace FlightSimulatorApp.Models
             {
                     while (true)
                     {
-                    tc.write("get /position/latitude-deg \n");
+                    await tc.write("get /position/latitude-deg \n");
                     double recivedLatitude;
                     Task<string> get_latitude = tc.read();
                     string input_latitude = await get_latitude;
@@ -145,7 +145,7 @@ namespace FlightSimulatorApp.Models
                         // eror
                     }
                     double recievedLongitude;
-                    tc.write("get /position/longitude-deg \n");
+                    await tc.write("get /position/longitude-deg \n");
                     Task<string> get_longtitude = tc.read();
                     string input_longtitude = await get_longtitude;
                     result = double.TryParse(input_longtitude, out recievedLongitude);

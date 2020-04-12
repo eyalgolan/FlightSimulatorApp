@@ -254,7 +254,7 @@ namespace FlightSimulatorApp.Models
             {
                 while (true)
                 {
-                    tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
+                    await tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
                     double i;
                     Task<string> get_vertical_sync = tc.read();
                     string vertical_speed = await get_vertical_sync;
@@ -268,7 +268,7 @@ namespace FlightSimulatorApp.Models
                     {
                         VERTICAL_SPEED_COLOR = "Red";
                     }
-                    tc.write("get /instrumentation/gps/indicated-ground-speed-kt \n");
+                    await tc.write("get /instrumentation/gps/indicated-ground-speed-kt \n");
                     Task<string> get_ground_speed = tc.read();
                     string ground_speed = await get_ground_speed;
                     result = double.TryParse(ground_speed, out i);
@@ -281,7 +281,7 @@ namespace FlightSimulatorApp.Models
                     {
                         GROUND_SPEED_COLOR = "Red";
                     }
-                    tc.write("get /instrumentation/heading-indicator/indicated-heading-deg \n");
+                    await tc.write("get /instrumentation/heading-indicator/indicated-heading-deg \n");
                     Task<string> get_heading = tc.read();
                     string heading = await get_heading;
                     result = double.TryParse(heading, out i);
@@ -294,7 +294,7 @@ namespace FlightSimulatorApp.Models
                     {
                         HEADING_COLOR = "Red";
                     }
-                    tc.write("get /instrumentation/altimeter/indicated-altitude-ft \n");
+                    await tc.write("get /instrumentation/altimeter/indicated-altitude-ft \n");
                     Task<string> get_altimeter = tc.read();
                     string altimeter = await get_altimeter;
                     result = double.TryParse(altimeter, out i);
@@ -307,7 +307,7 @@ namespace FlightSimulatorApp.Models
                     {
                         ALTIMETER_COLOR = "Red";
                     }
-                    tc.write("get /instrumentation/attitude-indicator/internal-pitch-deg \n");
+                    await tc.write("get /instrumentation/attitude-indicator/internal-pitch-deg \n");
                     Task<string> get_pitch = tc.read();
                     string pitch = await get_pitch;
                     result = double.TryParse(pitch, out i);
@@ -320,7 +320,7 @@ namespace FlightSimulatorApp.Models
                     {
                         PITCH_COLOR = "Red";
                     }
-                    tc.write("get /instrumentation/attitude-indicator/internal-roll-deg \n");
+                    await tc.write("get /instrumentation/attitude-indicator/internal-roll-deg \n");
                     Task<string> get_roll = tc.read();
                     string roll = await get_roll;
                     result = double.TryParse(roll, out i);
@@ -333,7 +333,7 @@ namespace FlightSimulatorApp.Models
                     {
                         ROLL_COLOR = "Red";
                     }
-                    tc.write("get /instrumentation/gps/indicated-altitude-ft \n");
+                    await tc.write("get /instrumentation/gps/indicated-altitude-ft \n");
                     Task<string> get_altitude = tc.read();
                     string altitude = await get_altitude;
                     result = double.TryParse(altitude, out i);
@@ -346,7 +346,7 @@ namespace FlightSimulatorApp.Models
                     {
                         ALTITUDE_COLOR = "Red";
                     }
-                    tc.write("get /instrumentation/airspeed-indicator/indicated-speed-kt \n");
+                    await tc.write("get /instrumentation/airspeed-indicator/indicated-speed-kt \n");
                     Task<string> get_air_speed = tc.read();
                     string air_speed = await get_air_speed;
                     result = double.TryParse(air_speed, out i);
