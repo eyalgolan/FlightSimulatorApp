@@ -66,8 +66,12 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
+
+            Console.WriteLine("try read bedore lock ");
             lock (lockReadWrite)
             {
+                Console.WriteLine("try after bedore lock ");
+
                 try
                 {
                     //client.ReceiveTimeout = 10000;
@@ -79,13 +83,11 @@ namespace FlightSimulatorApp.Models
                         byte[] myReadBuffer = new byte[1024];
                         StringBuilder myCompleteMessage = new StringBuilder();
                         int numberOfBytesRead = 0;
-
                         do
                         {
                             try
                             {
-                                //client.ReceiveTimeout = 1;
-
+                                client.ReceiveTimeout = 10000;
                                 numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
                             }
                             catch (Exception ex)
@@ -120,7 +122,8 @@ namespace FlightSimulatorApp.Models
         }
 
 
-        public void write(string command) {
+        public void write(string command)
+        {
             //Console.WriteLine("try write bedore lock ");
 
             lock (lockReadWrite)
