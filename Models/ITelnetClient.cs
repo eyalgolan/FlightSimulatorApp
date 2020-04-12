@@ -16,5 +16,6 @@ namespace FlightSimulatorApp.Models
         String IsConnected { get; set; }
         bool areconected();
         String ConnectionColor { get; set; }
+
     }
 }

@@ -30,6 +30,7 @@ namespace FlightSimulatorApp.Models
 
         ITelnetClient tc;
         private bool connect;
+        private bool isRecievingData;
 
         public String VERTICAL_SPEED
         {
@@ -243,7 +244,8 @@ namespace FlightSimulatorApp.Models
         {
             this.tc = tc;
             this.connect = true;
-            startReadingFlightData();
+            this.isRecievingData = true;
+        startReadingFlightData();
         }
 
         public void startReadingFlightData()
@@ -252,12 +254,13 @@ namespace FlightSimulatorApp.Models
             {
                 while (true)
                 {
-                    while (tc.areconected())
+                    if(this.isRecievingData)
                     {
-
+                        this.isRecievingData = false;
                         tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
                         double i;
                         string serverInput = tc.read();
+                        this.isRecievingData = true;
                         bool result = double.TryParse(serverInput, out i);
                         if (result)
                         {
@@ -352,9 +355,8 @@ namespace FlightSimulatorApp.Models
                         {
                             AIR_SPEED_COLOR = "Red";
                         }
-
-                        Thread.Sleep(250);
                     }
+                    Thread.Sleep(250);
                 }
             }).Start();
         }

@@ -20,6 +20,7 @@ namespace FlightSimulatorApp.Models
         private string longitudeError;
         private string planeLocation;
         private bool connect;
+        private bool isRecievingData;
 
         public MyMapModel(ITelnetClient tc)
         {
@@ -31,6 +32,7 @@ namespace FlightSimulatorApp.Models
             this.oldlat = Latitude;
             this.oldlong = Longitude;
             this.connect = true;
+            this.isRecievingData = true;
             startReadingFlightData();
         }
         public String Latitude
@@ -115,13 +117,15 @@ namespace FlightSimulatorApp.Models
         {
             new Thread(delegate ()
             {
-                while (true)
-                {
-                    while (tc.areconected())
+                    while (true)
                     {
+                    if (this.isRecievingData)
+                    {
+                        this.isRecievingData = false;
                         tc.write("get /position/latitude-deg \n");
                         double recivedLatitude;
                         string serverInput = tc.read();
+                        this.isRecievingData = true;
                         bool result = double.TryParse(serverInput, out recivedLatitude);
                         if (result)
                         {
@@ -166,8 +170,12 @@ namespace FlightSimulatorApp.Models
                             // eror
                         }
                         FlightData = Latitude + "," + Longitude;
-                        Thread.Sleep(250);
                     }
+                    else
+                    {
+
+                    }
+                    Thread.Sleep(250);
                 }
             }).Start();
         }
