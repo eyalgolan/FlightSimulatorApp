@@ -67,10 +67,8 @@ namespace FlightSimulatorApp.Models
         public string read()
         {
 
-            Console.WriteLine("try read bedore lock ");
             lock (lockReadWrite)
             {
-                Console.WriteLine("try after bedore lock ");
 
                 try
                 {
@@ -126,11 +124,9 @@ namespace FlightSimulatorApp.Models
 
         public void write(string command)
         {
-            Console.WriteLine("try write bedore lock ");
 
             lock (lockReadWrite)
             {
-                Console.WriteLine("try write after lock ");
 
                 try
                 {
