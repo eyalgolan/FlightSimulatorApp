@@ -64,19 +64,18 @@ namespace FlightSimulatorApp.Models
             ConnectionColor = "Red";
         }
 
-        public string read()
+        public async Task<string> read()
         {
 
-            Console.WriteLine("try read bedore lock ");
-            lock (lockReadWrite)
-            {
-                Console.WriteLine("try after bedore lock ");
+            //Console.WriteLine("try read bedore lock ");
+            //lock (lockReadWrite)
+            //{
+                //Console.WriteLine("try after bedore lock ");
 
                 try
                 {
-                    //client.ReceiveTimeout = 10000;
-
-                    NetworkStream myNetworkStream = client.GetStream();
+               // client.ReceiveTimeout = 10000;
+                NetworkStream myNetworkStream = client.GetStream();
                     if (myNetworkStream.CanRead)
                     {
 
@@ -88,7 +87,7 @@ namespace FlightSimulatorApp.Models
                             try
                             {
                                 client.ReceiveTimeout = 10000;
-                                numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
+                                numberOfBytesRead = await myNetworkStream.ReadAsync(myReadBuffer, 0, myReadBuffer.Length);
                             }
                             catch (Exception ex)
                             {
@@ -114,20 +113,20 @@ namespace FlightSimulatorApp.Models
                 catch (Exception ex)
                 {
                     
-                    IsConnected = "no/slow connaction";
-                    ConnectionColor = "Yellow";
+                    IsConnected = "Disconnected";
+                    ConnectionColor = "Red";
                     return null;
                 }
-            }
+            //}
         }
 
 
-        public void write(string command)
+        public async Task write(string command)
         {
             //Console.WriteLine("try write bedore lock ");
 
-            lock (lockReadWrite)
-            {
+            //lock (lockReadWrite)
+            //{
                 //Console.WriteLine("try write after lock ");
 
                 try
@@ -139,7 +138,7 @@ namespace FlightSimulatorApp.Models
                         try
                         {
                             byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
-                            nwStream.Write(byteToSend, 0, byteToSend.Length);
+                            await nwStream.WriteAsync(byteToSend, 0, byteToSend.Length);
                             IsConnected = "Connected";
                             ConnectionColor = "Green";
                             nwStream.Flush();
@@ -163,7 +162,7 @@ namespace FlightSimulatorApp.Models
 
                 }
 
-            }
+            //}
         }
 
         public bool areconected()

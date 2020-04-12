@@ -119,62 +119,55 @@ namespace FlightSimulatorApp.Models
             {
                     while (true)
                     {
-                    if (this.isRecievingData)
+                    this.isRecievingData = true;
+                    tc.write("get /position/latitude-deg \n");
+                    double recivedLatitude;
+                    string serverInput = tc.read().Result;
+                    this.isRecievingData = true;
+                    bool result = double.TryParse(serverInput, out recivedLatitude);
+                    if (result)
                     {
-                        this.isRecievingData = false;
-                        tc.write("get /position/latitude-deg \n");
-                        double recivedLatitude;
-                        string serverInput = tc.read();
-                        this.isRecievingData = true;
-                        bool result = double.TryParse(serverInput, out recivedLatitude);
-                        if (result)
+                        if ((recivedLatitude <= 90) && (recivedLatitude >= -90))
                         {
-                            if ((recivedLatitude <= 90) && (recivedLatitude >= -90))
-                            {
-                                latitude = serverInput;
-                                oldlat = latitude;
-                                LatitudeError = "";
-                            }
-                            else
-                            {
-                                latitude = oldlat;
-                                LatitudeError = "Bad latitude recieved, showing last correct atitude";
-                            }
-                        }
-                        else
-
-                        {
-
-                            // eror
-                        }
-                        double recievedLongitude;
-                        tc.write("get /position/longitude-deg \n");
-                        serverInput = tc.read();
-                        result = double.TryParse(serverInput, out recievedLongitude);
-                        if (result)
-                        {
-                            if ((recievedLongitude <= 180) && (recievedLongitude >= -180))
-                            {
-                                Longitude = serverInput;
-                                oldlong = Longitude;
-                                LongitudeError = "";
-                            }
-                            else
-                            {
-                                Longitude = oldlong;
-                                LongitudeError = "Bad longitude recieved, showing last correct longitude";
-                            }
+                            latitude = serverInput;
+                            oldlat = latitude;
+                            LatitudeError = "";
                         }
                         else
                         {
-                            // eror
+                            latitude = oldlat;
+                            LatitudeError = "Bad latitude recieved, showing last correct atitude";
                         }
-                        FlightData = Latitude + "," + Longitude;
+                    }
+                    else
+
+                    {
+
+                        // eror
+                    }
+                    double recievedLongitude;
+                    tc.write("get /position/longitude-deg \n");
+                    serverInput = tc.read().Result;
+                    result = double.TryParse(serverInput, out recievedLongitude);
+                    if (result)
+                    {
+                        if ((recievedLongitude <= 180) && (recievedLongitude >= -180))
+                        {
+                            Longitude = serverInput;
+                            oldlong = Longitude;
+                            LongitudeError = "";
+                        }
+                        else
+                        {
+                            Longitude = oldlong;
+                            LongitudeError = "Bad longitude recieved, showing last correct longitude";
+                        }
                     }
                     else
                     {
-
+                        // eror
                     }
+                    FlightData = Latitude + "," + Longitude;
                     Thread.Sleep(250);
                 }
             }).Start();

@@ -105,7 +105,7 @@ namespace FlightSimulatorApp.Models
             {
 
                 tc.write("set /controls/flight/aileron" + " " + val + "\n");
-                string test0 = tc.read();
+                string test0 = tc.read().Result;
             }
 
         }
@@ -115,7 +115,7 @@ namespace FlightSimulatorApp.Models
             {
 
                 tc.write("set /controls/flight/elevator" + " " + val + "\n");
-                string test2 = tc.read();
+                string test2 = tc.read().Result;
             }
         }
         public void setRudder(double val)
@@ -124,7 +124,7 @@ namespace FlightSimulatorApp.Models
             {
 
                 tc.write("set /controls/flight/rudder" + " " + val + "\n");
-                string test1 = tc.read();
+                string test1 = tc.read().Result;
             }
         }
 
@@ -134,7 +134,7 @@ namespace FlightSimulatorApp.Models
             {
 
                 tc.write("set /controls/engines/current-engine/throttle" + " " + val + "\n");
-                string test3 = tc.read();
+                string test3 = tc.read().Result;
             }
         }
         public void sendGearData(double elevator, double rudder)

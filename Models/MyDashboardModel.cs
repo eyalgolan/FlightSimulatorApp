@@ -254,107 +254,102 @@ namespace FlightSimulatorApp.Models
             {
                 while (true)
                 {
-                    if(this.isRecievingData)
+                    tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
+                    double i;
+                    string serverInput = tc.read().Result;
+                    bool result = double.TryParse(serverInput, out i);
+                    if (result)
                     {
-                        this.isRecievingData = false;
-                        tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
-                        double i;
-                        string serverInput = tc.read();
-                        this.isRecievingData = true;
-                        bool result = double.TryParse(serverInput, out i);
-                        if (result)
-                        {
-                            VERTICAL_SPEED = serverInput;
-                            VERTICAL_SPEED_COLOR = "Green";
-                        }
-                        else
-                        {
-                            VERTICAL_SPEED_COLOR = "Red";
-                        }
-                        tc.write("get /instrumentation/gps/indicated-ground-speed-kt \n");
-                        serverInput = tc.read();
-                        result = double.TryParse(serverInput, out i);
-                        if (result)
-                        {
-                            GROUND_SPEED = serverInput;
-                            GROUND_SPEED_COLOR = "Green";
-                        }
-                        else
-                        {
-                            GROUND_SPEED_COLOR = "Red";
-                        }
-                        tc.write("get /instrumentation/heading-indicator/indicated-heading-deg \n");
-                        serverInput = tc.read();
-                        result = double.TryParse(serverInput, out i);
-                        if (result)
-                        {
-                            HEADING = serverInput;
-                            HEADING_COLOR = "Green";
-                        }
-                        else
-                        {
-                            HEADING_COLOR = "Red";
-                        }
-                        tc.write("get /instrumentation/altimeter/indicated-altitude-ft \n");
-                        serverInput = tc.read();
-                        result = double.TryParse(serverInput, out i);
-                        if (result)
-                        {
-                            ALTIMETER = serverInput;
-                            ALTIMETER_COLOR = "Green";
-                        }
-                        else
-                        {
-                            ALTIMETER_COLOR = "Red";
-                        }
-                        tc.write("get /instrumentation/attitude-indicator/internal-pitch-deg \n");
-                        serverInput = tc.read();
-                        result = double.TryParse(serverInput, out i);
-                        if (result)
-                        {
-                            PITCH = serverInput;
-                            PITCH_COLOR = "Green";
-                        }
-                        else
-                        {
-                            PITCH_COLOR = "Red";
-                        }
-                        tc.write("get /instrumentation/attitude-indicator/internal-roll-deg \n");
-                        serverInput = tc.read();
-                        result = double.TryParse(serverInput, out i);
-                        if (result)
-                        {
-                            ROLL = serverInput;
-                            ROLL_COLOR = "Green";
-                        }
-                        else
-                        {
-                            ROLL_COLOR = "Red";
-                        }
-                        tc.write("get /instrumentation/gps/indicated-altitude-ft \n");
-                        serverInput = tc.read();
-                        result = double.TryParse(serverInput, out i);
-                        if (result)
-                        {
-                            ALTITUDE = serverInput;
-                            ALTITUDE_COLOR = "Green";
-                        }
-                        else
-                        {
-                            ALTITUDE_COLOR = "Red";
-                        }
-                        tc.write("get /instrumentation/airspeed-indicator/indicated-speed-kt \n");
-                        serverInput = tc.read();
-                        result = double.TryParse(serverInput, out i);
-                        if (result)
-                        {
-                            AIR_SPEED = serverInput;
-                            AIR_SPEED_COLOR = "Green";
-                        }
-                        else
-                        {
-                            AIR_SPEED_COLOR = "Red";
-                        }
+                        VERTICAL_SPEED = serverInput;
+                        VERTICAL_SPEED_COLOR = "Green";
+                    }
+                    else
+                    {
+                        VERTICAL_SPEED_COLOR = "Red";
+                    }
+                    tc.write("get /instrumentation/gps/indicated-ground-speed-kt \n");
+                    serverInput = tc.read().Result;
+                    result = double.TryParse(serverInput, out i);
+                    if (result)
+                    {
+                        GROUND_SPEED = serverInput;
+                        GROUND_SPEED_COLOR = "Green";
+                    }
+                    else
+                    {
+                        GROUND_SPEED_COLOR = "Red";
+                    }
+                    tc.write("get /instrumentation/heading-indicator/indicated-heading-deg \n");
+                    serverInput = tc.read().Result;
+                    result = double.TryParse(serverInput, out i);
+                    if (result)
+                    {
+                        HEADING = serverInput;
+                        HEADING_COLOR = "Green";
+                    }
+                    else
+                    {
+                        HEADING_COLOR = "Red";
+                    }
+                    tc.write("get /instrumentation/altimeter/indicated-altitude-ft \n");
+                    serverInput = tc.read().Result;
+                    result = double.TryParse(serverInput, out i);
+                    if (result)
+                    {
+                        ALTIMETER = serverInput;
+                        ALTIMETER_COLOR = "Green";
+                    }
+                    else
+                    {
+                        ALTIMETER_COLOR = "Red";
+                    }
+                    tc.write("get /instrumentation/attitude-indicator/internal-pitch-deg \n");
+                    serverInput = tc.read().Result;
+                    result = double.TryParse(serverInput, out i);
+                    if (result)
+                    {
+                        PITCH = serverInput;
+                        PITCH_COLOR = "Green";
+                    }
+                    else
+                    {
+                        PITCH_COLOR = "Red";
+                    }
+                    tc.write("get /instrumentation/attitude-indicator/internal-roll-deg \n");
+                    serverInput = tc.read().Result;
+                    result = double.TryParse(serverInput, out i);
+                    if (result)
+                    {
+                        ROLL = serverInput;
+                        ROLL_COLOR = "Green";
+                    }
+                    else
+                    {
+                        ROLL_COLOR = "Red";
+                    }
+                    tc.write("get /instrumentation/gps/indicated-altitude-ft \n");
+                    serverInput = tc.read().Result;
+                    result = double.TryParse(serverInput, out i);
+                    if (result)
+                    {
+                        ALTITUDE = serverInput;
+                        ALTITUDE_COLOR = "Green";
+                    }
+                    else
+                    {
+                        ALTITUDE_COLOR = "Red";
+                    }
+                    tc.write("get /instrumentation/airspeed-indicator/indicated-speed-kt \n");
+                    serverInput = tc.read().Result;
+                    result = double.TryParse(serverInput, out i);
+                    if (result)
+                    {
+                        AIR_SPEED = serverInput;
+                        AIR_SPEED_COLOR = "Green";
+                    }
+                    else
+                    {
+                        AIR_SPEED_COLOR = "Red";
                     }
                     Thread.Sleep(250);
                 }
