@@ -138,6 +138,7 @@ namespace FlightSimulatorApp.Models
                         try
                         {
                             byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
+                            
                             await nwStream.WriteAsync(byteToSend, 0, byteToSend.Length);
                             IsConnected = "Connected";
                             ConnectionColor = "Green";

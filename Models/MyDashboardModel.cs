@@ -351,7 +351,6 @@ namespace FlightSimulatorApp.Models
                     {
                         AIR_SPEED_COLOR = "Red";
                     }
-                    Thread.Sleep(250);
                 }
             }).Start();
         }
