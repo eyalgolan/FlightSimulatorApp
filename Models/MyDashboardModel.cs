@@ -29,6 +29,7 @@ namespace FlightSimulatorApp.Models
         private string air_speed_color;
 
         ITelnetClient tc;
+        private bool connect;
 
         public String VERTICAL_SPEED
         {
@@ -241,6 +242,7 @@ namespace FlightSimulatorApp.Models
         public MyDashboardModel(ITelnetClient tc)
         {
             this.tc = tc;
+            this.connect = true;
             startReadingFlightData();
         }
 
@@ -250,7 +252,7 @@ namespace FlightSimulatorApp.Models
             {
                 while (true)
                 {
-                    if (String.Equals(tc.IsConnected, "Connected"))
+                    while (tc.areconected())
                     {
 
                         tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
@@ -350,19 +352,9 @@ namespace FlightSimulatorApp.Models
                         {
                             AIR_SPEED_COLOR = "Red";
                         }
+
+                        Thread.Sleep(250);
                     }
-                    else
-                    {
-                        VERTICAL_SPEED_COLOR = "Red";
-                        GROUND_SPEED_COLOR = "Red";
-                        HEADING_COLOR = "Red";
-                        ALTIMETER_COLOR = "Red";
-                        PITCH_COLOR = "Red";
-                        ROLL_COLOR = "Red";
-                        ALTITUDE_COLOR = "Red";
-                        AIR_SPEED_COLOR = "Red";
-                    }
-                    Thread.Sleep(250);
                 }
             }).Start();
         }

@@ -25,8 +25,6 @@ namespace FlightSimulatorApp.Models
                 if (instance == null)
                 {
                     instance = new MyTelnetClient();
-                    instance.IsConnected = "Discconected";
-                    instance.ConnectionColor = "Red";
                 }
                 return instance;
             }
@@ -52,7 +50,7 @@ namespace FlightSimulatorApp.Models
                 IsConnected = "Connected";
                 ConnectionColor = "Green";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 IsConnected = "Disconnected";
                 ConnectionColor = "Red";
@@ -68,14 +66,20 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
+
+            Console.WriteLine("try read bedore lock ");
             lock (lockReadWrite)
             {
+                Console.WriteLine("try after bedore lock ");
+
                 try
                 {
-                    NetworkStream myNetworkStream = client.GetStream();
+                    client.ReceiveTimeout = 10000;
 
+                    NetworkStream myNetworkStream = client.GetStream();
                     if (myNetworkStream.CanRead)
                     {
+
                         byte[] myReadBuffer = new byte[1024];
                         StringBuilder myCompleteMessage = new StringBuilder();
                         int numberOfBytesRead = 0;
@@ -87,11 +91,8 @@ namespace FlightSimulatorApp.Models
                                 client.ReceiveTimeout = 10000;
 
                                 numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
-
-                                IsConnected = "Connected";
-                                ConnectionColor = "Green";
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
                                 IsConnected = "Server timeout";
                                 ConnectionColor = "Yellow";
@@ -100,7 +101,10 @@ namespace FlightSimulatorApp.Models
                             myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
                         }
                         while (myNetworkStream.DataAvailable);
+                        IsConnected = "Connected";
+                        ConnectionColor = "Green";
                         return myCompleteMessage.ToString();
+
                     }
                     else
                     {
@@ -109,10 +113,11 @@ namespace FlightSimulatorApp.Models
                         return null;
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    IsConnected = "Disconnected";
-                    ConnectionColor = "Red";
+                    
+                    IsConnected = "no/slow connaction";
+                    ConnectionColor = "Yellow";
                     return null;
                 }
             }
@@ -121,22 +126,27 @@ namespace FlightSimulatorApp.Models
 
         public void write(string command)
         {
+            Console.WriteLine("try write bedore lock ");
+
             lock (lockReadWrite)
             {
+                Console.WriteLine("try write after lock ");
+
                 try
                 {
                     NetworkStream nwStream = client.GetStream();
+
                     if (nwStream.CanWrite)
                     {
                         try
                         {
                             byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
                             nwStream.Write(byteToSend, 0, byteToSend.Length);
-                            //IsConnected = "Connected";
-                            //ConnectionColor = "Green";
+                            IsConnected = "Connected";
+                            ConnectionColor = "Green";
                             nwStream.Flush();
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
                             IsConnected = "Disconnected";
                             ConnectionColor = "Red";
@@ -148,12 +158,23 @@ namespace FlightSimulatorApp.Models
                         ConnectionColor = "Red";
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     IsConnected = "Disconnected";
                     ConnectionColor = "Red";
+
                 }
+
             }
+        }
+
+        public bool areconected()
+        {
+            if (this.IsConnected == "Connected")
+            {
+                return true;
+            }
+            else return false;
         }
 
         public String IsConnected

@@ -103,13 +103,21 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("LongitudeError");
             }
         }
+        public string getFlightLongitude()
+        {
+            return longitude;
+        }
+        public string getFlightLatitude()
+        {
+            return latitude;
+        }
         public void startReadingFlightData()
         {
             new Thread(delegate ()
             {
                 while (true)
                 {
-                    if (String.Equals(tc.IsConnected, "Connected"))
+                    while (tc.areconected())
                     {
                         tc.write("get /position/latitude-deg \n");
                         double recivedLatitude;
