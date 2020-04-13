@@ -36,8 +36,8 @@ namespace FlightSimulatorApp
             mapVM = new MapViewModel(mapModel);
 
             // Gear part
-            gearVM = new GearViewModel();
-            IGearModel gearModel = new MyGearModel(TCinstance, gearVM);
+            IGearModel gearModel = new MyGearModel(TCinstance);
+            gearVM = new GearViewModel(gearModel);
             // Dashboard part
             IDashboardModel dashboardModel = new MyDashboardModel(TCinstance);
             dashboardVM = new DashboardViewModel(dashboardModel);

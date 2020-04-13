@@ -17,7 +17,5 @@ namespace FlightSimulatorApp.Models
         String LatitudeError { set; get; }
         String LongitudeError { set; get; }
         void startReadingFlightData();
-        string getFlightLongitude();
-        string getFlightLatitude();
     }
 }

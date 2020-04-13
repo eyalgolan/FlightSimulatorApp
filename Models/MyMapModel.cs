@@ -103,14 +103,6 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("LongitudeError");
             }
         }
-        public string getFlightLongitude()
-        {
-            return longitude;
-        }
-        public string getFlightLatitude()
-        {
-            return latitude;
-        }
         public void startReadingFlightData()
         {
             new Thread(delegate ()

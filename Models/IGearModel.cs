@@ -7,13 +7,12 @@ using System.ComponentModel;
 
 namespace FlightSimulatorApp.Models
 {
-    public interface IGearModel : INotifyPropertyChanged
+    public interface IGearModel
     {
         //commands
-        double Throttle { set; get; }
-        double Rudder { set; get; }
-        double Aileron { set; get; }
-        double Elevator { set; get; }
-        //void startWriting();
+        void setThrottle(double value);
+        void setRudder(double value);
+        void setElevator(double value);
+        void setAileron(double value);
     }
 }
