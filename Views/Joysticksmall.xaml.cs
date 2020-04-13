@@ -61,6 +61,8 @@ namespace FlightSimulatorApp.Views
         {
             knobPosition.X = 0;
             knobPosition.Y = 0;
+            oldx = knobPosition.X;
+            oldy = knobPosition.Y;
             xpoint = oldx;
             ypoint = oldy;
 
@@ -109,6 +111,8 @@ namespace FlightSimulatorApp.Views
         {
             knobPosition.X = 0;
             knobPosition.Y = 0;
+            oldx = knobPosition.X;
+            oldy = knobPosition.Y;
             rudder = oldx / 60;
             elevator = -oldy / 60;
             xpoint = rudder;
