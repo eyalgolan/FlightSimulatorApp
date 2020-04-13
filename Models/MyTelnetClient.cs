@@ -25,6 +25,8 @@ namespace FlightSimulatorApp.Models
                 if (instance == null)
                 {
                     instance = new MyTelnetClient();
+                    instance.IsConnected = "Discconected";
+                    instance.ConnectionColor = "Red";
                 }
                 return instance;
             }
@@ -72,10 +74,8 @@ namespace FlightSimulatorApp.Models
                 {
                     NetworkStream myNetworkStream = client.GetStream();
 
-
                     if (myNetworkStream.CanRead)
                     {
-
                         byte[] myReadBuffer = new byte[1024];
                         StringBuilder myCompleteMessage = new StringBuilder();
                         int numberOfBytesRead = 0;
@@ -101,7 +101,6 @@ namespace FlightSimulatorApp.Models
                         }
                         while (myNetworkStream.DataAvailable);
                         return myCompleteMessage.ToString();
-
                     }
                     else
                     {
@@ -155,15 +154,6 @@ namespace FlightSimulatorApp.Models
                     ConnectionColor = "Red";
                 }
             }
-        }
-
-        public bool areconected()
-        {
-            if (this.IsConnected == "Connected")
-            {
-                return true;
-            }
-            else return false;
         }
 
         public String IsConnected

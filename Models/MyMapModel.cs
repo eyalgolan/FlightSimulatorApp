@@ -117,7 +117,7 @@ namespace FlightSimulatorApp.Models
             {
                 while (true)
                 {
-                    while (tc.areconected())
+                    if (String.Equals(tc.IsConnected, "Connected"))
                     {
                         tc.write("get /position/latitude-deg \n");
                         double recivedLatitude;

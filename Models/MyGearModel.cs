@@ -31,7 +31,7 @@ namespace FlightSimulatorApp.Models
             get { return throttle; }
             set
             {
-                if (tc.areconected())
+                if (String.Equals(tc.IsConnected, "Connected"))
                 {
 
                     string command = throttleCommand + value + "\n";
@@ -45,7 +45,7 @@ namespace FlightSimulatorApp.Models
             get { return rudder; }
             set
             {
-                if (tc.areconected())
+                if (String.Equals(tc.IsConnected, "Connected"))
                 {
                     string command = rudderCommand + value + "\n";
                     this.writeQueue.Enqueue(command);
@@ -62,7 +62,7 @@ namespace FlightSimulatorApp.Models
             }
             set
             {
-                if (tc.areconected())
+                if (String.Equals(tc.IsConnected, "Connected"))
                 {
                     string command = elevatorCommand + value + "\n";
                     this.writeQueue.Enqueue(command);
@@ -79,7 +79,7 @@ namespace FlightSimulatorApp.Models
             }
             set
             {
-                if (tc.areconected())
+                if (String.Equals(tc.IsConnected, "Connected"))
                 {
                     string command = aileronCommand + value + "\n";
                     this.writeQueue.Enqueue(command);
@@ -106,15 +106,13 @@ namespace FlightSimulatorApp.Models
             {
                 while (true)
                 {
-                    if (tc.areconected() && this.writeQueue.Count != 0)
+                    if (String.Equals(tc.IsConnected, "Connected") && this.writeQueue.Count != 0)
                     {
                         string writeCommand = writeQueue.Peek();
                         writeQueue.Dequeue();
 
                         tc.write(writeCommand);
                         tc.read();
-
-                        Thread.Sleep(250);
                     }
                 }
             }).Start();
