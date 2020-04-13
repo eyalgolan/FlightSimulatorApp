@@ -50,7 +50,7 @@ namespace FlightSimulatorApp.Models
                 IsConnected = "Connected";
                 ConnectionColor = "Green";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 IsConnected = "Disconnected";
                 ConnectionColor = "Red";
@@ -124,33 +124,32 @@ namespace FlightSimulatorApp.Models
         {
             lock (lockReadWrite)
             {
-                NetworkStream nwStream = null;
                 try
                 {
-                    nwStream = client.GetStream();
-                }
-                catch (Exception)
-                {
-                    IsConnected = "Disconnected";
-                    ConnectionColor = "Red";
-                }
-                if (nwStream.CanWrite)
-                {
-                    try
+                    NetworkStream nwStream = client.GetStream();
+                    if (nwStream.CanWrite)
                     {
-                        byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
-                        nwStream.Write(byteToSend, 0, byteToSend.Length);
-                        IsConnected = "Connected";
-                        ConnectionColor = "Green";
-                        nwStream.Flush();
+                        try
+                        {
+                            byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
+                            nwStream.Write(byteToSend, 0, byteToSend.Length);
+                            IsConnected = "Connected";
+                            ConnectionColor = "Green";
+                            nwStream.Flush();
+                        }
+                        catch (Exception)
+                        {
+                            IsConnected = "Disconnected";
+                            ConnectionColor = "Red";
+                        }
                     }
-                    catch (Exception)
+                    else
                     {
                         IsConnected = "Disconnected";
                         ConnectionColor = "Red";
                     }
                 }
-                else
+                catch (Exception)
                 {
                     IsConnected = "Disconnected";
                     ConnectionColor = "Red";

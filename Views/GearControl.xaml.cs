@@ -55,18 +55,6 @@ namespace FlightSimulatorApp.Views
             this.vmGear = gear_VM;
 
         }
-       
-
-        private Point fpoint = new Point();
-
-
-      
-
-   
-        
-
-
-      
     }
 
 }

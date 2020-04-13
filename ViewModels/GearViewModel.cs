@@ -17,11 +17,6 @@ namespace FlightSimulatorApp.ViewModels
         private double throttle;
 
         //IGearModel model;
-
-        public GearViewModel()
-        {
-            
-        }
         public double VM_RUDDER
         {
             get
@@ -30,10 +25,8 @@ namespace FlightSimulatorApp.ViewModels
             }
             set
             {
-
                 this.rudder = value;
                 NotifyPropertyChanged("RUDDER");
-                //model.Rudder = value;
             }
         }
         public double VM_ELEVATOR
@@ -44,10 +37,8 @@ namespace FlightSimulatorApp.ViewModels
             }
             set
             {
-
                 this.elevator = value;
                 NotifyPropertyChanged("ELEVATOR");
-                //model.Elevator = value;
             }
         }
         public double VM_THROTTLE
@@ -58,11 +49,8 @@ namespace FlightSimulatorApp.ViewModels
             }
             set
             {
-              
-
                 this.throttle = value;
                 NotifyPropertyChanged("THROTTLE");
-                //model.Throttle = value;
             }
         }
         public double VM_AILERON
@@ -75,7 +63,6 @@ namespace FlightSimulatorApp.ViewModels
             {
                 this.aileron = value;
                 NotifyPropertyChanged("AILERON");
-                //model.Aileron = value;
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

@@ -24,13 +24,8 @@ namespace FlightSimulatorApp.Views
     {
         public double rudder = 0;
         public double elevator = 0;
-
-       
-
         private double oldx = 0;
         private double oldy = 0;
-
-
 
         public double ypoint
         {
@@ -42,8 +37,6 @@ namespace FlightSimulatorApp.Views
         public static readonly DependencyProperty ypointProperty =
             DependencyProperty.Register("ypoint", typeof(double), typeof(Joysticksmall));
 
-
-
         public double xpoint
         {
             get { return (double)GetValue(xpointProperty); }
@@ -54,8 +47,6 @@ namespace FlightSimulatorApp.Views
         public static readonly DependencyProperty xpointProperty =
             DependencyProperty.Register("xpoint", typeof(double), typeof(Joysticksmall));
         
-
-
         public Joysticksmall()
         {
             InitializeComponent();
@@ -71,22 +62,16 @@ namespace FlightSimulatorApp.Views
             knobPosition.X = 0;
             knobPosition.Y = 0;
             xpoint = oldx;
-             ypoint = oldy;
+            ypoint = oldy;
 
         }
         private void Knob_MouseMove(object sender, MouseEventArgs e)
         {
-
-
-
-
             if (e.LeftButton == MouseButtonState.Pressed)
             {
 
                 double x = e.GetPosition(this).X - fpoint.X;
                 double y = e.GetPosition(this).Y - fpoint.Y;
-
-
 
                 if (Math.Sqrt(x * x + y * y) < 120 / 2)
                 {
@@ -98,8 +83,6 @@ namespace FlightSimulatorApp.Views
                     elevator = -oldy / 60;
                     xpoint = rudder;
                     ypoint = elevator;
-
-
                 }
                 else
                 {
@@ -110,24 +93,17 @@ namespace FlightSimulatorApp.Views
                     elevator = -oldy / 60;
                     xpoint = rudder;
                     ypoint = elevator;
-
                 }
-
-
-
             }
             else
             {
-
                 knobPosition.X = 0;
                 knobPosition.Y = 0;
                 rudder = oldx / 60;
                 elevator = -oldy / 60;
                 xpoint = rudder;
                 ypoint = elevator;
-
             }
-
         }
         private void Knob_Mouseleave(object sender, MouseEventArgs e)
         {
@@ -137,7 +113,6 @@ namespace FlightSimulatorApp.Views
             elevator = -oldy / 60;
             xpoint = rudder;
             ypoint = elevator;
-
         }
         public Point getposition()
         {

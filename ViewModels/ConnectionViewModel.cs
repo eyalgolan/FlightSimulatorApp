@@ -79,7 +79,6 @@ namespace FlightSimulatorApp.ViewModels
         public void connectToSimulator ()
         {
             model.connect(IP, Port);
-  
         }
         public void disconnectSimulator()
         {

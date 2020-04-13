@@ -74,9 +74,6 @@
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\GearViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
-    <Compile Include="Views\AileronSlider.xaml.cs">
-      <DependentUpon>AileronSlider.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ConnectionControl.xaml.cs">
       <DependentUpon>ConnectionControl.xaml</DependentUpon>
     </Compile>
@@ -95,9 +92,6 @@
     <Compile Include="Views\sliders.xaml.cs">
       <DependentUpon>sliders.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThrottleSlider.xaml.cs">
-      <DependentUpon>ThrottleSlider.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,10 +104,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\AileronSlider.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ConnectionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,10 +125,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\sliders.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ThrottleSlider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

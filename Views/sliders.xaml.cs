@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace FlightSimulatorApp.Views
 {
     /// <summary>
@@ -36,7 +35,6 @@ namespace FlightSimulatorApp.Views
         public static readonly DependencyProperty firstsliderProperty =
             DependencyProperty.Register("firstslider", typeof(double), typeof(sliders));
 
-
         public double secondslider
         {
             get { return (double)GetValue(secondsliderProperty); }
@@ -49,15 +47,12 @@ namespace FlightSimulatorApp.Views
         private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             firstslider = e.NewValue;
-          //  vmGear.airlonchange(e.NewValue);
 
         }
 
         private void Slider_ValueChanged_2(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             secondslider = e.NewValue;
-            // vmGear.thurtelchange(e.NewValue);
-
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

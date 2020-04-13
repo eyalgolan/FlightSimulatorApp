@@ -119,56 +119,6 @@ namespace FlightSimulatorApp.Models
                 }
             }).Start();
         }
-        public void connect(string ip, int port)
-        {
-            tc.connect(ip, port);
-        }
-        public void setAileron(double val)
-        {
-            if (tc.areconected())
-            {
-
-                tc.write("set /controls/flight/aileron" + " " + val + "\n");
-                string test0 = tc.read();
-            }
-
-        }
-        public void setElevator(double val)
-        {
-            if (tc.areconected())
-            {
-
-                tc.write("set /controls/flight/elevator" + " " + val + "\n");
-                string test2 = tc.read();
-            }
-        }
-        public void setRudder(double val)
-        {
-            if (tc.areconected())
-            {
-
-                tc.write("set /controls/flight/rudder" + " " + val + "\n");
-                string test1 = tc.read();
-            }
-        }
-
-        public void setThrottle(double val)
-        {
-            if (tc.areconected())
-            {
-
-                tc.write("set /controls/engines/current-engine/throttle" + " " + val + "\n");
-                string test3 = tc.read();
-            }
-        }
-        public void sendGearData(double elevator, double rudder)
-        {
-            if (tc.areconected())
-            {
-                setRudder(rudder);
-                setElevator(elevator);
-            }
-        }
 
         //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
@@ -178,22 +128,6 @@ namespace FlightSimulatorApp.Models
             if (this.PropertyChanged != null)
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            }
-        }
-
-        public void aircjange(double newValue)
-        {
-            if (tc.areconected())
-            {
-                setAileron(newValue);
-            }
-        }
-
-        public void troutlechange(double newValue)
-        {
-            if (tc.areconected())
-            {
-                setThrottle(newValue);
             }
         }
     }
