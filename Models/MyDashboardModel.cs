@@ -18,6 +18,7 @@ namespace FlightSimulatorApp.Models
         private string roll;
         private string altitude;
         private string air_speed;
+        private bool firstt;
 
         private string vertical_speed_color;
         private string ground_speed_color;
@@ -248,16 +249,18 @@ namespace FlightSimulatorApp.Models
 
         public void startReadingFlightData()
         {
+            this.firstt = true;
             new Thread(delegate ()
             {
                 while (true)
                 {
-                    while (tc.areconected())
+                    if (this.firstt)
                     {
-
+                        this.firstt = false;
                         tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
                         double i;
                         string serverInput = tc.read();
+                        this.firstt = true;
                         bool result = double.TryParse(serverInput, out i);
                         if (result)
                         {
