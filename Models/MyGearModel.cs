@@ -4,27 +4,27 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Threading;
+using FlightSimulatorApp.ViewModels;
 namespace FlightSimulatorApp.Models
 {
     class MyGearModel : IGearModel
     {
 
         ITelnetClient tc;
+        GearViewModel vm;
         private string flightData;
         private double throttle;
         private double rudder;
         private double elevator;
         private double aileron;
-        public String FlightData
-        {
-            set
-            {
-                flightData = value;
-                NotifyPropertyChanged("FlightData");
-            }
-            get { return FlightData; }
-        }
+
+        private string throttleCommand = "set /controls/engines/current-engine/throttle ";
+        private string rudderCommand = "set /controls/flight/rudder ";
+        private string elevatorCommand = "set /controls/flight/elevator ";
+        private string aileronCommand = "set /controls/flight/aileron ";
+
+        Queue<string> writeQueue;
 
         public double Throttle
         {
@@ -34,9 +34,9 @@ namespace FlightSimulatorApp.Models
                 if (tc.areconected())
                 {
 
-                    setThrottle(value);
+                    string command = throttleCommand + value + "\n";
+                    this.writeQueue.Enqueue(command);
                     this.throttle = value;
-                    NotifyPropertyChanged("throttle");
                 }
             }
         }
@@ -47,10 +47,9 @@ namespace FlightSimulatorApp.Models
             {
                 if (tc.areconected())
                 {
-
-                    setRudder(value);
+                    string command = rudderCommand + value + "\n";
+                    this.writeQueue.Enqueue(command);
                     this.rudder = value;
-                    NotifyPropertyChanged("rudder");
                 }
 
             }
@@ -65,10 +64,9 @@ namespace FlightSimulatorApp.Models
             {
                 if (tc.areconected())
                 {
-
-                    setElevator(value);
+                    string command = elevatorCommand + value + "\n";
+                    this.writeQueue.Enqueue(command);
                     this.elevator = value;
-                    NotifyPropertyChanged("elevator");
                 }
 
             }
@@ -83,17 +81,43 @@ namespace FlightSimulatorApp.Models
             {
                 if (tc.areconected())
                 {
-
-                    setAileron(value);
+                    string command = aileronCommand + value + "\n";
+                    this.writeQueue.Enqueue(command);
                     this.aileron = value;
-                    NotifyPropertyChanged("aileron");
                 }
             }
         }
 
-        public MyGearModel(ITelnetClient tc)
+        public MyGearModel(ITelnetClient tc, GearViewModel vm)
         {
+            this.vm = vm;
             this.tc = tc;
+            vm.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
+            {
+                NotifyPropertyChanged(e.PropertyName);
+            };
+            this.writeQueue = new Queue<string>();
+            startWriting();
+        }
+
+        private void startWriting()
+        {
+            new Thread(delegate ()
+            {
+                while (true)
+                {
+                    if (tc.areconected() && this.writeQueue.Count != 0)
+                    {
+                        string writeCommand = writeQueue.Peek();
+                        writeQueue.Dequeue();
+
+                        tc.write(writeCommand);
+                        tc.read();
+
+                        Thread.Sleep(250);
+                    }
+                }
+            }).Start();
         }
         public void connect(string ip, int port)
         {

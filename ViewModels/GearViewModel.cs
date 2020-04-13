@@ -11,76 +11,71 @@ namespace FlightSimulatorApp.ViewModels
     
     public class GearViewModel : INotifyPropertyChanged
     {
-        private double mvrudder;
-        private double mvelvetor;
-        private double mvaileron;
-        private double mvthrottle;
+        private double rudder;
+        private double elevator;
+        private double aileron;
+        private double throttle;
 
-        IGearModel model;
+        //IGearModel model;
 
-        public GearViewModel(IGearModel model)
+        public GearViewModel()
         {
-            this.model = model;
-            model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
-            {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
-            };
-        }
-        public void moveGear (double elevator , double rudder)
-        {
-            model.sendGearData(elevator, rudder);
             
         }
-        public double vm_rudder
+        public double VM_RUDDER
         {
             get
             {
-                return mvrudder;
+                return this.rudder;
             }
             set
             {
-                
-                mvrudder = value;
-                model.Rudder = value;
+
+                this.rudder = value;
+                NotifyPropertyChanged("RUDDER");
+                //model.Rudder = value;
             }
         }
-        public double vm_elevator
+        public double VM_ELEVATOR
         {
             get
             {
-                return mvelvetor;
+                return this.elevator;
             }
             set
             {
-                
-                mvelvetor = value;
-                model.Elevator = value;
+
+                this.elevator = value;
+                NotifyPropertyChanged("ELEVATOR");
+                //model.Elevator = value;
             }
         }
-        public double vm_throttle
+        public double VM_THROTTLE
         {
             get
             {
-                return mvthrottle;
+                return this.throttle;
             }
             set
             {
               
 
-                mvthrottle = value;
-                model.Throttle = value;
+                this.throttle = value;
+                NotifyPropertyChanged("THROTTLE");
+                //model.Throttle = value;
             }
         }
-        public double vm_aileron
+        public double VM_AILERON
         {
             get
             {
-                return mvaileron;
+                return this.aileron;
             }
             set
             {
-                mvaileron = value;
-                model.Aileron = value;
+                this.aileron = value;
+                NotifyPropertyChanged("AILERON");
+                //model.Aileron = value;
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -91,16 +86,5 @@ namespace FlightSimulatorApp.ViewModels
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
-
-        internal void airlonchange(double newValue)
-        {
-            model.aircjange(newValue);
-        }
-
-        internal void thurtelchange(double newValue)
-        {
-            model.troutlechange(newValue);
-        }
-
     }
 }

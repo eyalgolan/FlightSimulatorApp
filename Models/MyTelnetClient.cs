@@ -66,17 +66,13 @@ namespace FlightSimulatorApp.Models
 
         public string read()
         {
-
-            Console.WriteLine("try read bedore lock ");
             lock (lockReadWrite)
             {
-                Console.WriteLine("try after bedore lock ");
-
                 try
                 {
-                    client.ReceiveTimeout = 10000;
-
                     NetworkStream myNetworkStream = client.GetStream();
+
+
                     if (myNetworkStream.CanRead)
                     {
 
@@ -91,8 +87,11 @@ namespace FlightSimulatorApp.Models
                                 client.ReceiveTimeout = 10000;
 
                                 numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
+
+                                IsConnected = "Connected";
+                                ConnectionColor = "Green";
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
                                 IsConnected = "Server timeout";
                                 ConnectionColor = "Yellow";
@@ -101,8 +100,6 @@ namespace FlightSimulatorApp.Models
                             myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
                         }
                         while (myNetworkStream.DataAvailable);
-                        IsConnected = "Connected";
-                        ConnectionColor = "Green";
                         return myCompleteMessage.ToString();
 
                     }
@@ -113,11 +110,10 @@ namespace FlightSimulatorApp.Models
                         return null;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    
-                    IsConnected = "no/slow connaction";
-                    ConnectionColor = "Yellow";
+                    IsConnected = "Disconnected";
+                    ConnectionColor = "Red";
                     return null;
                 }
             }
@@ -126,45 +122,39 @@ namespace FlightSimulatorApp.Models
 
         public void write(string command)
         {
-            Console.WriteLine("try write bedore lock ");
-
             lock (lockReadWrite)
             {
-                Console.WriteLine("try write after lock ");
-
+                NetworkStream nwStream = null;
                 try
                 {
-                    NetworkStream nwStream = client.GetStream();
-
-                    if (nwStream.CanWrite)
+                    nwStream = client.GetStream();
+                }
+                catch (Exception)
+                {
+                    IsConnected = "Disconnected";
+                    ConnectionColor = "Red";
+                }
+                if (nwStream.CanWrite)
+                {
+                    try
                     {
-                        try
-                        {
-                            byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
-                            nwStream.Write(byteToSend, 0, byteToSend.Length);
-                            IsConnected = "Connected";
-                            ConnectionColor = "Green";
-                            nwStream.Flush();
-                        }
-                        catch (Exception ex)
-                        {
-                            IsConnected = "Disconnected";
-                            ConnectionColor = "Red";
-                        }
+                        byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
+                        nwStream.Write(byteToSend, 0, byteToSend.Length);
+                        IsConnected = "Connected";
+                        ConnectionColor = "Green";
+                        nwStream.Flush();
                     }
-                    else
+                    catch (Exception)
                     {
                         IsConnected = "Disconnected";
                         ConnectionColor = "Red";
                     }
                 }
-                catch (Exception ex)
+                else
                 {
                     IsConnected = "Disconnected";
                     ConnectionColor = "Red";
-
                 }
-
             }
         }
 
