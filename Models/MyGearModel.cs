@@ -16,6 +16,7 @@ namespace FlightSimulatorApp.Models
         private double rudder;
         private double elevator;
         private double aileron;
+
         public String FlightData
         {
             set
