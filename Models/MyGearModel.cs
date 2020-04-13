@@ -13,7 +13,7 @@ namespace FlightSimulatorApp.Models
 
         ITelnetClient tc;
         GearViewModel vm;
-        private string flightData;
+
         private double throttle;
         private double rudder;
         private double elevator;
@@ -31,9 +31,10 @@ namespace FlightSimulatorApp.Models
             get { return throttle; }
             set
             {
+                Console.WriteLine("entered changing throttle, tc.IsConnected is " + tc.IsConnected);
                 if (String.Equals(tc.IsConnected, "Connected"))
                 {
-
+                    Console.WriteLine("chnaging throttle to " + value);
                     string command = throttleCommand + value + "\n";
                     this.writeQueue.Enqueue(command);
                     this.throttle = value;
@@ -45,13 +46,9 @@ namespace FlightSimulatorApp.Models
             get { return rudder; }
             set
             {
-                if (String.Equals(tc.IsConnected, "Connected"))
-                {
-                    string command = rudderCommand + value + "\n";
-                    this.writeQueue.Enqueue(command);
-                    this.rudder = value;
-                }
-
+                string command = rudderCommand + value + "\n";
+                this.writeQueue.Enqueue(command);
+                this.rudder = value;
             }
         }
         public double Elevator
@@ -62,12 +59,9 @@ namespace FlightSimulatorApp.Models
             }
             set
             {
-                if (String.Equals(tc.IsConnected, "Connected"))
-                {
-                    string command = elevatorCommand + value + "\n";
-                    this.writeQueue.Enqueue(command);
-                    this.elevator = value;
-                }
+                string command = elevatorCommand + value + "\n";
+                this.writeQueue.Enqueue(command);
+                this.elevator = value;
 
             }
         }
@@ -79,12 +73,9 @@ namespace FlightSimulatorApp.Models
             }
             set
             {
-                if (String.Equals(tc.IsConnected, "Connected"))
-                {
-                    string command = aileronCommand + value + "\n";
-                    this.writeQueue.Enqueue(command);
-                    this.aileron = value;
-                }
+                string command = aileronCommand + value + "\n";
+                this.writeQueue.Enqueue(command);
+                this.aileron = value;
             }
         }
 
@@ -95,6 +86,7 @@ namespace FlightSimulatorApp.Models
             vm.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
                 NotifyPropertyChanged(e.PropertyName);
+                Console.WriteLine(e.PropertyName + "changed ##################################");
             };
             this.writeQueue = new Queue<string>();
             startWriting();

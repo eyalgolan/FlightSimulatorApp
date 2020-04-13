@@ -13,35 +13,6 @@ namespace FlightSimulatorApp.Views
     public partial class GearControl : UserControl
     {
         
-        private double rudder;
-        private double elevator;
-        private double throttle;
-        private double aileron;
-        public double Rudder
-        {
-            get { return rudder; }
-            set { rudder = value; ; vmGear.VM_RUDDER = value; }
-
-        }
-        public double Elevator
-        {
-            get { return elevator; }
-            set { elevator = value; ; vmGear.VM_ELEVATOR = value; }
-
-        }
-        public double Aileron
-        {
-            get { return aileron; }
-            set { aileron = value; ; vmGear.VM_AILERON = value; }
-
-        }
-        public double Throttle
-        {
-            get { return throttle; }
-            set { throttle = value; ; vmGear.VM_THROTTLE = value; }
-
-        }
-
         GearViewModel vmGear;
 
         
