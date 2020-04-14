@@ -1,7 +1,10 @@
 # FlightSimulatorApp
 Advanced Programming 2 course, Flight Simulator App
+
 Created by: Yair Hanimov and Eyal Golan
+
 Overview:
+
 In this program  we used the mvvm principle to program the flight simulator desctop app.
 We have a convenient user interface for operating a small aircraft.
 The aircraft responds to instructions regarding the various control surfaces: Rudder, Elevator, Aileron, Throttle.
