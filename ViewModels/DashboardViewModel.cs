@@ -29,131 +29,131 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_VERTICAL_SPEED
+        public String VmVerticalSpeed
         {
             get
             {
-                return this.model.VERTICAL_SPEED;
+                return this.model.VerticslSpeed;
             }
         }
 
-        public String VM_GROUND_SPEED
+        public String VmGroundSpeed
         {
             get
             {
-                return this.model.GROUND_SPEED;
+                return this.model.GraoundSpeed;
             }
         }
 
-        public String VM_HEADING
+        public String VmHeading
         {
             get
             {
-                return this.model.HEADING;
+                return this.model.Heading;
             }
         }
 
-        public String VM_ALTIMETER
+        public String Vmalimeter
         {
             get
             {
-                return this.model.ALTIMETER;
+                return this.model.Aliemeter;
             }
         }
 
-        public String VM_PITCH
+        public String VmPitch
         {
             get
             {
-                return this.model.PITCH;
+                return this.model.Pitch;
             }
         }
 
-        public String VM_ROLL
+        public String VmRoll
         {
             get
             {
-                return this.model.ROLL;
+                return this.model.Roll;
             }
         }
 
-        public String VM_ALTITUDE
+        public String VmAltitude
         {
             get
             {
-                return this.model.ALTITUDE;
+                return this.model.ALtitude;
             }
         }
 
-        public String VM_AIR_SPEED
+        public String VmAirSpeed
         {
             get
             {
-                return this.model.AIR_SPEED;
+                return this.model.Airspeed;
             }
         }
 
-        public String VM_VERTICAL_SPEED_COLOR
+        public String VmVertcialSpeedColor
         {
             get
             {
-                return this.model.VERTICAL_SPEED_COLOR;
+                return this.model.VertivalSpeedColor;
             }
         }
 
-        public String VM_GROUND_SPEED_COLOR
+        public String VmGroundSpeedColor
         {
             get
             {
-                return this.model.GROUND_SPEED_COLOR;
+                return this.model.GroundSpeedColor;
             }
         }
 
-        public String VM_HEADING_COLOR
+        public String VmHeadingColor
         {
             get
             {
-                return this.model.HEADING_COLOR;
+                return this.model.HeadingColor;
             }
         }
 
-        public String VM_ALTIMETER_COLOR
+        public String VmAlimeterColor
         {
             get
             {
-                return this.model.ALTIMETER_COLOR;
+                return this.model.AlimeterColor;
             }
         }
 
-        public String VM_PITCH_COLOR
+        public String VmPitchColor
         {
             get
             {
-                return this.model.PITCH_COLOR;
+                return this.model.PichColor;
             }
         }
 
-        public String VM_ROLL_COLOR
+        public String VmRollColor
         {
             get
             {
-                return this.model.ROLL_COLOR;
+                return this.model.RollColor;
             }
         }
 
-        public String VM_ALTITUDE_COLOR
+        public String VmAltitudeColor
         {
             get
             {
-                return this.model.ALTITUDE_COLOR;
+                return this.model.AltitudeColor;
             }
         }
 
-        public String VM_AIR_SPEED_COLOR
+        public String VmAirSpeedColor
         {
             get
             {
-                return this.model.AIR_SPEED_COLOR;
+                return this.model.AirSpeedColor;
             }
         }
     }

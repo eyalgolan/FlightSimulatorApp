@@ -10,55 +10,55 @@ namespace FlightSimulatorApp.Models
 {
     class MyDashboardModel : IDashboardModel
     {
-        private string vertical_speed;
-        private string ground_speed;
+        private string verticalspeed;
+        private string groundspeed;
         private string heading;
         private string altimeter;
         private string pitch;
         private string roll;
         private string altitude;
-        private string air_speed;
+        private string airspeed;
         private bool firstt;
 
-        private string vertical_speed_color;
+        private string verticalspeedcolor;
         private string ground_speed_color;
         private string heading_color;
         private string altimeter_color;
-        private string pitch_color;
-        private string roll_color;
-        private string altitude_color;
-        private string air_speed_color;
+        private string pitchcolor;
+        private string rollcolor;
+        private string altitudecolor;
+        private string airspeedcolor;
 
         ITelnetClient tc;
         private bool connect;
 
-        public String VERTICAL_SPEED
+        public String VerticslSpeed
         {
             get
             {
-                return this.vertical_speed;
+                return this.verticalspeed;
             }
             set
             {
-                this.vertical_speed = value;
+                this.verticalspeed = value;
                 NotifyPropertyChanged("VERTICAL_SPEED");
             }
         }
 
-        public String GROUND_SPEED
+        public String GraoundSpeed
         {
             get
             {
-                return this.ground_speed;
+                return this.groundspeed;
             }
             set
             {
-                this.ground_speed = value;
+                this.groundspeed = value;
                 NotifyPropertyChanged("GROUND_SPEED");
             }
         }
 
-        public String HEADING
+        public String Heading
         {
             get
             {
@@ -71,7 +71,7 @@ namespace FlightSimulatorApp.Models
             }
         }
 
-        public String ALTIMETER
+        public String Aliemeter
         {
             get
             {
@@ -84,7 +84,7 @@ namespace FlightSimulatorApp.Models
             }
         }
 
-        public String PITCH
+        public String Pitch
         {
             get
             {
@@ -97,7 +97,7 @@ namespace FlightSimulatorApp.Models
             }
         }
 
-        public String ROLL
+        public String Roll
         {
             get
             {
@@ -110,7 +110,7 @@ namespace FlightSimulatorApp.Models
             }
         }
 
-        public String ALTITUDE
+        public String ALtitude
         {
             get
             {
@@ -123,33 +123,33 @@ namespace FlightSimulatorApp.Models
             }
         }
 
-        public String AIR_SPEED
+        public String Airspeed
         {
             get
             {
-                return this.air_speed;
+                return this.airspeed;
             }
             set
             {
-                this.air_speed = value;
+                this.airspeed = value;
                 NotifyPropertyChanged("AIR_SPEED");
             }
         }
 
-        public String VERTICAL_SPEED_COLOR
+        public String VertivalSpeedColor
         {
             get
             {
-                return this.vertical_speed_color;
+                return this.verticalspeedcolor;
             }
             set
             {
-                this.vertical_speed_color = value;
+                this.verticalspeedcolor = value;
                 NotifyPropertyChanged("VERTICAL_SPEED_COLOR");
             }
         }
 
-        public String GROUND_SPEED_COLOR
+        public String GroundSpeedColor
         {
             get
             {
@@ -162,7 +162,7 @@ namespace FlightSimulatorApp.Models
             }
         }
 
-        public String HEADING_COLOR
+        public String HeadingColor
         {
             get
             {
@@ -175,7 +175,7 @@ namespace FlightSimulatorApp.Models
             }
         }
 
-        public String ALTIMETER_COLOR
+        public String AlimeterColor
         {
             get
             {
@@ -188,54 +188,54 @@ namespace FlightSimulatorApp.Models
             }
         }
 
-        public String PITCH_COLOR
+        public String PichColor
         {
             get
             {
-                return this.pitch_color;
+                return this.pitchcolor;
             }
             set
             {
-                this.pitch_color = value;
+                this.pitchcolor = value;
                 NotifyPropertyChanged("PITCH_COLOR");
             }
         }
 
-        public String ROLL_COLOR
+        public String RollColor
         {
             get
             {
-                return this.roll_color;
+                return this.rollcolor;
             }
             set
             {
-                this.roll_color = value;
+                this.rollcolor = value;
                 NotifyPropertyChanged("ROLL_COLOR");
             }
         }
 
-        public String ALTITUDE_COLOR
+        public String AltitudeColor
         {
             get
             {
-                return this.altitude_color;
+                return this.altitudecolor;
             }
             set
             {
-                this.altitude_color = value;
+                this.altitudecolor = value;
                 NotifyPropertyChanged("ALTITUDE_COLOR");
             }
         }
 
-        public String AIR_SPEED_COLOR
+        public String AirSpeedColor
         {
             get
             {
-                return this.air_speed_color;
+                return this.airspeedcolor;
             }
             set
             {
-                this.air_speed_color = value;
+                this.airspeedcolor = value;
                 NotifyPropertyChanged("AIR_SPEED_COLOR");
             }
         }
@@ -264,96 +264,96 @@ namespace FlightSimulatorApp.Models
                         bool result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            VERTICAL_SPEED = serverInput;
-                            VERTICAL_SPEED_COLOR = "Green";
+                            VerticslSpeed = serverInput;
+                            VertivalSpeedColor = "Green";
                         }
                         else
                         {
-                            VERTICAL_SPEED_COLOR = "Red";
+                            VertivalSpeedColor = "Red";
                         }
                         tc.write("get /instrumentation/gps/indicated-ground-speed-kt \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            GROUND_SPEED = serverInput;
-                            GROUND_SPEED_COLOR = "Green";
+                            GraoundSpeed = serverInput;
+                            GroundSpeedColor = "Green";
                         }
                         else
                         {
-                            GROUND_SPEED_COLOR = "Red";
+                            GroundSpeedColor = "Red";
                         }
                         tc.write("get /instrumentation/heading-indicator/indicated-heading-deg \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            HEADING = serverInput;
-                            HEADING_COLOR = "Green";
+                            Heading = serverInput;
+                            HeadingColor = "Green";
                         }
                         else
                         {
-                            HEADING_COLOR = "Red";
+                            HeadingColor = "Red";
                         }
                         tc.write("get /instrumentation/altimeter/indicated-altitude-ft \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            ALTIMETER = serverInput;
-                            ALTIMETER_COLOR = "Green";
+                            Aliemeter = serverInput;
+                            AlimeterColor = "Green";
                         }
                         else
                         {
-                            ALTIMETER_COLOR = "Red";
+                            AlimeterColor = "Red";
                         }
                         tc.write("get /instrumentation/attitude-indicator/internal-pitch-deg \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            PITCH = serverInput;
-                            PITCH_COLOR = "Green";
+                            Pitch = serverInput;
+                            PichColor = "Green";
                         }
                         else
                         {
-                            PITCH_COLOR = "Red";
+                            PichColor = "Red";
                         }
                         tc.write("get /instrumentation/attitude-indicator/internal-roll-deg \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            ROLL = serverInput;
-                            ROLL_COLOR = "Green";
+                            Roll = serverInput;
+                            RollColor = "Green";
                         }
                         else
                         {
-                            ROLL_COLOR = "Red";
+                            RollColor = "Red";
                         }
                         tc.write("get /instrumentation/gps/indicated-altitude-ft \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            ALTITUDE = serverInput;
-                            ALTITUDE_COLOR = "Green";
+                            ALtitude = serverInput;
+                            AltitudeColor = "Green";
                         }
                         else
                         {
-                            ALTITUDE_COLOR = "Red";
+                            AltitudeColor = "Red";
                         }
                         tc.write("get /instrumentation/airspeed-indicator/indicated-speed-kt \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            AIR_SPEED = serverInput;
-                            AIR_SPEED_COLOR = "Green";
+                            Airspeed = serverInput;
+                            AirSpeedColor = "Green";
                         }
                         else
                         {
-                            AIR_SPEED_COLOR = "Red";
+                            AirSpeedColor = "Red";
                         }
 
                         Thread.Sleep(250);

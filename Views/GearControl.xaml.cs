@@ -20,22 +20,22 @@ namespace FlightSimulatorApp.Views
         public double Rudder
         {
             get { return rudder; }
-            set { rudder = value; ; vmGear.VM_Rudder = value; }
+            set { rudder = value; ; vmGear.VMRudder = value; }
         }
         public double Elevator
         {
             get { return elevator; }
-            set { elevator = value; ; vmGear.VM_Elevator = value; }
+            set { elevator = value; ; vmGear.VMElevator = value; }
         }
         public double Aileron
         {
             get { return aileron; }
-            set { aileron = value; ; vmGear.VM_Aileron = value; }
+            set { aileron = value; ; vmGear.VMAileron = value; }
         }
         public double Throttle
         {
             get { return throttle; }
-            set { throttle = value; ; vmGear.VM_Throttle = value; }
+            set { throttle = value; ; vmGear.VMThrottle = value; }
         }
 
         GearViewModel vmGear;

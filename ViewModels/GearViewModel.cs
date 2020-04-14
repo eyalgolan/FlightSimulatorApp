@@ -22,7 +22,7 @@ namespace FlightSimulatorApp.ViewModels
         {
             this.model = model;
         }
-        public double VM_Rudder
+        public double VMRudder
         {
             get
             {
@@ -34,7 +34,7 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setRudder(this.rudder);
             }
         }
-        public double VM_Elevator
+        public double VMElevator
         {
             get
             {
@@ -46,7 +46,7 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setElevator(this.elevator);
             }
         }
-        public double VM_Throttle
+        public double VMThrottle
         {
             get
             {
@@ -58,7 +58,7 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setThrottle(this.throttle);
             }
         }
-        public double VM_Aileron
+        public double VMAileron
         {
             get
             {
