@@ -76,6 +76,22 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.ConnectionColor;
             }
         }
+        public Boolean VM_CanConnected
+        {
+            get
+            {
+                Console.WriteLine(this.model.CanConnect);
+                return this.model.CanConnect;
+            }
+        }
+        public Boolean VM_CanDisconnected
+        {
+            get
+            {
+                Console.WriteLine(this.model.CanDisconnect);
+                return this.model.CanDisconnect;
+            }
+        }
         public void connectToSimulator ()
         {
             model.connect(IP, Port);

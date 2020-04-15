@@ -25,7 +25,7 @@
         <TextBox x:Name="txtIP" Grid.Row="1" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=IP}"></TextBox>
         <TextBlock Grid.Row="2" Padding="3" Margin="3">Port:</TextBlock>
         <TextBox x:Name="txtPort" Grid.Row="2" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=Port}"></TextBox>
-        <Button x:Name="btnConnect" Grid.Row="3" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnConnect_Click" Margin="5" Padding="5">Connect</Button>
-        <Button x:Name="btnDisconnect" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnDisconnect_Click" Margin="5" Padding="5">Disconnect</Button>
+        <Button x:Name="btnConnect" Grid.Row="3" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnConnect_Click" Margin="5" Padding="5" IsEnabled="{Binding VM_CanConnect}" >Connect</Button>
+        <Button x:Name="btnDisconnect" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnDisconnect_Click" Margin="5" Padding="5" IsEnabled="{Binding VM_CanDisconnect}">Disconnect</Button>
     </Grid>
 </UserControl>

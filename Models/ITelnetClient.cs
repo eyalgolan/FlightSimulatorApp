@@ -15,5 +15,7 @@ namespace FlightSimulatorApp.Models
         void disconnect();
         String IsConnected { get; set; }
         String ConnectionColor { get; set; }
+        Boolean CanConnect { get; set; }
+        Boolean CanDisconnect { get; set; }
     }
 }

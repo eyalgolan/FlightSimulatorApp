@@ -25,7 +25,8 @@ namespace FlightSimulatorApp.Views
         private ConnectionViewModel vmConnect;
         public ConnectionControl()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            btnDisconnect.IsEnabled = false;
             //vmConnect = new ConnectionViewModel(this.TCinstance);
             //this.DataContext = this.vmConnect;
         }

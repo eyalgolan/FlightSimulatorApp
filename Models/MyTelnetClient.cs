@@ -14,9 +14,11 @@ namespace FlightSimulatorApp.Models
     {
         private TcpClient client;
         private IPEndPoint ep;
-        private static object lockReadWrite = new object();
+        private static object lockReadWrite;
         private string isConnected;
         private string connectionColor;
+        private bool canConnectValue;
+        public bool canDisconnectValue;
         private static MyTelnetClient instance = null;
         public static MyTelnetClient Instance
         {
@@ -27,6 +29,9 @@ namespace FlightSimulatorApp.Models
                     instance = new MyTelnetClient();
                     instance.IsConnected = "Discconected";
                     instance.ConnectionColor = "Red";
+                    instance.CanConnect = true;
+                    instance.CanDisconnect = false;
+                    lockReadWrite = new object();
                 }
                 return instance;
             }
@@ -51,11 +56,15 @@ namespace FlightSimulatorApp.Models
                 client.Connect(ep);
                 IsConnected = "Connected";
                 ConnectionColor = "Green";
+                instance.CanConnect = false;
+                instance.CanDisconnect = true;
             }
             catch (Exception)
             {
                 IsConnected = "Disconnected";
                 ConnectionColor = "Red";
+                instance.CanConnect = true;
+                instance.CanDisconnect = false;
             }
         }
 
@@ -64,6 +73,8 @@ namespace FlightSimulatorApp.Models
             client.Close();
             IsConnected = "Disconnected";
             ConnectionColor = "Red";
+            instance.CanConnect = true;
+            instance.CanDisconnect = false;
         }
 
         public string read()
@@ -106,6 +117,8 @@ namespace FlightSimulatorApp.Models
                     {
                         IsConnected = "Disconnected";
                         ConnectionColor = "Red";
+                        instance.CanConnect = true;
+                        instance.CanDisconnect = false;
                         return null;
                     }
                 }
@@ -113,6 +126,8 @@ namespace FlightSimulatorApp.Models
                 {
                     IsConnected = "Disconnected";
                     ConnectionColor = "Red";
+                    instance.CanConnect = true;
+                    instance.CanDisconnect = false;
                     return null;
                 }
             }
@@ -140,18 +155,24 @@ namespace FlightSimulatorApp.Models
                         {
                             IsConnected = "Disconnected";
                             ConnectionColor = "Red";
+                            instance.CanConnect = true;
+                            instance.CanDisconnect = false;
                         }
                     }
                     else
                     {
                         IsConnected = "Disconnected";
                         ConnectionColor = "Red";
+                        instance.CanConnect = true;
+                        instance.CanDisconnect = false;
                     }
                 }
                 catch (Exception)
                 {
                     IsConnected = "Disconnected";
                     ConnectionColor = "Red";
+                    instance.CanConnect = true;
+                    instance.CanDisconnect = false;
                 }
             }
         }
@@ -178,6 +199,31 @@ namespace FlightSimulatorApp.Models
             {
                 this.connectionColor = value;
                 NotifyPropertyChanged("ConnectionColor");
+            }
+        }
+        public Boolean CanConnect
+        {
+            get
+            {
+                return this.canConnectValue;
+            }
+            set
+            {
+                this.canConnectValue = value;
+                NotifyPropertyChanged("CanConnect");
+            }
+        }
+
+        public Boolean CanDisconnect
+        {
+            get
+            {
+                return this.canDisconnectValue;
+            }
+            set
+            {
+                this.canDisconnectValue = value;
+                NotifyPropertyChanged("canDisconnect");
             }
         }
     }
