@@ -12,7 +12,7 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     public partial class GearControl : UserControl
     {
-        
+        // all varibel and propetry sets;
         private double rudder;
         private double elevator;
         private double throttle;

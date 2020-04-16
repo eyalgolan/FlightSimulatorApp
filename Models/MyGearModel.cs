@@ -12,6 +12,7 @@ namespace FlightSimulatorApp.Models
     {
 
         ITelnetClient tc;
+        //The data sending protocol
 
         private string throttleCommand = "set /controls/engines/current-engine/throttle ";
         private string rudderCommand = "set /controls/flight/rudder ";
@@ -27,12 +28,14 @@ namespace FlightSimulatorApp.Models
             this.writeQueue = new Queue<string>();
             startWriting();
         }
+        //property set
 
         public void setThrottle(double value)
         {
             string command = throttleCommand + value + "\n";
             this.writeQueue.Enqueue(command);
         }
+
         public void setRudder(double value)
         {
             string command = rudderCommand + value + "\n";
@@ -48,13 +51,14 @@ namespace FlightSimulatorApp.Models
             string command = aileronCommand + value + "\n";
             this.writeQueue.Enqueue(command);
         }
-
+        // We maintain a queue which collects the server commands to send  in the correct order with Thread
         private void startWriting()
         {
             new Thread(delegate ()
             {
                 while (true)
                 {
+                    // we send the data until we disconnected or the queue is empty 
                     if (String.Equals(tc.IsConnected, "Connected") && this.writeQueue.Count != 0)
                     {
                         string writeCommand = writeQueue.Peek();

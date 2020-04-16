@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace FlightSimulatorApp.Views
 {
     /// <summary>
-    /// Interaction logic for Joysticksmall.xaml
+    /// Interaction logic for  Joysticksmall.xaml this is generic small joystick that we use 
     /// </summary>
     public partial class Joysticksmall : UserControl
     {
@@ -29,6 +29,7 @@ namespace FlightSimulatorApp.Views
 
         public double ypoint
         {
+            // the point we send to the server 
             get { return (double)GetValue(ypointProperty); }
             set { SetValue(ypointProperty, value); }
         }
@@ -39,6 +40,7 @@ namespace FlightSimulatorApp.Views
 
         public double xpoint
         {
+            // the point that we send to the server 
             get { return (double)GetValue(xpointProperty); }
             set { SetValue(xpointProperty, value); }
         }
@@ -57,8 +59,10 @@ namespace FlightSimulatorApp.Views
         {
             if (e.ChangedButton == MouseButton.Left) { fpoint = e.GetPosition(this); }
         }
+        // moving the mouse and controlling the gear
         private void Knob_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            // position of the mouse knob 
             knobPosition.X = 0;
             knobPosition.Y = 0;
             oldx = knobPosition.X;
@@ -69,14 +73,18 @@ namespace FlightSimulatorApp.Views
         }
         private void Knob_MouseMove(object sender, MouseEventArgs e)
         {
+            // moving the mouse and controlling the gear
+
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-
+                // update position
                 double x = e.GetPosition(this).X - fpoint.X;
                 double y = e.GetPosition(this).Y - fpoint.Y;
-
+                // limit of the gear animation
                 if (Math.Sqrt(x * x + y * y) < 120 / 2)
                 {
+                    // update position
+
                     knobPosition.X = x;
                     knobPosition.Y = y;
                     oldx = knobPosition.X;
@@ -88,6 +96,7 @@ namespace FlightSimulatorApp.Views
                 }
                 else
                 {
+                    // update position
 
                     knobPosition.X = oldx;
                     knobPosition.Y = oldy;
@@ -99,6 +108,8 @@ namespace FlightSimulatorApp.Views
             }
             else
             {
+                // update position
+
                 knobPosition.X = 0;
                 knobPosition.Y = 0;
                 rudder = oldx / 60;
@@ -109,6 +120,9 @@ namespace FlightSimulatorApp.Views
         }
         private void Knob_Mouseleave(object sender, MouseEventArgs e)
         {
+            // leave the mouse press from the gear 
+
+            // update position
             knobPosition.X = 0;
             knobPosition.Y = 0;
             oldx = knobPosition.X;
@@ -120,6 +134,7 @@ namespace FlightSimulatorApp.Views
         }
         public Point getposition()
         {
+            // return the position 
             return new Point( elevator, rudder);
         }
     }

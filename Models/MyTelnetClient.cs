@@ -20,6 +20,11 @@ namespace FlightSimulatorApp.Models
         private static MyTelnetClient instance = null;
         public static MyTelnetClient Instance
         {
+            /* 
+             * We are generating a generic server form, but with a small and interesting addition that will give us colorful clues about connecting
+               Red disconnected  And green is connected
+              also  yellow marks a communication problem or slow connection
+            */
             get
             {
                 if (instance == null)
@@ -42,7 +47,7 @@ namespace FlightSimulatorApp.Models
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
-
+        // connect command 
         public void connect(string ip, int port)
         {
             try
@@ -59,6 +64,7 @@ namespace FlightSimulatorApp.Models
                 ConnectionColor = "Red";
             }
         }
+        // disconnect command 
 
         public void disconnect()
         {
@@ -66,6 +72,7 @@ namespace FlightSimulatorApp.Models
             IsConnected = "Disconnected";
             ConnectionColor = "Red";
         }
+        // read command 
 
         public string read()
         {
@@ -85,6 +92,7 @@ namespace FlightSimulatorApp.Models
                         {
                             try
                             {
+                                // timeout cheak for 7 seconds
                                 client.ReceiveTimeout = 7000;
 
                                 numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
@@ -94,6 +102,7 @@ namespace FlightSimulatorApp.Models
                             }
                             catch (Exception)
                             {
+                                // slow conaction 
                                 IsConnected = "Server timeout";
                                 ConnectionColor = "Yellow";
                             }
@@ -119,6 +128,7 @@ namespace FlightSimulatorApp.Models
             }
         }
 
+        // write command 
 
         public void write(string command)
         {
@@ -156,6 +166,7 @@ namespace FlightSimulatorApp.Models
                 }
             }
         }
+        // cheak if we IsConnected command 
 
         public String IsConnected
         {
@@ -169,6 +180,8 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("IsConnected");
             }
         }
+        // cheak ConnectionColor command 
+
         public String ConnectionColor
         {
             get
