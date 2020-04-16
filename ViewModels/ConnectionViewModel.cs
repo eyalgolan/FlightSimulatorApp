@@ -24,7 +24,7 @@ namespace FlightSimulatorApp.ViewModels
             //this.model.connect(this.ip, this.port);
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
+                NotifyPropertyChanged("Vm" + e.PropertyName);
             };
         }
 
