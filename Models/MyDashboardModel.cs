@@ -10,37 +10,35 @@ namespace FlightSimulatorApp.Models
 {
     class MyDashboardModel : IDashboardModel
     {
-        private string verticalspeed;
-        private string groundspeed;
+        private string verticalSpeed;
+        private string groundSpeed;
         private string heading;
         private string altimeter;
         private string pitch;
         private string roll;
         private string altitude;
-        private string airspeed;
-        private bool firstt;
+        private string airSpeed;
 
         private string verticalspeedcolor;
-        private string ground_speed_color;
-        private string heading_color;
-        private string altimeter_color;
-        private string pitchcolor;
-        private string rollcolor;
-        private string altitudecolor;
-        private string airspeedcolor;
+        private string groundSpeedColor;
+        private string headingColor;
+        private string altimeterColor;
+        private string pitchColor;
+        private string rollColor;
+        private string altitudeColor;
+        private string airSpeedColor;
 
         ITelnetClient tc;
-        private bool connect;
 
         public String VerticalSpeed
         {
             get
             {
-                return this.verticalspeed;
+                return this.verticalSpeed;
             }
             set
             {
-                this.verticalspeed = value;
+                this.verticalSpeed = value;
                 NotifyPropertyChanged("VerticalSpeed");
             }
         }
@@ -49,11 +47,11 @@ namespace FlightSimulatorApp.Models
         {
             get
             {
-                return this.groundspeed;
+                return this.groundSpeed;
             }
             set
             {
-                this.groundspeed = value;
+                this.groundSpeed = value;
                 NotifyPropertyChanged("GroundSpeed");
             }
         }
@@ -127,11 +125,11 @@ namespace FlightSimulatorApp.Models
         {
             get
             {
-                return this.airspeed;
+                return this.airSpeed;
             }
             set
             {
-                this.airspeed = value;
+                this.airSpeed = value;
                 NotifyPropertyChanged("AirSpeed");
             }
         }
@@ -153,11 +151,11 @@ namespace FlightSimulatorApp.Models
         {
             get
             {
-                return this.ground_speed_color;
+                return this.groundSpeedColor;
             }
             set
             {
-                this.ground_speed_color = value;
+                this.groundSpeedColor = value;
                 NotifyPropertyChanged("GroundSpeedColor");
             }
         }
@@ -166,11 +164,11 @@ namespace FlightSimulatorApp.Models
         {
             get
             {
-                return this.heading_color;
+                return this.headingColor;
             }
             set
             {
-                this.heading_color = value;
+                this.headingColor = value;
                 NotifyPropertyChanged("HeadingColor");
             }
         }
@@ -179,11 +177,11 @@ namespace FlightSimulatorApp.Models
         {
             get
             {
-                return this.altimeter_color;
+                return this.altimeterColor;
             }
             set
             {
-                this.altimeter_color = value;
+                this.altimeterColor = value;
                 NotifyPropertyChanged("AltimeterColor");
             }
         }
@@ -192,11 +190,11 @@ namespace FlightSimulatorApp.Models
         {
             get
             {
-                return this.pitchcolor;
+                return this.pitchColor;
             }
             set
             {
-                this.pitchcolor = value;
+                this.pitchColor = value;
                 NotifyPropertyChanged("PitchColor");
             }
         }
@@ -205,11 +203,11 @@ namespace FlightSimulatorApp.Models
         {
             get
             {
-                return this.rollcolor;
+                return this.rollColor;
             }
             set
             {
-                this.rollcolor = value;
+                this.rollColor = value;
                 NotifyPropertyChanged("RollColor");
             }
         }
@@ -218,11 +216,11 @@ namespace FlightSimulatorApp.Models
         {
             get
             {
-                return this.altitudecolor;
+                return this.altitudeColor;
             }
             set
             {
-                this.altitudecolor = value;
+                this.altitudeColor = value;
                 NotifyPropertyChanged("AltitudeColor");
             }
         }
@@ -231,11 +229,11 @@ namespace FlightSimulatorApp.Models
         {
             get
             {
-                return this.airspeedcolor;
+                return this.airSpeedColor;
             }
             set
             {
-                this.airspeedcolor = value;
+                this.airSpeedColor = value;
                 NotifyPropertyChanged("AirSpeedColor");
             }
         }
@@ -243,24 +241,18 @@ namespace FlightSimulatorApp.Models
         public MyDashboardModel(ITelnetClient tc)
         {
             this.tc = tc;
-            this.connect = true;
             startReadingFlightData();
         }
 
         public void startReadingFlightData()
         {
-            this.firstt = true;
             new Thread(delegate ()
             {
                 while (true)
                 {
-                    if (this.firstt)
-                    {
-                        this.firstt = false;
                         tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
                         double i;
                         string serverInput = tc.read();
-                        this.firstt = true;
                         bool result = double.TryParse(serverInput, out i);
                         if (result)
                         {
@@ -358,7 +350,6 @@ namespace FlightSimulatorApp.Models
 
                         Thread.Sleep(250);
                     }
-                }
             }).Start();
         }
         //INotifyPropertyChanged implementation
