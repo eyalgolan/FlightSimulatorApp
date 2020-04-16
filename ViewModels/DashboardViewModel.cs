@@ -17,7 +17,7 @@ namespace FlightSimulatorApp.ViewModels
             this.model = model;
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
+                NotifyPropertyChanged("Vm" + e.PropertyName);
             };
         }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -29,23 +29,23 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_VerticalSpeed
+        public String VmVerticalSpeed
         {
             get
             {
-                return this.model.VerticslSpeed;
+                return this.model.VerticalSpeed;
             }
         }
 
-        public String VM_GroundSpeed
+        public String VmGroundSpeed
         {
             get
             {
-                return this.model.GraoundSpeed;
+                return this.model.GroundSpeed;
             }
         }
 
-        public String VM_Heading
+        public String VmHeading
         {
             get
             {
@@ -53,15 +53,15 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_Alimeter
+        public String VmAltimeter
         {
             get
             {
-                return this.model.Aliemeter;
+                return this.model.Altimeter;
             }
         }
 
-        public String VM_Pitch
+        public String VmPitch
         {
             get
             {
@@ -69,7 +69,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_Roll
+        public String VmRoll
         {
             get
             {
@@ -77,31 +77,31 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_Altitude
+        public String VmAltitude
         {
             get
             {
-                return this.model.ALtitude;
+                return this.model.Altitude;
             }
         }
 
-        public String VM_AirSpeed
+        public String VmAirSpeed
         {
             get
             {
-                return this.model.Airspeed;
+                return this.model.AirSpeed;
             }
         }
 
-        public String VM_VertcialSpeedColor
+        public String VmVertcialSpeedColor
         {
             get
             {
-                return this.model.VertivalSpeedColor;
+                return this.model.VerticalSpeedColor;
             }
         }
 
-        public String VM_GroundSpeedColor
+        public String VmGroundSpeedColor
         {
             get
             {
@@ -109,7 +109,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_HeadingColor
+        public String VmHeadingColor
         {
             get
             {
@@ -117,23 +117,23 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_AlimeterColor
+        public String VmAlimeterColor
         {
             get
             {
-                return this.model.AlimeterColor;
+                return this.model.AltimeterColor;
             }
         }
 
-        public String VM_PitchColor
+        public String VmPitchColor
         {
             get
             {
-                return this.model.PichColor;
+                return this.model.PitchColor;
             }
         }
 
-        public String VM_RollColor
+        public String VmRollColor
         {
             get
             {
@@ -141,7 +141,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_AltitudeColor
+        public String VmAltitudeColor
         {
             get
             {
@@ -149,7 +149,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_AirSpeedColor
+        public String VmAirSpeedColor
         {
             get
             {

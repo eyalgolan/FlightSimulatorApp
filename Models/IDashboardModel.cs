@@ -9,19 +9,19 @@ namespace FlightSimulatorApp.Models
 {
     public interface IDashboardModel : INotifyPropertyChanged
     {
-        string VerticslSpeed { set; get; }
-        string GraoundSpeed { set; get; }
+        string VerticalSpeed { set; get; }
+        string GroundSpeed { set; get; }
         string Heading { set; get; }
-        string Aliemeter { set; get; }
+        string Altimeter { set; get; }
         string Pitch { set; get; }
         string Roll { set; get; }
-        string ALtitude { set; get; }
-        string Airspeed { set; get; }
-        string VertivalSpeedColor { set; get; }
+        string Altitude { set; get; }
+        string AirSpeed { set; get; }
+        string VerticalSpeedColor { set; get; }
         string GroundSpeedColor { set; get; }
         string HeadingColor { set; get; }
-        string AlimeterColor { set; get; }
-        string PichColor { set; get; }
+        string AltimeterColor { set; get; }
+        string PitchColor { set; get; }
         string RollColor { set; get; }
         string AltitudeColor { set; get; }
         string AirSpeedColor { set; get; }

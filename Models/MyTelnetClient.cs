@@ -14,7 +14,7 @@ namespace FlightSimulatorApp.Models
     {
         private TcpClient client;
         private IPEndPoint ep;
-        private static object lockReadWrite = new object();
+        private static object lockReadWrite;
         private string isConnected;
         private string connectionColor;
         private static MyTelnetClient instance = null;
@@ -27,6 +27,7 @@ namespace FlightSimulatorApp.Models
                     instance = new MyTelnetClient();
                     instance.IsConnected = "Discconected";
                     instance.ConnectionColor = "Red";
+                    lockReadWrite = new object();
                 }
                 return instance;
             }

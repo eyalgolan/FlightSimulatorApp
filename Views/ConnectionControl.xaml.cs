@@ -39,7 +39,7 @@ namespace FlightSimulatorApp.Views
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
             vmConnect.connectToSimulator();
-            if(String.Equals(vmConnect.VM_IsConnected, "Connected"))
+            if(String.Equals(vmConnect.VmIsConnected, "Connected"))
             {
                 btnConnect.IsEnabled = false;
                 btnDisconnect.IsEnabled = true;
@@ -48,7 +48,7 @@ namespace FlightSimulatorApp.Views
         private void btnDisconnect_Click(object sender, RoutedEventArgs e)
         {
             vmConnect.disconnectSimulator();
-            if (String.Equals(vmConnect.VM_IsConnected, "Disconnected"))
+            if (String.Equals(vmConnect.VmIsConnected, "Disconnected"))
             {
                 btnConnect.IsEnabled = true;
                 btnDisconnect.IsEnabled = false;

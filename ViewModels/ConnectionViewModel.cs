@@ -61,7 +61,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_IsConnected
+        public String VmIsConnected
         {
             get
             {
@@ -69,7 +69,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_ConnectionColor
+        public String VmConnectionColor
         {
             get
             {
