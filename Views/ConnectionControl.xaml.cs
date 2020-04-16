@@ -28,6 +28,7 @@ namespace FlightSimulatorApp.Views
             InitializeComponent();
             //vmConnect = new ConnectionViewModel(this.TCinstance);
             //this.DataContext = this.vmConnect;
+
         }
 
         // Setting the control board view model.
