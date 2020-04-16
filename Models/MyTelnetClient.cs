@@ -85,7 +85,7 @@ namespace FlightSimulatorApp.Models
                         {
                             try
                             {
-                                client.ReceiveTimeout = 10000;
+                                client.ReceiveTimeout = 7000;
 
                                 numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
 
