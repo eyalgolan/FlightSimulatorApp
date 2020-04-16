@@ -93,7 +93,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmVertcialSpeedColor
+        public String VmVerticalSpeedColor
         {
             get
             {
@@ -117,7 +117,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmAlimeterColor
+        public String VmAltimeterColor
         {
             get
             {

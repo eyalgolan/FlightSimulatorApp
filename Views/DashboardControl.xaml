@@ -51,11 +51,11 @@
             <TextBlock Grid.Row="4" Grid.Column="4" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VmAltitude}" VerticalAlignment="Top"/>
             <TextBlock Grid.Row="5" Grid.Column="4" Padding="3" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding VmAirSpeed}" VerticalAlignment="Top"/>
 
-            <Button Grid.Row="2" Grid.Column="2" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmVertcialSpeedColor}" VerticalAlignment="Top"/>
+            <Button Grid.Row="2" Grid.Column="2" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmVerticalSpeedColor}" VerticalAlignment="Top"/>
             <Button Grid.Row="3" Grid.Column="2" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmPitchColor}" VerticalAlignment="Top"/>
             <Button Grid.Row="4" Grid.Column="2" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmGroundSpeedColor}" VerticalAlignment="Top"/>
             <Button Grid.Row="5" Grid.Column="2" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmHeadingColor}" VerticalAlignment="Top"/>
-            <Button Grid.Row="2" Grid.Column="5" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmAlimeterColor}" VerticalAlignment="Top"/>
+            <Button Grid.Row="2" Grid.Column="5" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmAltimeterColor}" VerticalAlignment="Top"/>
             <Button Grid.Row="3" Grid.Column="5" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmRollColor}" VerticalAlignment="Top"/>
             <Button Grid.Row="4" Grid.Column="5" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmAltitudeColor}" VerticalAlignment="Top"/>
             <Button Grid.Row="5" Grid.Column="5" Padding="5" Margin="3" HorizontalAlignment="Left" Background="{Binding VmAirSpeedColor}" VerticalAlignment="Top"/>

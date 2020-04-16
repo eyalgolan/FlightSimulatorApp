@@ -25,7 +25,7 @@ namespace FlightSimulatorApp.Models
                 if (instance == null)
                 {
                     instance = new MyTelnetClient();
-                    instance.IsConnected = "Discconected";
+                    instance.IsConnected = "Disconected";
                     instance.ConnectionColor = "Red";
                     lockReadWrite = new object();
                 }
