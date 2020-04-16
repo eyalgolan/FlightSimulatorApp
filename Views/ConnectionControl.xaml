@@ -6,6 +6,36 @@
              xmlns:local="clr-namespace:FlightSimulatorApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="connectButtonStyle" TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=VM_CanConnect}" Value="true">
+                    <DataTrigger.Setters>
+                        <Setter Property="IsEnabled" Value="True" />
+                    </DataTrigger.Setters>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=VM_CanConnect}" Value="false">
+                    <DataTrigger.Setters>
+                        <Setter Property="IsEnabled" Value="False" />
+                    </DataTrigger.Setters>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="diconnectButtonStyle" TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=VM_CanDisconnect}" Value="true">
+                    <DataTrigger.Setters>
+                        <Setter Property="IsEnabled" Value="True" />
+                    </DataTrigger.Setters>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=VM_CanDisconnect}" Value="false">
+                    <DataTrigger.Setters>
+                        <Setter Property="IsEnabled" Value="False" />
+                    </DataTrigger.Setters>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid TextBlock.FontSize="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -25,7 +55,7 @@
         <TextBox x:Name="txtIP" Grid.Row="1" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=IP}"></TextBox>
         <TextBlock Grid.Row="2" Padding="3" Margin="3">Port:</TextBlock>
         <TextBox x:Name="txtPort" Grid.Row="2" Grid.Column="2" Padding="3" Margin="3" Text="{Binding Path=Port}"></TextBox>
-        <Button x:Name="btnConnect" Grid.Row="3" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnConnect_Click" Margin="5" Padding="5" IsEnabled="{Binding VM_CanConnect}" >Connect</Button>
-        <Button x:Name="btnDisconnect" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnDisconnect_Click" Margin="5" Padding="5" IsEnabled="{Binding VM_CanDisconnect}">Disconnect</Button>
+        <Button x:Name="btnConnect" Style="{StaticResource connectButtonStyle}"  Grid.Row="3" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnConnect_Click" Margin="5" Padding="5">Connect</Button>
+        <Button x:Name="btnDisconnect"  Style="{StaticResource diconnectButtonStyle}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Grid.ColumnSpan="2" Click="btnDisconnect_Click" Margin="5" Padding="5">Disconnect</Button>
     </Grid>
 </UserControl>

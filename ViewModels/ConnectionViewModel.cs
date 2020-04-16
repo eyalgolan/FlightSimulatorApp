@@ -83,6 +83,10 @@ namespace FlightSimulatorApp.ViewModels
                 Console.WriteLine(this.model.CanConnect);
                 return this.model.CanConnect;
             }
+            set
+            {
+
+            }
         }
         public Boolean VM_CanDisconnected
         {
@@ -90,6 +94,10 @@ namespace FlightSimulatorApp.ViewModels
             {
                 Console.WriteLine(this.model.CanDisconnect);
                 return this.model.CanDisconnect;
+            }
+            set
+            {
+
             }
         }
         public void connectToSimulator ()
