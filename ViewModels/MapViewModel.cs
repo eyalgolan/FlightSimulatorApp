@@ -33,7 +33,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public Location VMNewPath
+        public Location VM_NewPath
         {
             get
             {
@@ -42,10 +42,10 @@ namespace FlightSimulatorApp.ViewModels
             set
             {
                 this.newPath = value;
-                VMPlanePath.Add(VMNewPath);
+                VM_PlanePath.Add(VM_NewPath);
             }
         }
-        public LocationCollection VMPlanePath
+        public LocationCollection VM_PlanePath
         {
             get
             {
@@ -53,33 +53,33 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
         //Properties
-        public String VMLatitude
+        public String VM_Latitude
         {
             get { return model.Latitude; }
         }
-        public String VMLongitude
+        public String VM_Longitude
         {
             get { return model.Longitude; }
         }
-        public String VMLatitudeError
+        public String VM_LatitudeError
         {
             get
             {
                 return this.model.LatitudeError;
             }
         }
-        public String VMLongitudeError
+        public String VM_LongitudeError
         {
             get
             {
                 return this.model.LongitudeError;
             }
         }
-        public String VMFlightData
+        public String VM_FlightData
         {
             get 
             {
-                VMNewPath = new Location(Convert.ToDouble(VMLatitude),Convert.ToDouble(VMLongitude));
+                VM_NewPath = new Location(Convert.ToDouble(VM_Latitude),Convert.ToDouble(VM_Longitude));
                 return model.FlightData; 
             }
         }

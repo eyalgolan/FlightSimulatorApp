@@ -29,7 +29,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmVerticalSpeed
+        public String VM_VerticalSpeed
         {
             get
             {
@@ -37,7 +37,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmGroundSpeed
+        public String VM_GroundSpeed
         {
             get
             {
@@ -45,7 +45,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmHeading
+        public String VM_Heading
         {
             get
             {
@@ -53,7 +53,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String Vmalimeter
+        public String VM_Alimeter
         {
             get
             {
@@ -61,7 +61,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmPitch
+        public String VM_Pitch
         {
             get
             {
@@ -69,7 +69,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmRoll
+        public String VM_Roll
         {
             get
             {
@@ -77,7 +77,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmAltitude
+        public String VM_Altitude
         {
             get
             {
@@ -85,7 +85,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmAirSpeed
+        public String VM_AirSpeed
         {
             get
             {
@@ -93,7 +93,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmVertcialSpeedColor
+        public String VM_VertcialSpeedColor
         {
             get
             {
@@ -101,7 +101,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmGroundSpeedColor
+        public String VM_GroundSpeedColor
         {
             get
             {
@@ -109,7 +109,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmHeadingColor
+        public String VM_HeadingColor
         {
             get
             {
@@ -117,7 +117,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmAlimeterColor
+        public String VM_AlimeterColor
         {
             get
             {
@@ -125,7 +125,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmPitchColor
+        public String VM_PitchColor
         {
             get
             {
@@ -133,7 +133,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmRollColor
+        public String VM_RollColor
         {
             get
             {
@@ -141,7 +141,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmAltitudeColor
+        public String VM_AltitudeColor
         {
             get
             {
@@ -149,7 +149,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VmAirSpeedColor
+        public String VM_AirSpeedColor
         {
             get
             {
