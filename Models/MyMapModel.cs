@@ -20,6 +20,7 @@ namespace FlightSimulatorApp.Models
         private string longitudeError;
         private string planeLocation;
 
+        // MyMapModel Ctor
         public MyMapModel(ITelnetClient tc)
         {
             this.tc = tc;
@@ -31,6 +32,8 @@ namespace FlightSimulatorApp.Models
             this.oldLongtitude = Longitude;
             startReadingFlightData();
         }
+
+        //Properties
 
         //Property holding the plane's latitude
         public String Latitude
@@ -141,7 +144,7 @@ namespace FlightSimulatorApp.Models
                     }
                     else
                     {
-                        // eror
+                        Console.WriteLine("Map model couldn't parse Latitude from server");
                     }
                     // getting the plane's current longitude
                     double recievedLongitude;
@@ -166,7 +169,7 @@ namespace FlightSimulatorApp.Models
                     }
                     else
                     {
-                        // eror
+                        Console.WriteLine("Map model couldn't parse Longitude from server");
                     }
                     FlightData = Latitude + "," + Longitude;
                     Thread.Sleep(250);

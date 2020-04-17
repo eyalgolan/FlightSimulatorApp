@@ -37,6 +37,8 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
+        //Properties
+
         //Property responsible for holding the server's IP address
         public String IP
         {

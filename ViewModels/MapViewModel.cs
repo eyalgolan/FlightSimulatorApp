@@ -53,6 +53,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.planePath;
             }
         }
+
         //Properties
         public String VmLatitude
         {

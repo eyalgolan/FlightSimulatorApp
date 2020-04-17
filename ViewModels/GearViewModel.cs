@@ -18,13 +18,14 @@ namespace FlightSimulatorApp.ViewModels
         private double aileron;
         private double throttle;
 
-        //IGearModel model;
-
         public GearViewModel(IGearModel model)
         {
             this.model = model;
         }
-        //property set
+
+        //Properties
+
+        //property responsible for relaying the rudder
         public double VmRudder
         {
             get
@@ -37,8 +38,8 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setRudder(this.rudder);
             }
         }
-        //property set
 
+        //property responsible for relaying the elevator
         public double VmElevator
         {
             get
@@ -51,8 +52,8 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setElevator(this.elevator);
             }
         }
-        //property set
 
+        //property responsible for relaying the throttle
         public double VmThrottle
         {
             get
@@ -65,8 +66,8 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setThrottle(this.throttle);
             }
         }
-        //property set
 
+        //property responsible for relaying the aileron
         public double VmAileron
         {
             get

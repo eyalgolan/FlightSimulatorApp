@@ -173,6 +173,9 @@ namespace FlightSimulatorApp.Models
                 }
             }
         }
+
+        //Properties
+
         // Property holding the connection status
         public String IsConnected
         {

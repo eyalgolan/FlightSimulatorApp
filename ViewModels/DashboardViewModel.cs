@@ -29,6 +29,9 @@ namespace FlightSimulatorApp.ViewModels
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
+
+        //Properties
+
         //Property responsible for relaying the VerticalSpeed
         public String VmVerticalSpeed
         {
