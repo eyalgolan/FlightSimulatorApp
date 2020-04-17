@@ -61,7 +61,7 @@ namespace FlightSimulatorApp.ViewModels
         {
             get { return model.Longitude; }
         }
-        public String VMmatitudeError
+        public String VmLatitudeError
         {
             get
             {
