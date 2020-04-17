@@ -24,6 +24,7 @@ namespace FlightSimulatorApp.ViewModels
             planePath = new LocationCollection();
         }
 
+        //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(String propName)
         {

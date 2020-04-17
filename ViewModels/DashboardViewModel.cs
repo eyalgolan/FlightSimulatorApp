@@ -20,6 +20,7 @@ namespace FlightSimulatorApp.ViewModels
                 NotifyPropertyChanged("Vm" + e.PropertyName);
             };
         }
+        //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(String propName)
         {
@@ -28,7 +29,7 @@ namespace FlightSimulatorApp.ViewModels
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
-
+        //Property responsible for relaying the VerticalSpeed
         public String VmVerticalSpeed
         {
             get
@@ -36,7 +37,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.VerticalSpeed;
             }
         }
-
+        //Property responsible for relaying the GroundSpeed
         public String VmGroundSpeed
         {
             get
@@ -44,7 +45,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.GroundSpeed;
             }
         }
-
+        //Property responsible for relaying the Heading
         public String VmHeading
         {
             get
@@ -52,7 +53,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.Heading;
             }
         }
-
+        //Property responsible for relaying the Altimeter
         public String VmAltimeter
         {
             get
@@ -60,7 +61,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.Altimeter;
             }
         }
-
+        //Property responsible for relaying the Pitch
         public String VmPitch
         {
             get
@@ -68,7 +69,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.Pitch;
             }
         }
-
+        //Property responsible for relaying the Roll
         public String VmRoll
         {
             get
@@ -76,7 +77,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.Roll;
             }
         }
-
+        //Property responsible for relaying the Altitude
         public String VmAltitude
         {
             get
@@ -84,7 +85,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.Altitude;
             }
         }
-
+        //Property responsible for relaying the AirSpeed
         public String VmAirSpeed
         {
             get
@@ -92,7 +93,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.AirSpeed;
             }
         }
-
+        //Property responsible for relaying the VerticalSpeedColor
         public String VmVerticalSpeedColor
         {
             get
@@ -100,7 +101,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.VerticalSpeedColor;
             }
         }
-
+        //Property responsible for relaying the GroundSpeedColor
         public String VmGroundSpeedColor
         {
             get
@@ -108,7 +109,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.GroundSpeedColor;
             }
         }
-
+        //Property responsible for relaying the HeadingColor
         public String VmHeadingColor
         {
             get
@@ -116,7 +117,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.HeadingColor;
             }
         }
-
+        //Property responsible for relaying the AltimeterColor
         public String VmAltimeterColor
         {
             get
@@ -124,7 +125,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.AltimeterColor;
             }
         }
-
+        //Property responsible for relaying the PitchColor
         public String VmPitchColor
         {
             get
@@ -132,7 +133,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.PitchColor;
             }
         }
-
+        //Property responsible for relaying the RollColor
         public String VmRollColor
         {
             get
@@ -140,7 +141,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.RollColor;
             }
         }
-
+        //Property responsible for relaying the AltitudeColor
         public String VmAltitudeColor
         {
             get
@@ -148,7 +149,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.AltitudeColor;
             }
         }
-
+        //Property responsible for relaying the AirSpeedColor
         public String VmAirSpeedColor
         {
             get

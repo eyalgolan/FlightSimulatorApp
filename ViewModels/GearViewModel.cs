@@ -79,8 +79,8 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setAileron(this.aileron);
             }
         }
+        //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
-        //NotifyPropertyChanged
         public void NotifyPropertyChanged(String propName)
         {
             if (this.PropertyChanged != null)

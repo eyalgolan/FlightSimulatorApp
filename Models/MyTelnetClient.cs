@@ -39,8 +39,8 @@ namespace FlightSimulatorApp.Models
             }
         }
 
+        //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
-
         public void NotifyPropertyChanged(String propName)
         {
             if (this.PropertyChanged != null)

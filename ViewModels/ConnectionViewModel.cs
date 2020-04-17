@@ -27,6 +27,7 @@ namespace FlightSimulatorApp.ViewModels
             };
         }
 
+        //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(String propName)
         {
