@@ -27,6 +27,7 @@ namespace FlightSimulatorApp.Views
         {
             InitializeComponent();
         }
+        // Setting the map control view model
         public void setVM(MapViewModel map_VM)
         {
             this.vmMap = map_VM;

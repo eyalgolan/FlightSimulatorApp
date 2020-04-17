@@ -30,6 +30,9 @@ namespace FlightSimulatorApp.Models
 
         ITelnetClient tc;
 
+        //Properties
+
+        //Property responsible for VerticalSpeed
         public String VerticalSpeed
         {
             get
@@ -42,7 +45,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("VerticalSpeed");
             }
         }
-
+        //Property responsible for GroundSpeed
         public String GroundSpeed
         {
             get
@@ -55,7 +58,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("GroundSpeed");
             }
         }
-
+        //Property responsible for Heading
         public String Heading
         {
             get
@@ -68,7 +71,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("Heading");
             }
         }
-
+        //Property responsible for Altimeter
         public String Altimeter
         {
             get
@@ -81,7 +84,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("Altimeter");
             }
         }
-
+        //Property responsible for Pitch
         public String Pitch
         {
             get
@@ -94,7 +97,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("Pitch");
             }
         }
-
+        //Property responsible for Roll
         public String Roll
         {
             get
@@ -107,7 +110,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("Roll");
             }
         }
-
+        //Property responsible for Altitude
         public String Altitude
         {
             get
@@ -120,7 +123,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("Altitude");
             }
         }
-
+        //Property responsible for AirSpeed
         public String AirSpeed
         {
             get
@@ -133,7 +136,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("AirSpeed");
             }
         }
-
+        //Property responsible for VerticalSpeedColor
         public String VerticalSpeedColor
         {
             get
@@ -146,7 +149,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("VerticalSpeedColor");
             }
         }
-
+        //Property responsible for GroundSpeedColor
         public String GroundSpeedColor
         {
             get
@@ -159,7 +162,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("GroundSpeedColor");
             }
         }
-
+        //Property responsible for HeadingColor
         public String HeadingColor
         {
             get
@@ -172,7 +175,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("HeadingColor");
             }
         }
-
+        //Property responsible for AltimeterColor
         public String AltimeterColor
         {
             get
@@ -185,7 +188,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("AltimeterColor");
             }
         }
-
+        //Property responsible for PitchColor
         public String PitchColor
         {
             get
@@ -198,7 +201,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("PitchColor");
             }
         }
-
+        //Property responsible for RollColor
         public String RollColor
         {
             get
@@ -211,7 +214,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("RollColor");
             }
         }
-
+        //Property responsible for AltitudeColor
         public String AltitudeColor
         {
             get
@@ -224,7 +227,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("AltitudeColor");
             }
         }
-
+        //Property responsible for AirSpeedColor
         public String AirSpeedColor
         {
             get
@@ -244,6 +247,7 @@ namespace FlightSimulatorApp.Models
             startReadingFlightData();
         }
 
+        // function running a thread that asks for information about the plane's different values, 4 times a second
         public void startReadingFlightData()
         {
             new Thread(delegate ()

@@ -48,7 +48,7 @@ namespace FlightSimulatorApp.Models
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
-        // connect command 
+        // function responsible for connectiong the the server
         public void connect(string ip, string port)
         {
             try
@@ -66,8 +66,8 @@ namespace FlightSimulatorApp.Models
                 ConnectionColor = "Red";
             }
         }
-        // disconnect command 
 
+        //function responsible for disconnecting from the server
         public void disconnect()
         {
             try
@@ -86,6 +86,7 @@ namespace FlightSimulatorApp.Models
         // read function, responsible for updating information from the server 
         public string read()
         {
+            //locking the lock in order to prevent other threads from interacting with the server while this code section runs
             lock (lockReadWrite)
             {
                 try
@@ -103,7 +104,7 @@ namespace FlightSimulatorApp.Models
                             try
                             {
                                 // timeout check
-                                client.ReceiveTimeout = 7000;
+                                client.ReceiveTimeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["timeout"]);
 
                                 numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
 
@@ -141,6 +142,7 @@ namespace FlightSimulatorApp.Models
         // write function, responsible for updating the server with set commands from the user
         public void write(string command)
         {
+            //locking the lock in order to prevent other threads from interacting with the server while this code section runs
             lock (lockReadWrite)
             {
                 try

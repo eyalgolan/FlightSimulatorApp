@@ -13,6 +13,7 @@ namespace FlightSimulatorApp.Views
         {
             InitializeComponent();
         }
+        // Setting the dashboard control view model
         public void setVM(DashboardViewModel dashboard_VM)
         {
             this.vmDashboard = dashboard_VM;

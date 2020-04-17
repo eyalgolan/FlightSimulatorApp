@@ -126,9 +126,10 @@ namespace FlightSimulatorApp.Models
                     double recivedLatitude;
                     string serverInput = tc.read();
                     bool result = double.TryParse(serverInput, out recivedLatitude);
-                    //checking if the recieved input is valid
+                    //checking if the recieved input can be parsed to double
                     if (result)
                     {
+                        //checking if recieved value is in valid range
                         if (((recivedLatitude <= 90) && (recivedLatitude >= -90)) && Math.Abs(Convert.ToDouble(recivedLatitude)- Convert.ToDouble(oldLatitude)) < 2)
                         {
                             Latitude = serverInput;
@@ -142,6 +143,7 @@ namespace FlightSimulatorApp.Models
                             LatitudeError = "Bad latitude recieved, showing last correct atitude";
                         }
                     }
+                    // if not, writing to console
                     else
                     {
                         Console.WriteLine("Map model couldn't parse Latitude from server");
@@ -151,9 +153,10 @@ namespace FlightSimulatorApp.Models
                     tc.write("get /position/longitude-deg \n");
                     serverInput = tc.read();
                     result = double.TryParse(serverInput, out recievedLongitude);
-                    //checking if the recieved input is valid
+                    //checking if the recieved input can be parsed to double
                     if (result)
                     {
+                        //checking if recieved value is in valid range
                         if (((recievedLongitude <= 180) && (recievedLongitude >= -180)) && Math.Abs(Convert.ToDouble(recievedLongitude) - Convert.ToDouble(oldLongtitude)) < 2)
                         {
                             Longitude = serverInput;
@@ -167,6 +170,7 @@ namespace FlightSimulatorApp.Models
                             LongitudeError = "Bad longitude recieved, showing last correct longitude";
                         }
                     }
+                    // if not, writing to console
                     else
                     {
                         Console.WriteLine("Map model couldn't parse Longitude from server");

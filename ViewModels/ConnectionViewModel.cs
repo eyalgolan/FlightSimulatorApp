@@ -20,7 +20,6 @@ namespace FlightSimulatorApp.ViewModels
             Port = System.Configuration.ConfigurationManager.AppSettings["port"];
 
             this.model = model;
-            //this.model.connect(this.ip, this.port);
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
                 NotifyPropertyChanged("Vm" + e.PropertyName);

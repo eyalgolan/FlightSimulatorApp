@@ -46,6 +46,7 @@ namespace FlightSimulatorApp.Views
             InitializeComponent();
         }
 
+        // Setting the gear control view model
         public void setVM(GearViewModel gearVM)
         {
             this.vmGear = gearVM;

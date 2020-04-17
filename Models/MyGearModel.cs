@@ -12,14 +12,14 @@ namespace FlightSimulatorApp.Models
     {
 
         ITelnetClient tc;
-        //The data sending protocol
 
+        //The data sending protocol
         private string throttleCommand = "set /controls/engines/current-engine/throttle ";
         private string rudderCommand = "set /controls/flight/rudder ";
         private string elevatorCommand = "set /controls/flight/elevator ";
         private string aileronCommand = "set /controls/flight/aileron ";
 
-        Queue<string> writeQueue;
+        Queue<string> writeQueue; //Queue responsible for holding the set commands in the proper order
 
 
         public MyGearModel(ITelnetClient tc)
@@ -28,8 +28,8 @@ namespace FlightSimulatorApp.Models
             this.writeQueue = new Queue<string>();
             startWriting();
         }
-        //property set
 
+        // functions responsible for creating the appropriate set commands and adding them to the command queue, based on the changes the user does in the Gear
         public void setThrottle(double value)
         {
             string command = throttleCommand + value + "\n";
@@ -51,14 +51,15 @@ namespace FlightSimulatorApp.Models
             string command = aileronCommand + value + "\n";
             this.writeQueue.Enqueue(command);
         }
-        // We maintain a queue which collects the server commands to send  in the correct order with Thread
+
+        // We maintain a queue which collects the set commands, and send them to the server in the proper order
         private void startWriting()
         {
             new Thread(delegate ()
             {
                 while (true)
                 {
-                    // we send the data until we disconnected or the queue is empty 
+                    // sending the data until we disconnected or the queue is empty 
                     if (String.Equals(tc.IsConnected, "Connected") && this.writeQueue.Count != 0)
                     {
                         string writeCommand = writeQueue.Peek();
