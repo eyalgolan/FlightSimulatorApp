@@ -28,18 +28,19 @@ namespace FlightSimulatorApp.Views
             InitializeComponent();
             //vmConnect = new ConnectionViewModel(this.TCinstance);
             //this.DataContext = this.vmConnect;
+
         }
 
         // Setting the control board view model.
-        public void setVM(ConnectionViewModel connect_VM)
+        public void setVM(ConnectionViewModel connectVm)
         {
-            this.vmConnect = connect_VM;
+            this.vmConnect = connectVm;
         }
         // the connect button
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
             vmConnect.connectToSimulator();
-            if(String.Equals(vmConnect.VM_IsConnected, "Connected"))
+            if(String.Equals(vmConnect.VmIsConnected, "Connected"))
             {
                 btnConnect.IsEnabled = false;
                 btnDisconnect.IsEnabled = true;
@@ -48,7 +49,7 @@ namespace FlightSimulatorApp.Views
         private void btnDisconnect_Click(object sender, RoutedEventArgs e)
         {
             vmConnect.disconnectSimulator();
-            if (String.Equals(vmConnect.VM_IsConnected, "Disconnected"))
+            if (String.Equals(vmConnect.VmIsConnected, "Disconnected"))
             {
                 btnConnect.IsEnabled = true;
                 btnDisconnect.IsEnabled = false;

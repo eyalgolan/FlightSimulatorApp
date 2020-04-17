@@ -19,7 +19,7 @@ namespace FlightSimulatorApp.ViewModels
             this.model = model;
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
               {
-                  NotifyPropertyChanged("VM_" + e.PropertyName);
+                  NotifyPropertyChanged("Vm" + e.PropertyName);
               };
             planePath = new LocationCollection();
         }
@@ -33,7 +33,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public Location VM_NewPath
+        public Location VmNewPath
         {
             get
             {
@@ -42,10 +42,10 @@ namespace FlightSimulatorApp.ViewModels
             set
             {
                 this.newPath = value;
-                VM_PlanePath.Add(VM_NewPath);
+                VmPlanePath.Add(VmNewPath);
             }
         }
-        public LocationCollection VM_PlanePath
+        public LocationCollection VmPlanePath
         {
             get
             {
@@ -53,33 +53,33 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
         //Properties
-        public String VM_Latitude
+        public String VmLatitude
         {
             get { return model.Latitude; }
         }
-        public String VM_Longitude
+        public String VmLongitude
         {
             get { return model.Longitude; }
         }
-        public String VM_LatitudeError
+        public String VmLatitudeError
         {
             get
             {
                 return this.model.LatitudeError;
             }
         }
-        public String VM_LongitudeError
+        public String VmLongitudeError
         {
             get
             {
                 return this.model.LongitudeError;
             }
         }
-        public String VM_FlightData
+        public String VmFlightData
         {
             get 
             {
-                VM_NewPath = new Location(Convert.ToDouble(VM_Latitude),Convert.ToDouble(VM_Longitude));
+                VmNewPath = new Location(Convert.ToDouble(VmLatitude),Convert.ToDouble(VmLongitude));
                 return model.FlightData; 
             }
         }

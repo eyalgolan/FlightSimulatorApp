@@ -14,19 +14,26 @@ namespace FlightSimulatorApp.Models
     {
         private TcpClient client;
         private IPEndPoint ep;
-        private static object lockReadWrite = new object();
+        private static object lockReadWrite;
         private string isConnected;
         private string connectionColor;
         private static MyTelnetClient instance = null;
         public static MyTelnetClient Instance
         {
+            /* 
+             * We are generating a generic server form, but with a small and interesting addition that will give us colorful clues about connecting
+               Red disconnected And green is connected
+               also yellow marks a communication problem or slow connection
+            */
             get
             {
+                // using singeltone design pattern to have one object of the class, for all models
                 if (instance == null)
                 {
                     instance = new MyTelnetClient();
-                    instance.IsConnected = "Discconected";
+                    instance.IsConnected = "Disconected";
                     instance.ConnectionColor = "Red";
+                    lockReadWrite = new object();
                 }
                 return instance;
             }
@@ -41,12 +48,13 @@ namespace FlightSimulatorApp.Models
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
-
-        public void connect(string ip, int port)
+        // connect command 
+        public void connect(string ip, string port)
         {
             try
             {
-                ep = new IPEndPoint(IPAddress.Parse(ip), port);
+                int connectionPort = int.Parse(port);
+                ep = new IPEndPoint(IPAddress.Parse(ip), connectionPort);
                 client = new TcpClient();
                 client.Connect(ep);
                 IsConnected = "Connected";
@@ -58,14 +66,24 @@ namespace FlightSimulatorApp.Models
                 ConnectionColor = "Red";
             }
         }
+        // disconnect command 
 
         public void disconnect()
         {
-            client.Close();
-            IsConnected = "Disconnected";
-            ConnectionColor = "Red";
+            try
+            {
+                client.Close();
+                IsConnected = "Disconnected";
+                ConnectionColor = "Red";
+            }
+            catch (Exception)
+            {
+                IsConnected = "Disconnected";
+                ConnectionColor = "Red";
+            }
         }
 
+        // read function, responsible for updating information from the server 
         public string read()
         {
             lock (lockReadWrite)
@@ -84,7 +102,8 @@ namespace FlightSimulatorApp.Models
                         {
                             try
                             {
-                                client.ReceiveTimeout = 10000;
+                                // timeout check
+                                client.ReceiveTimeout = 7000;
 
                                 numberOfBytesRead = myNetworkStream.Read(myReadBuffer, 0, myReadBuffer.Length);
 
@@ -93,6 +112,7 @@ namespace FlightSimulatorApp.Models
                             }
                             catch (Exception)
                             {
+                                // slow conaction 
                                 IsConnected = "Server timeout";
                                 ConnectionColor = "Yellow";
                             }
@@ -118,7 +138,7 @@ namespace FlightSimulatorApp.Models
             }
         }
 
-
+        // write function, responsible for updating the server with set commands from the user
         public void write(string command)
         {
             lock (lockReadWrite)
@@ -132,8 +152,6 @@ namespace FlightSimulatorApp.Models
                         {
                             byte[] byteToSend = ASCIIEncoding.ASCII.GetBytes(command);
                             nwStream.Write(byteToSend, 0, byteToSend.Length);
-                            //IsConnected = "Connected";
-                            //ConnectionColor = "Green";
                             nwStream.Flush();
                         }
                         catch (Exception)
@@ -155,7 +173,7 @@ namespace FlightSimulatorApp.Models
                 }
             }
         }
-
+        // Property holding the connection status
         public String IsConnected
         {
             get
@@ -168,6 +186,7 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("IsConnected");
             }
         }
+        // Property holding the appropriate color based on the connection status
         public String ConnectionColor
         {
             get

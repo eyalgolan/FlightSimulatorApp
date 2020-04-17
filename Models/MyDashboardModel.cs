@@ -10,55 +10,53 @@ namespace FlightSimulatorApp.Models
 {
     class MyDashboardModel : IDashboardModel
     {
-        private string vertical_speed;
-        private string ground_speed;
+        private string verticalSpeed;
+        private string groundSpeed;
         private string heading;
         private string altimeter;
         private string pitch;
         private string roll;
         private string altitude;
-        private string air_speed;
-        private bool firstt;
+        private string airSpeed;
 
-        private string vertical_speed_color;
-        private string ground_speed_color;
-        private string heading_color;
-        private string altimeter_color;
-        private string pitch_color;
-        private string roll_color;
-        private string altitude_color;
-        private string air_speed_color;
+        private string verticalspeedcolor;
+        private string groundSpeedColor;
+        private string headingColor;
+        private string altimeterColor;
+        private string pitchColor;
+        private string rollColor;
+        private string altitudeColor;
+        private string airSpeedColor;
 
         ITelnetClient tc;
-        private bool connect;
 
-        public String VERTICAL_SPEED
+        public String VerticalSpeed
         {
             get
             {
-                return this.vertical_speed;
+                return this.verticalSpeed;
             }
             set
             {
-                this.vertical_speed = value;
-                NotifyPropertyChanged("VERTICAL_SPEED");
+                this.verticalSpeed = value;
+                NotifyPropertyChanged("VerticalSpeed");
             }
         }
 
-        public String GROUND_SPEED
+        public String GroundSpeed
         {
             get
             {
-                return this.ground_speed;
+                return this.groundSpeed;
             }
             set
             {
-                this.ground_speed = value;
-                NotifyPropertyChanged("GROUND_SPEED");
+                this.groundSpeed = value;
+                NotifyPropertyChanged("GroundSpeed");
             }
         }
 
-        public String HEADING
+        public String Heading
         {
             get
             {
@@ -67,11 +65,11 @@ namespace FlightSimulatorApp.Models
             set
             {
                 this.heading = value;
-                NotifyPropertyChanged("HEADING");
+                NotifyPropertyChanged("Heading");
             }
         }
 
-        public String ALTIMETER
+        public String Altimeter
         {
             get
             {
@@ -80,11 +78,11 @@ namespace FlightSimulatorApp.Models
             set
             {
                 this.altimeter = value;
-                NotifyPropertyChanged("ALTIMETER");
+                NotifyPropertyChanged("Altimeter");
             }
         }
 
-        public String PITCH
+        public String Pitch
         {
             get
             {
@@ -93,11 +91,11 @@ namespace FlightSimulatorApp.Models
             set
             {
                 this.pitch = value;
-                NotifyPropertyChanged("PITCH");
+                NotifyPropertyChanged("Pitch");
             }
         }
 
-        public String ROLL
+        public String Roll
         {
             get
             {
@@ -106,11 +104,11 @@ namespace FlightSimulatorApp.Models
             set
             {
                 this.roll = value;
-                NotifyPropertyChanged("ROLL");
+                NotifyPropertyChanged("Roll");
             }
         }
 
-        public String ALTITUDE
+        public String Altitude
         {
             get
             {
@@ -119,246 +117,239 @@ namespace FlightSimulatorApp.Models
             set
             {
                 this.altitude = value;
-                NotifyPropertyChanged("ALTITUDE");
+                NotifyPropertyChanged("Altitude");
             }
         }
 
-        public String AIR_SPEED
+        public String AirSpeed
         {
             get
             {
-                return this.air_speed;
+                return this.airSpeed;
             }
             set
             {
-                this.air_speed = value;
-                NotifyPropertyChanged("AIR_SPEED");
+                this.airSpeed = value;
+                NotifyPropertyChanged("AirSpeed");
             }
         }
 
-        public String VERTICAL_SPEED_COLOR
+        public String VerticalSpeedColor
         {
             get
             {
-                return this.vertical_speed_color;
+                return this.verticalspeedcolor;
             }
             set
             {
-                this.vertical_speed_color = value;
-                NotifyPropertyChanged("VERTICAL_SPEED_COLOR");
+                this.verticalspeedcolor = value;
+                NotifyPropertyChanged("VerticalSpeedColor");
             }
         }
 
-        public String GROUND_SPEED_COLOR
+        public String GroundSpeedColor
         {
             get
             {
-                return this.ground_speed_color;
+                return this.groundSpeedColor;
             }
             set
             {
-                this.ground_speed_color = value;
-                NotifyPropertyChanged("GROUND_SPEED_COLOR");
+                this.groundSpeedColor = value;
+                NotifyPropertyChanged("GroundSpeedColor");
             }
         }
 
-        public String HEADING_COLOR
+        public String HeadingColor
         {
             get
             {
-                return this.heading_color;
+                return this.headingColor;
             }
             set
             {
-                this.heading_color = value;
-                NotifyPropertyChanged("HEADING_COLOR");
+                this.headingColor = value;
+                NotifyPropertyChanged("HeadingColor");
             }
         }
 
-        public String ALTIMETER_COLOR
+        public String AltimeterColor
         {
             get
             {
-                return this.altimeter_color;
+                return this.altimeterColor;
             }
             set
             {
-                this.altimeter_color = value;
-                NotifyPropertyChanged("ALTIMETER_COLOR");
+                this.altimeterColor = value;
+                NotifyPropertyChanged("AltimeterColor");
             }
         }
 
-        public String PITCH_COLOR
+        public String PitchColor
         {
             get
             {
-                return this.pitch_color;
+                return this.pitchColor;
             }
             set
             {
-                this.pitch_color = value;
-                NotifyPropertyChanged("PITCH_COLOR");
+                this.pitchColor = value;
+                NotifyPropertyChanged("PitchColor");
             }
         }
 
-        public String ROLL_COLOR
+        public String RollColor
         {
             get
             {
-                return this.roll_color;
+                return this.rollColor;
             }
             set
             {
-                this.roll_color = value;
-                NotifyPropertyChanged("ROLL_COLOR");
+                this.rollColor = value;
+                NotifyPropertyChanged("RollColor");
             }
         }
 
-        public String ALTITUDE_COLOR
+        public String AltitudeColor
         {
             get
             {
-                return this.altitude_color;
+                return this.altitudeColor;
             }
             set
             {
-                this.altitude_color = value;
-                NotifyPropertyChanged("ALTITUDE_COLOR");
+                this.altitudeColor = value;
+                NotifyPropertyChanged("AltitudeColor");
             }
         }
 
-        public String AIR_SPEED_COLOR
+        public String AirSpeedColor
         {
             get
             {
-                return this.air_speed_color;
+                return this.airSpeedColor;
             }
             set
             {
-                this.air_speed_color = value;
-                NotifyPropertyChanged("AIR_SPEED_COLOR");
+                this.airSpeedColor = value;
+                NotifyPropertyChanged("AirSpeedColor");
             }
         }
 
         public MyDashboardModel(ITelnetClient tc)
         {
             this.tc = tc;
-            this.connect = true;
             startReadingFlightData();
         }
 
         public void startReadingFlightData()
         {
-            this.firstt = true;
             new Thread(delegate ()
             {
                 while (true)
                 {
-                    if (this.firstt)
-                    {
-                        this.firstt = false;
                         tc.write("get /instrumentation/gps/indicated-vertical-speed \n");
                         double i;
                         string serverInput = tc.read();
-                        this.firstt = true;
                         bool result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            VERTICAL_SPEED = serverInput;
-                            VERTICAL_SPEED_COLOR = "Green";
+                            VerticalSpeed = serverInput;
+                            VerticalSpeedColor = "Green";
                         }
                         else
                         {
-                            VERTICAL_SPEED_COLOR = "Red";
+                            VerticalSpeedColor = "Red";
                         }
                         tc.write("get /instrumentation/gps/indicated-ground-speed-kt \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            GROUND_SPEED = serverInput;
-                            GROUND_SPEED_COLOR = "Green";
+                            GroundSpeed = serverInput;
+                            GroundSpeedColor = "Green";
                         }
                         else
                         {
-                            GROUND_SPEED_COLOR = "Red";
+                            GroundSpeedColor = "Red";
                         }
                         tc.write("get /instrumentation/heading-indicator/indicated-heading-deg \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            HEADING = serverInput;
-                            HEADING_COLOR = "Green";
+                            Heading = serverInput;
+                            HeadingColor = "Green";
                         }
                         else
                         {
-                            HEADING_COLOR = "Red";
+                            HeadingColor = "Red";
                         }
                         tc.write("get /instrumentation/altimeter/indicated-altitude-ft \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            ALTIMETER = serverInput;
-                            ALTIMETER_COLOR = "Green";
+                            Altimeter = serverInput;
+                            AltimeterColor = "Green";
                         }
                         else
                         {
-                            ALTIMETER_COLOR = "Red";
+                            AltimeterColor = "Red";
                         }
                         tc.write("get /instrumentation/attitude-indicator/internal-pitch-deg \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            PITCH = serverInput;
-                            PITCH_COLOR = "Green";
+                            Pitch = serverInput;
+                            PitchColor = "Green";
                         }
                         else
                         {
-                            PITCH_COLOR = "Red";
+                            PitchColor = "Red";
                         }
                         tc.write("get /instrumentation/attitude-indicator/internal-roll-deg \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            ROLL = serverInput;
-                            ROLL_COLOR = "Green";
+                            Roll = serverInput;
+                            RollColor = "Green";
                         }
                         else
                         {
-                            ROLL_COLOR = "Red";
+                            RollColor = "Red";
                         }
                         tc.write("get /instrumentation/gps/indicated-altitude-ft \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            ALTITUDE = serverInput;
-                            ALTITUDE_COLOR = "Green";
+                            Altitude = serverInput;
+                            AltitudeColor = "Green";
                         }
                         else
                         {
-                            ALTITUDE_COLOR = "Red";
+                            AltitudeColor = "Red";
                         }
                         tc.write("get /instrumentation/airspeed-indicator/indicated-speed-kt \n");
                         serverInput = tc.read();
                         result = double.TryParse(serverInput, out i);
                         if (result)
                         {
-                            AIR_SPEED = serverInput;
-                            AIR_SPEED_COLOR = "Green";
+                            AirSpeed = serverInput;
+                            AirSpeedColor = "Green";
                         }
                         else
                         {
-                            AIR_SPEED_COLOR = "Red";
+                            AirSpeedColor = "Red";
                         }
 
                         Thread.Sleep(250);
                     }
-                }
             }).Start();
         }
         //INotifyPropertyChanged implementation

@@ -12,19 +12,18 @@ namespace FlightSimulatorApp.ViewModels
     {
         ITelnetClient model;
         private string ip;
-        private int port;
-        private string connectionColor;
+        private string port;
 
         public ConnectionViewModel(ITelnetClient model)
         {
             IP = System.Configuration.ConfigurationManager.AppSettings["ip"];
-            Port = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port"]);
+            Port = System.Configuration.ConfigurationManager.AppSettings["port"];
 
             this.model = model;
             //this.model.connect(this.ip, this.port);
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
+                NotifyPropertyChanged("Vm" + e.PropertyName);
             };
         }
 
@@ -37,6 +36,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
+        //Property responsible for holding the server's IP address
         public String IP
         {
             get
@@ -49,7 +49,8 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public int Port
+        //Property responsible for holding the server's port
+        public string Port
         {
             get
             {
@@ -57,11 +58,17 @@ namespace FlightSimulatorApp.ViewModels
             }
             set
             {
-                this.port = value;
+                int number = 0;
+                bool canConvert = int.TryParse(value, out number);
+                if (canConvert)
+                {
+                    this.port = value;
+                }
             }
         }
 
-        public String VM_IsConnected
+        //Property responsible for relaying if the application is connected to the sever by text
+        public String VmIsConnected
         {
             get
             {
@@ -69,17 +76,22 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_ConnectionColor
+        //Property responsible for relaying if the application is connected to the sever by color
+        public String VmConnectionColor
         {
             get
             {
                 return this.model.ConnectionColor;
             }
         }
+
+        //function responsible to send IP,port to the model in order to connect to the server
         public void connectToSimulator ()
         {
             model.connect(IP, Port);
         }
+
+        //function responsible to send a disconnect request to the model
         public void disconnectSimulator()
         {
             model.disconnect();

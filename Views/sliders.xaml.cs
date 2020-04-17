@@ -47,24 +47,16 @@ namespace FlightSimulatorApp.Views
         private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             firstslider = e.NewValue;
-
         }
 
         private void Slider_ValueChanged_2(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             secondslider = e.NewValue;
         }
+        
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-
-
-       
-
-
-
     }
-    
-
 }
