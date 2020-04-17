@@ -33,7 +33,9 @@ namespace FlightSimulatorApp.ViewModels
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
+        //Properties
 
+        //Property responsible for the last added location of the plane
         public Location VmNewPath
         {
             get
@@ -46,6 +48,8 @@ namespace FlightSimulatorApp.ViewModels
                 VmPlanePath.Add(VmNewPath);
             }
         }
+
+        //Property responsible for the plane's path
         public LocationCollection VmPlanePath
         {
             get
@@ -54,15 +58,17 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        //Properties
+        //Property responsible for relaying the plane's latitude
         public String VmLatitude
         {
             get { return model.Latitude; }
         }
+        //Property responsible for relaying the plane's longtitude
         public String VmLongitude
         {
             get { return model.Longitude; }
         }
+        //Property responsible for relaying latitude errors
         public String VmLatitudeError
         {
             get
@@ -70,6 +76,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.LatitudeError;
             }
         }
+        //Property responsible for relaying the longtitude errors
         public String VmLongitudeError
         {
             get
@@ -77,6 +84,7 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.LongitudeError;
             }
         }
+        //Property responsible for relaying the plane's location
         public String VmFlightData
         {
             get 

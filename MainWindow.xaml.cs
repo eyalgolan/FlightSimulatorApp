@@ -13,7 +13,7 @@ namespace FlightSimulatorApp
         {
             InitializeComponent();
 
-            // Binding the views to their suitable view model.
+            // Binding the views to their suitable view model accurding to the appstartup settings
             this.connectionControl.DataContext = (Application.Current as App).connectVM;
             this.connectionControl.setVM((Application.Current as App).connectVM);
             this.gearControl.DataContext = (Application.Current as App).gearVM;
