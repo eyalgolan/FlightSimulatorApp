@@ -31,6 +31,8 @@ namespace FlightSimulatorApp.Models
             this.oldLongtitude = Longitude;
             startReadingFlightData();
         }
+
+        //Property holding the plane's latitude
         public String Latitude
         {
             set
@@ -46,6 +48,8 @@ namespace FlightSimulatorApp.Models
                 return latitude;
             }
         }
+
+        //Property holding the plane's longitude
         public String Longitude
         {
             set
@@ -61,6 +65,8 @@ namespace FlightSimulatorApp.Models
                 return longitude;
             }
         }
+
+        //Property holding the plane's location
         public String FlightData
         {
             set
@@ -77,6 +83,7 @@ namespace FlightSimulatorApp.Models
             }
         }
 
+        //Property holding errors regarding the plane's latitude
         public String LatitudeError
         {
             get
@@ -89,6 +96,8 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("LatitudeError");
             }
         }
+
+        //Property holding errors regarding the plane's longitude
         public String LongitudeError
         {
             get
@@ -101,14 +110,8 @@ namespace FlightSimulatorApp.Models
                 NotifyPropertyChanged("LongitudeError");
             }
         }
-        public string getFlightLongitude()
-        {
-            return longitude;
-        }
-        public string getFlightLatitude()
-        {
-            return latitude;
-        }
+
+        // function running a thread that asks for information about the plane's location 4 times a second
         public void startReadingFlightData()
         {
             new Thread(delegate ()
@@ -119,14 +122,16 @@ namespace FlightSimulatorApp.Models
                     double recivedLatitude;
                     string serverInput = tc.read();
                     bool result = double.TryParse(serverInput, out recivedLatitude);
+                    //checking if the recieved input is valid
                     if (result)
                     {
-                        if ((recivedLatitude <= 90) && (recivedLatitude >= -90))
+                        if (((recivedLatitude <= 90) && (recivedLatitude >= -90)) && Math.Abs(Convert.ToDouble(recivedLatitude)- Convert.ToDouble(oldLatitude)) < 2)
                         {
                             latitude = serverInput;
                             oldLatitude = latitude;
                             LatitudeError = "";
                         }
+                        // if not, showing an appropriate message
                         else
                         {
                             latitude = oldLatitude;
@@ -141,14 +146,16 @@ namespace FlightSimulatorApp.Models
                     tc.write("get /position/longitude-deg \n");
                     serverInput = tc.read();
                     result = double.TryParse(serverInput, out recievedLongitude);
+                    //checking if the recieved input is valid
                     if (result)
                     {
-                        if ((recievedLongitude <= 180) && (recievedLongitude >= -180))
+                        if (((recievedLongitude <= 180) && (recievedLongitude >= -180)) && Math.Abs(Convert.ToDouble(recievedLongitude) - Convert.ToDouble(oldLongtitude)) < 2)
                         {
                             Longitude = serverInput;
                             oldLongtitude = Longitude;
                             LongitudeError = "";
                         }
+                        // if not, showing an appropriate message
                         else
                         {
                             Longitude = oldLongtitude;
