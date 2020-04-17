@@ -13,7 +13,6 @@ namespace FlightSimulatorApp.ViewModels
         ITelnetClient model;
         private string ip;
         private string port;
-        private string connectionColor;
 
         public ConnectionViewModel(ITelnetClient model)
         {
@@ -37,6 +36,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
+        //Property responsible for holding the server's IP address
         public String IP
         {
             get
@@ -49,6 +49,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
+        //Property responsible for holding the server's port
         public string Port
         {
             get
@@ -66,6 +67,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
+        //Property responsible for relaying if the application is connected to the sever by text
         public String VmIsConnected
         {
             get
@@ -74,6 +76,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
+        //Property responsible for relaying if the application is connected to the sever by color
         public String VmConnectionColor
         {
             get
@@ -81,10 +84,14 @@ namespace FlightSimulatorApp.ViewModels
                 return this.model.ConnectionColor;
             }
         }
+
+        //function responsible to send IP,port to the model in order to connect to the server
         public void connectToSimulator ()
         {
             model.connect(IP, Port);
         }
+
+        //function responsible to send a disconnect request to the model
         public void disconnectSimulator()
         {
             model.disconnect();
