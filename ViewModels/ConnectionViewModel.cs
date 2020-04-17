@@ -12,13 +12,13 @@ namespace FlightSimulatorApp.ViewModels
     {
         ITelnetClient model;
         private string ip;
-        private int port;
+        private string port;
         private string connectionColor;
 
         public ConnectionViewModel(ITelnetClient model)
         {
             IP = System.Configuration.ConfigurationManager.AppSettings["ip"];
-            Port = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port"]);
+            Port = System.Configuration.ConfigurationManager.AppSettings["port"];
 
             this.model = model;
             //this.model.connect(this.ip, this.port);
@@ -49,7 +49,7 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public int Port
+        public string Port
         {
             get
             {
@@ -57,7 +57,12 @@ namespace FlightSimulatorApp.ViewModels
             }
             set
             {
-                this.port = value;
+                int number = 0;
+                bool canConvert = int.TryParse(value, out number);
+                if (canConvert)
+                {
+                    this.port = value;
+                }
             }
         }
 

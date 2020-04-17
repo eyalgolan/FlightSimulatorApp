@@ -23,8 +23,8 @@ namespace FlightSimulatorApp.Models
         public MyMapModel(ITelnetClient tc)
         {
             this.tc = tc;
-            Latitude = "32.006833306";
-            Longitude = "34.885329792";
+            Latitude = System.Configuration.ConfigurationManager.AppSettings["startLatitude"];
+            Longitude = System.Configuration.ConfigurationManager.AppSettings["startLongitude"];
             LatitudeError = "";
             LongitudeError = "";
             this.oldLatitude = Latitude;
@@ -118,6 +118,7 @@ namespace FlightSimulatorApp.Models
             {
                 while (true)
                 {
+                    // getting the plane's current latitude
                     tc.write("get /position/latitude-deg \n");
                     double recivedLatitude;
                     string serverInput = tc.read();
@@ -127,7 +128,7 @@ namespace FlightSimulatorApp.Models
                     {
                         if (((recivedLatitude <= 90) && (recivedLatitude >= -90)) && Math.Abs(Convert.ToDouble(recivedLatitude)- Convert.ToDouble(oldLatitude)) < 2)
                         {
-                            latitude = serverInput;
+                            Latitude = serverInput;
                             oldLatitude = latitude;
                             LatitudeError = "";
                         }
@@ -142,6 +143,7 @@ namespace FlightSimulatorApp.Models
                     {
                         // eror
                     }
+                    // getting the plane's current longitude
                     double recievedLongitude;
                     tc.write("get /position/longitude-deg \n");
                     serverInput = tc.read();

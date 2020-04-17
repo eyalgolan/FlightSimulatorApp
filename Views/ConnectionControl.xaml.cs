@@ -32,9 +32,9 @@ namespace FlightSimulatorApp.Views
         }
 
         // Setting the control board view model.
-        public void setVM(ConnectionViewModel connect_VM)
+        public void setVM(ConnectionViewModel connectVm)
         {
-            this.vmConnect = connect_VM;
+            this.vmConnect = connectVm;
         }
         // the connect button
         private void btnConnect_Click(object sender, RoutedEventArgs e)

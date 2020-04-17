@@ -9,7 +9,7 @@ namespace FlightSimulatorApp.Models
 {
     public interface ITelnetClient : INotifyPropertyChanged
     {
-        void connect(string ip, int port);
+        void connect(string ip, string port);
         void write(string command);
         string read(); // blocking call
         void disconnect();

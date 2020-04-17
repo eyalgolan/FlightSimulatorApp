@@ -49,11 +49,12 @@ namespace FlightSimulatorApp.Models
             }
         }
         // connect command 
-        public void connect(string ip, int port)
+        public void connect(string ip, string port)
         {
             try
             {
-                ep = new IPEndPoint(IPAddress.Parse(ip), port);
+                int connectionPort = int.Parse(port);
+                ep = new IPEndPoint(IPAddress.Parse(ip), connectionPort);
                 client = new TcpClient();
                 client.Connect(ep);
                 IsConnected = "Connected";
@@ -69,9 +70,17 @@ namespace FlightSimulatorApp.Models
 
         public void disconnect()
         {
-            client.Close();
-            IsConnected = "Disconnected";
-            ConnectionColor = "Red";
+            try
+            {
+                client.Close();
+                IsConnected = "Disconnected";
+                ConnectionColor = "Red";
+            }
+            catch (Exception)
+            {
+                IsConnected = "Disconnected";
+                ConnectionColor = "Red";
+            }
         }
 
         // read function, responsible for updating information from the server 
