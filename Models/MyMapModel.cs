@@ -121,7 +121,20 @@ namespace FlightSimulatorApp.Models
                     bool result = double.TryParse(serverInput, out recivedLatitude);
                     if (result)
                     {
-                        if ((recivedLatitude <= 90) && (recivedLatitude >= -90))
+                        if( (recivedLatitude<1)&&(recivedLatitude > -1))
+                        {
+                            tc.write("get /position/latitude-deg \n");
+                             
+                             serverInput = tc.read();
+                             result = double.TryParse(serverInput, out recivedLatitude);
+                            if (result)
+                            {
+                                latitude = serverInput;
+                                oldLatitude = latitude;
+                                LatitudeError = "";
+                            }
+                        }
+                       else  if ((recivedLatitude <= 89) && (recivedLatitude >= -89))
                         {
                             latitude = serverInput;
                             oldLatitude = latitude;
@@ -129,8 +142,14 @@ namespace FlightSimulatorApp.Models
                         }
                         else
                         {
+
+                            LatitudeError = "Bad-latitude ";
+                            this.latitudeError = "Bad-latitude ";
                             latitude = oldLatitude;
-                            LatitudeError = "Bad latitude recieved, showing last correct atitude";
+                            LatitudeError = "Bad latitude ";
+                          
+
+                            //LatitudeError = "Bad latitude recieved, showing last correct atitude";
                         }
                     }
                     else
@@ -143,7 +162,20 @@ namespace FlightSimulatorApp.Models
                     result = double.TryParse(serverInput, out recievedLongitude);
                     if (result)
                     {
-                        if ((recievedLongitude <= 180) && (recievedLongitude >= -180))
+                        if ((recievedLongitude < 1) && (recievedLongitude > -1))
+                        {
+                            tc.write("get /position/longitude-deg \n");
+
+                            serverInput = tc.read();
+                            result = double.TryParse(serverInput, out recivedLatitude);
+                            if (result)
+                            {
+                                Longitude = serverInput;
+                                oldLongtitude = Longitude;
+                                LongitudeError = "";
+                            }
+                        }
+                       else  if ((recievedLongitude <= 179) && (recievedLongitude >= -179))
                         {
                             Longitude = serverInput;
                             oldLongtitude = Longitude;
@@ -151,8 +183,13 @@ namespace FlightSimulatorApp.Models
                         }
                         else
                         {
+                          
+                            LongitudeError = "Badlongitude";
+                            this.longitudeError = "Bad-longitude ";
+
                             Longitude = oldLongtitude;
-                            LongitudeError = "Bad longitude recieved, showing last correct longitude";
+                           // LongitudeError = "Bad longitude recieved, showing last correct longitude";
+
                         }
                     }
                     else

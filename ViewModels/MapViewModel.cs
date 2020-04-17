@@ -65,6 +65,7 @@ namespace FlightSimulatorApp.ViewModels
         {
             get
             {
+
                 return this.model.LatitudeError;
             }
         }
@@ -72,7 +73,8 @@ namespace FlightSimulatorApp.ViewModels
         {
             get
             {
-                return this.model.LongitudeError;
+
+                return this.model.LongitudeError+ this.model.LatitudeError;
             }
         }
         public String VmFlightData
