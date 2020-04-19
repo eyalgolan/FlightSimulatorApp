@@ -7,8 +7,10 @@ using System.ComponentModel;
 
 namespace FlightSimulatorApp.Models
 {
+    //Dashboard interface
     public interface IDashboardModel : INotifyPropertyChanged
     {
+        //Dashboard properties
         string VerticalSpeed { set; get; }
         string GroundSpeed { set; get; }
         string Heading { set; get; }
