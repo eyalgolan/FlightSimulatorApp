@@ -7,6 +7,7 @@ using System.ComponentModel;
 
 namespace FlightSimulatorApp.Models
 {
+    //Gear interface
     public interface IGearModel
     {
         //commands

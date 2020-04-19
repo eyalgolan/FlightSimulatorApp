@@ -19,11 +19,12 @@ namespace FlightSimulatorApp.ViewModels
             this.model = model;
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
               {
-                  NotifyPropertyChanged("VM_" + e.PropertyName);
+                  NotifyPropertyChanged("Vm" + e.PropertyName);
               };
             planePath = new LocationCollection();
         }
 
+        //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(String propName)
         {
@@ -32,8 +33,10 @@ namespace FlightSimulatorApp.ViewModels
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
         }
+        //Properties
 
-        public Location VM_NewPath
+        //Property responsible for the last added location of the plane
+        public Location VmNewPath
         {
             get
             {
@@ -42,44 +45,51 @@ namespace FlightSimulatorApp.ViewModels
             set
             {
                 this.newPath = value;
-                VM_PlanePath.Add(VM_NewPath);
+                VmPlanePath.Add(VmNewPath);
             }
         }
-        public LocationCollection VM_PlanePath
+
+        //Property responsible for the plane's path
+        public LocationCollection VmPlanePath
         {
             get
             {
                 return this.planePath;
             }
         }
-        //Properties
-        public String VM_Latitude
+
+        //Property responsible for relaying the plane's latitude
+        public String VmLatitude
         {
             get { return model.Latitude; }
         }
-        public String VM_Longitude
+        //Property responsible for relaying the plane's longtitude
+        public String VmLongitude
         {
             get { return model.Longitude; }
         }
-        public String VM_LatitudeError
+        //Property responsible for relaying latitude errors
+        public String VmLatitudeError
         {
             get
             {
                 return this.model.LatitudeError;
             }
         }
-        public String VM_LongitudeError
+        //Property responsible for relaying the longtitude errors
+        public String VmLongitudeError
         {
             get
             {
                 return this.model.LongitudeError;
             }
         }
-        public String VM_FlightData
+        //Property responsible for relaying the plane's location
+        public String VmFlightData
         {
             get 
             {
-                VM_NewPath = new Location(Convert.ToDouble(VM_Latitude),Convert.ToDouble(VM_Longitude));
+                VmNewPath = new Location(Convert.ToDouble(VmLatitude),Convert.ToDouble(VmLongitude));
                 return model.FlightData; 
             }
         }

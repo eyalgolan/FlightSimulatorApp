@@ -12,7 +12,7 @@ namespace FlightSimulatorApp.Views
     /// </summary>
     public partial class GearControl : UserControl
     {
-        
+        // all varibel and propetry sets;
         private double rudder;
         private double elevator;
         private double throttle;
@@ -20,22 +20,22 @@ namespace FlightSimulatorApp.Views
         public double Rudder
         {
             get { return rudder; }
-            set { rudder = value; ; vmGear.VM_Rudder = value; }
+            set { rudder = value; ; vmGear.VmRudder = value; }
         }
         public double Elevator
         {
             get { return elevator; }
-            set { elevator = value; ; vmGear.VM_Elevator = value; }
+            set { elevator = value; ; vmGear.VmElevator = value; }
         }
         public double Aileron
         {
             get { return aileron; }
-            set { aileron = value; ; vmGear.VM_Aileron = value; }
+            set { aileron = value; ; vmGear.VmAileron = value; }
         }
         public double Throttle
         {
             get { return throttle; }
-            set { throttle = value; ; vmGear.VM_Throttle = value; }
+            set { throttle = value; ; vmGear.VmThrottle = value; }
         }
 
         GearViewModel vmGear;
@@ -46,10 +46,10 @@ namespace FlightSimulatorApp.Views
             InitializeComponent();
         }
 
-        public void setVM(GearViewModel gear_VM)
+        // Setting the gear control view model
+        public void setVM(GearViewModel gearVM)
         {
-            this.vmGear = gear_VM;
-
+            this.vmGear = gearVM;
         }
     }
 }

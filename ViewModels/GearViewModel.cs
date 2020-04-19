@@ -11,18 +11,22 @@ namespace FlightSimulatorApp.ViewModels
     
     public class GearViewModel : INotifyPropertyChanged
     {
+        // varible sets 
         IGearModel model;
         private double rudder;
         private double elevator;
         private double aileron;
         private double throttle;
 
-        //IGearModel model;
         public GearViewModel(IGearModel model)
         {
             this.model = model;
         }
-        public double VM_Rudder
+
+        //Properties
+
+        //property responsible for relaying the rudder
+        public double VmRudder
         {
             get
             {
@@ -34,7 +38,9 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setRudder(this.rudder);
             }
         }
-        public double VM_Elevator
+
+        //property responsible for relaying the elevator
+        public double VmElevator
         {
             get
             {
@@ -46,7 +52,9 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setElevator(this.elevator);
             }
         }
-        public double VM_Throttle
+
+        //property responsible for relaying the throttle
+        public double VmThrottle
         {
             get
             {
@@ -58,7 +66,9 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setThrottle(this.throttle);
             }
         }
-        public double VM_Aileron
+
+        //property responsible for relaying the aileron
+        public double VmAileron
         {
             get
             {
@@ -70,6 +80,7 @@ namespace FlightSimulatorApp.ViewModels
                 this.model.setAileron(this.aileron);
             }
         }
+        //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(String propName)
         {

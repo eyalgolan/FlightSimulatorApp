@@ -17,9 +17,10 @@ namespace FlightSimulatorApp.ViewModels
             this.model = model;
             model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
             {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
+                NotifyPropertyChanged("Vm" + e.PropertyName);
             };
         }
+        //INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(String propName)
         {
@@ -29,131 +30,134 @@ namespace FlightSimulatorApp.ViewModels
             }
         }
 
-        public String VM_VERTICAL_SPEED
+        //Properties
+
+        //Property responsible for relaying the VerticalSpeed
+        public String VmVerticalSpeed
         {
             get
             {
-                return this.model.VERTICAL_SPEED;
+                return this.model.VerticalSpeed;
             }
         }
-
-        public String VM_GROUND_SPEED
+        //Property responsible for relaying the GroundSpeed
+        public String VmGroundSpeed
         {
             get
             {
-                return this.model.GROUND_SPEED;
+                return this.model.GroundSpeed;
             }
         }
-
-        public String VM_HEADING
+        //Property responsible for relaying the Heading
+        public String VmHeading
         {
             get
             {
-                return this.model.HEADING;
+                return this.model.Heading;
             }
         }
-
-        public String VM_ALTIMETER
+        //Property responsible for relaying the Altimeter
+        public String VmAltimeter
         {
             get
             {
-                return this.model.ALTIMETER;
+                return this.model.Altimeter;
             }
         }
-
-        public String VM_PITCH
+        //Property responsible for relaying the Pitch
+        public String VmPitch
         {
             get
             {
-                return this.model.PITCH;
+                return this.model.Pitch;
             }
         }
-
-        public String VM_ROLL
+        //Property responsible for relaying the Roll
+        public String VmRoll
         {
             get
             {
-                return this.model.ROLL;
+                return this.model.Roll;
             }
         }
-
-        public String VM_ALTITUDE
+        //Property responsible for relaying the Altitude
+        public String VmAltitude
         {
             get
             {
-                return this.model.ALTITUDE;
+                return this.model.Altitude;
             }
         }
-
-        public String VM_AIR_SPEED
+        //Property responsible for relaying the AirSpeed
+        public String VmAirSpeed
         {
             get
             {
-                return this.model.AIR_SPEED;
+                return this.model.AirSpeed;
             }
         }
-
-        public String VM_VERTICAL_SPEED_COLOR
+        //Property responsible for relaying the VerticalSpeedColor
+        public String VmVerticalSpeedColor
         {
             get
             {
-                return this.model.VERTICAL_SPEED_COLOR;
+                return this.model.VerticalSpeedColor;
             }
         }
-
-        public String VM_GROUND_SPEED_COLOR
+        //Property responsible for relaying the GroundSpeedColor
+        public String VmGroundSpeedColor
         {
             get
             {
-                return this.model.GROUND_SPEED_COLOR;
+                return this.model.GroundSpeedColor;
             }
         }
-
-        public String VM_HEADING_COLOR
+        //Property responsible for relaying the HeadingColor
+        public String VmHeadingColor
         {
             get
             {
-                return this.model.HEADING_COLOR;
+                return this.model.HeadingColor;
             }
         }
-
-        public String VM_ALTIMETER_COLOR
+        //Property responsible for relaying the AltimeterColor
+        public String VmAltimeterColor
         {
             get
             {
-                return this.model.ALTIMETER_COLOR;
+                return this.model.AltimeterColor;
             }
         }
-
-        public String VM_PITCH_COLOR
+        //Property responsible for relaying the PitchColor
+        public String VmPitchColor
         {
             get
             {
-                return this.model.PITCH_COLOR;
+                return this.model.PitchColor;
             }
         }
-
-        public String VM_ROLL_COLOR
+        //Property responsible for relaying the RollColor
+        public String VmRollColor
         {
             get
             {
-                return this.model.ROLL_COLOR;
+                return this.model.RollColor;
             }
         }
-
-        public String VM_ALTITUDE_COLOR
+        //Property responsible for relaying the AltitudeColor
+        public String VmAltitudeColor
         {
             get
             {
-                return this.model.ALTITUDE_COLOR;
+                return this.model.AltitudeColor;
             }
         }
-
-        public String VM_AIR_SPEED_COLOR
+        //Property responsible for relaying the AirSpeedColor
+        public String VmAirSpeedColor
         {
             get
             {
-                return this.model.AIR_SPEED_COLOR;
+                return this.model.AirSpeedColor;
             }
         }
     }

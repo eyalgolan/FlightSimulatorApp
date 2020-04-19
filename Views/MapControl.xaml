@@ -41,10 +41,10 @@
                     </Setter>
                 </Style>
             </m:Map.Resources>
-            <m:Pushpin Name="Plane" Style="{StaticResource PlaneStyle}" Location="{Binding VM_FlightData}"/>
-            <m:MapPolyline Name="planePath" Locations="{Binding VM_PlanePath}" Stroke="Blue" StrokeThickness="5" Opacity="0.7"></m:MapPolyline>
+            <m:Pushpin Name="Plane" Style="{StaticResource PlaneStyle}" Location="{Binding VmFlightData}"/>
+            <m:MapPolyline Name="planePath" Locations="{Binding VmPlanePath}" Stroke="Blue" StrokeThickness="5" Opacity="0.7"></m:MapPolyline>
         </m:Map>
-        <TextBlock Grid.Row="2" Grid.Column="0" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding VM_LatitudeError}" Foreground="Red" FontSize="11"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding VM_LongitudeError}" Foreground="Red" FontSize="11"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding VmLatitudeError}" Foreground="Red" FontSize="11"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding VmLongitudeError}" Foreground="Red" FontSize="11"></TextBlock>
     </Grid>
 </UserControl>

@@ -8,9 +8,10 @@ using Microsoft.Maps.MapControl.WPF;
 
 namespace FlightSimulatorApp.Models
 {
+    //Map interface
     public interface IMapModel : INotifyPropertyChanged
     {
-        //simulator properties
+        //plane location properties
         String FlightData { set; get; }
         String Latitude { set; get; }
         String Longitude { set; get; }
