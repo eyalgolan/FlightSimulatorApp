@@ -13,12 +13,16 @@ The user can connect to a server using the connect section, and fly the plane us
 The plane moves on the map according to the data recieved from the server.
 The dasboard data is also displayed according to the data recieved from the server. 
 
-![](images/flightSimulator.JPG)
+![flightSimulator](images/flightSimulator.JPG)
 
 ## Program explanation:
 ### MVVM software architectural pattern
 
 ## Error handling
 ### server status
-
+![Disconnected from server](images/DisconnectedFromServer.JPG)
+![Server timeout](images/serverTimeout.JPG)
 ### validating the data
+![Dashboard when data is all valid](images/DashboardWithAlllValid.JPG)
+![Dashboard when some data is not valid](images/DasboardDataError.JPG)
+![Map when bad latitude received](images/BadLatitude.JPG)
