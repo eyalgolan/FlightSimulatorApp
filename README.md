@@ -14,3 +14,11 @@ The plane moves on the map according to the data recieved from the server.
 The dasboard data is also displayed according to the data recieved from the server. 
 
 ![](images/flightSimulator.JPG)
+
+## Program explanation:
+### MVVM software architectural pattern
+
+## Error handling
+### server status
+
+### validating the data
