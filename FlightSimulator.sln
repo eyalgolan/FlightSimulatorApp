@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightSimulatorApp", "FlightSimulatorApp\FlightSimulatorApp.csproj", "{CFB0C1A5-C864-4FB1-BE5B-6F17C1890FF4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{920A06BD-3688-42CB-9745-D0E61B4DA97F}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Pictures\flightSimulator.JPG = ..\..\..\..\Pictures\flightSimulator.JPG
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
