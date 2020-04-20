@@ -1,0 +1,39 @@
+﻿<Window x:Class="FlightSimulatorApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlightSimulatorApp"
+        xmlns:Views="clr-namespace:FlightSimulatorApp.Views"
+        mc:Ignorable="d"
+        Title="Flight Simulator App" Height="600" Width="1100" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="/Resources/background.jpg"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Views:ConnectionControl x:Name="connectionControl" Grid.Column="1" Grid.Row="1"></Views:ConnectionControl>
+        <Views:DashboardControl x:Name="dashboardControl" Grid.Column="3" Grid.Row="1" ></Views:DashboardControl>
+        <Views:GearControl x:Name="gearControl" Grid.Column="3" Grid.Row="3"></Views:GearControl>
+        <Views:MapControl x:Name="mapControl" Grid.Column="1" Grid.Row="3"></Views:MapControl>
+
+    </Grid>
+</Window>
