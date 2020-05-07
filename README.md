@@ -19,7 +19,7 @@ The dasboard data is also displayed according to the data recieved from the serv
 ### MVVM software architectural pattern
 The program contains four main components: A map components, a dashboard, a joystick and a connection section.
 Each component has it's own View - View-Model - Model:
-Each components has it's own model, view-model and view. The model implements an interface, that inherits from the INotifyPropertyChanged interface.
+Each components has it's own model, view-model and view. The model implements an interface, that inherits from the ```INotifyPropertyChanged``` interface.
 
 In the dashboard, connection and map components, the models update the view-model when a property has changed, as the view-model updates the view - about changes that arrived from the server.
 
