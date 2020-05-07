@@ -87,6 +87,10 @@ private void StartWriting()
     }).Start();
 }
 ```
+
+### Communicating with the server
+The ```MyTelnetClient``` singelton class implements the ```ITelnetClient``` interface, and is responsible for all communications made with the server. All the models contain the same instance of the class and convery communicate with the server using that instance.
+
 ## Error handling
 ### Server status
 The application displays the different connection states:
