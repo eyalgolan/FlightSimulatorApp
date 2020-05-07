@@ -57,6 +57,8 @@ public String VmLatitudeError
 ```
 In the Gear component, the view updates the view-model which then updates the view - about changes the user made to the joystick.
 
+### Threads
+
 The models of the dashboard, map and gear each open a thread in order to read and write data to and from the server.
 In the gear's model we used a command queue to update the server:
 ```
@@ -84,7 +86,7 @@ private void StartWriting()
 }
 ```
 ## Error handling
-### server status
+### Server status
 The application displays the different connection states:
 
 If the application is disconnected from a server:
@@ -94,7 +96,7 @@ If the application is disconnected from a server:
 If there is a timeout from the server:
 
 ![Server timeout](images/serverTimeout.JPG)
-### validating the data
+### Validating the data
 
 The application validates the incoming data from the server, and show if any received data from the server is incorrect. The application will not use that data, and will show the last correct information.
 
