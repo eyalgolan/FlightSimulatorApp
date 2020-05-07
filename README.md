@@ -21,7 +21,7 @@ The program contains four main components: A map components, a dashboard, a joys
 Each component has it's own View - View-Model - Model:
 Each components has it's own model, view-model and view. The model implements an interface, that inherits from the INotifyPropertyChanged interface.
 
-In the Dashboard and Map components, the models update the view-model when a property has changed, as the view-model updates the view - about changes that arrived from the server.
+In the dashboard, connection and map components, the models update the view-model when a property has changed, as the view-model updates the view - about changes that arrived from the server.
 
 For example, the LatitudeError property in the dashboard's model:
 ```
@@ -56,7 +56,33 @@ public String VmLatitudeError
 }
 ```
 In the Gear component, the view updates the view-model which then updates the view - about changes the user made to the joystick.
-In the connection section, we 
+
+The models of the dashboard, map and gear each open a thread in order to read and write data to and from the server.
+In the gear's model we used a command queue to update the server:
+```
+// We maintain a queue which collects the set commands, and send them to the server in the proper order
+private void StartWriting()
+{
+    new Thread(delegate ()
+    {
+        while (true)
+        {
+            // sending the data until we disconnected or the queue is empty 
+            if (String.Equals(tc.IsConnected, "Connected") && this.writeQueue.Count != 0)
+            {
+                string writeCommand = writeQueue.Peek();
+                writeQueue.Dequeue();
+                tc.Write(writeCommand);
+                tc.Read();
+            }
+            else if(String.Equals(tc.IsConnected, "Disconnected") && this.writeQueue.Count != 0)
+            {
+                writeQueue.Clear();
+            }
+        }
+    }).Start();
+}
+```
 ## Error handling
 ### server status
 The application displays the different connection states:
