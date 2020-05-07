@@ -26,34 +26,34 @@ In the Dashboard and Map components, the models update the view-model when a pro
 For example, the LatitudeError property in the dashboard's model:
 ```
 //Property holding errors regarding the plane's latitude
-        public String LatitudeError
+public String LatitudeError
+{
+        get
         {
-            get
-            {
                 return this.latitudeError;
-            }
-            set
-            {
+        }
+        set
+        {
                 this.latitudeError = value;
                 NotifyPropertyChanged("LatitudeError");
-            }
         }
+}
 ```
 In the view model we updated the matching property and immediatly updated the view:
 ```
 model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
-            {
-                NotifyPropertyChanged("Vm" + e.PropertyName);
-            };
+{
+        NotifyPropertyChanged("Vm" + e.PropertyName);
+};
 ...
 //Property responsible for relaying latitude errors
-        public String VmLatitudeError
+public String VmLatitudeError
+{
+        get
         {
-            get
-            {
                 return this.model.LatitudeError;
-            }
         }
+}
 ```
 In the Gear component, the view updates the view-model which then updates the view - about changes the user made to the joystick.
 In the connection section, we 
