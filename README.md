@@ -23,15 +23,19 @@ The dasboard data is also displayed according to the data recieved from the serv
 The application displays the different connection states:
 
 If the application is disconnected from a server:
+
 ![Disconnected from server](images/DisconnectedFromServer.JPG)
 
 If there is a timeout from the server:
+
 ![Server timeout](images/serverTimeout.JPG)
 ### validating the data
 
 The application validates the incoming data from the server, and show if any received data from the server is incorrect. The application will not use that data, and will show the last correct information.
+
 ![Dashboard when data is all valid](images/DashboardWithAlllValid.JPG)
 ![Dashboard when some data is not valid](images/DasboardDataError.JPG)
 
 The application also validates the latitude and longtitude infromation that are received from the server, and shows if wrong data was received. Simillarly, it will show the last correct information.
+
 ![Map when bad latitude received](images/BadLatitude.JPG)
