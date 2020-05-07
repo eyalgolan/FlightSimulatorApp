@@ -17,7 +17,46 @@ The dasboard data is also displayed according to the data recieved from the serv
 
 ## Program explanation
 ### MVVM software architectural pattern
+The program contains four main components: A map components, a dashboard, a joystick and a connection section.
+Each component has it's own View - View-Model - Model:
+Each components has it's own model, view-model and view. The model implements an interface, that inherits from the INotifyPropertyChanged interface.
 
+In the Dashboard and Map components, the models update the view-model when a property has changed, as the view-model updates the view - about changes that arrived from the server.
+
+For example, the LatitudeError property in the dashboard's model:
+```
+//Property holding errors regarding the plane's latitude
+        public String LatitudeError
+        {
+            get
+            {
+                return this.latitudeError;
+            }
+            set
+            {
+                this.latitudeError = value;
+                NotifyPropertyChanged("LatitudeError");
+            }
+        }
+```
+In the view model we updated the matching property and immediatly updated the view:
+```
+model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
+            {
+                NotifyPropertyChanged("Vm" + e.PropertyName);
+            };
+...
+//Property responsible for relaying latitude errors
+        public String VmLatitudeError
+        {
+            get
+            {
+                return this.model.LatitudeError;
+            }
+        }
+```
+In the Gear component, the view updates the view-model which then updates the view - about changes the user made to the joystick.
+In the connection section, we 
 ## Error handling
 ### server status
 The application displays the different connection states:
