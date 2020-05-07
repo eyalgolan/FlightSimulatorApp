@@ -39,7 +39,7 @@ public String LatitudeError
         }
 }
 ```
-In the view model we updated the matching property and immediatly updated the view:
+In the view-model we update the matching property and immediatly update the view:
 ```
 model.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
 {
@@ -55,6 +55,8 @@ public String VmLatitudeError
         }
 }
 ```
+The property is binded to the relavent field in the view.
+
 In the Gear component, the view updates the view-model which then updates the view - about changes the user made to the joystick.
 
 ### Threads
