@@ -4,9 +4,12 @@ Advanced Programming 2 course, Flight Simulator App
 Created by: Yair Hanimov and Eyal Golan
 
 ## Preview
-A flight simulator desktop application that interacts with a dedicated server.
- We built our multithread application using C# and WPF with the MVVM software architectural pattern.
+A flight simulator desktop application that interacts with a dedicated server. 
+
+We built our multithread application using C# and WPF with the MVVM software architectural pattern.
+
 The program features a convenient user interface for operating a small aircraft.
+
 The GUI contains four main components: A map components, a dashboard, a joystick and a connection section.
 
 The user can connect to a server using the connect section, and fly the plane using the joystick. 
